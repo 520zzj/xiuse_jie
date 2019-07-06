@@ -1,12 +1,23 @@
+//main.js引入其他库，并配置库
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+//第三方组件库在下面引
 
 import axios from "axios"//引入axios模块
 axios.defaults.withCredentials=true//配置跨域选项,跨域访问要保存session中的数据
 Vue.prototype.axios=axios//配置到vue的原型对象中  this.axios.get/post 
 
+//引入mint-ui，完整引入,会在node_modules下自动找mint-ui
+import MintUi from 'mint-ui'
+//还需单独引入mint-ui的样式表
 import'mint-ui/lib/style.css'
+//将mint-ui库中所有的组件注册到Vue的实例中
+Vue.use(MintUi);
+
+//引入字体图标css文件,属于单个引入，不用注册
+import "./font/iconfont.css"
+
 
 Vue.config.productionTip = false
 //5: 设置请求的根路径 

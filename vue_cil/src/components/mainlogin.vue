@@ -35,7 +35,7 @@
 </template>
 <script>
 export default{
-    data(){
+    data(){//data为函数原因，可以使得产生局部作用域，在当前组件共享数据
         return {
 
         }
