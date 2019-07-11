@@ -17,7 +17,7 @@
                 </div>
             </div>
                 <div class="server">
-                    <span class="checkbox"></span> 
+                    <span class="checkbox" :class="{checked:ischecked}" @click="changeChecked"></span> 
                     无痕浏览
                 </div>
                 <div class="login-box">
@@ -25,7 +25,7 @@
                      <mt-button type="primary"  size="large" v-else disabled class="login">登录</mt-button>
                 </div>
                 <div  class="server">
-                    <span class="checkbox"></span>
+                    <span class="checkbox"  :class="{checked:ischecked}" @click="changeChecked"></span>
                   登录即表示阅读并同意<a>秀色服务条款</a>
                 </div>
            
@@ -38,7 +38,13 @@
 export default{
     data(){
         return{
-            isLogin:false//记录登录的状态，后面用vuex来做
+            isLogin:false,//记录登录的状态，后面用vuex来做
+            ischecked:false//服务条约选中状态
+        }
+    },
+    methods:{
+        changeChecked(){
+            this.ischecked?this.ischecked=false:this.ischecked=true
         }
     }
 }
@@ -96,6 +102,12 @@ export default{
        height:18px;
        border-radius:50%;
        border:1px solid gray;
+   }
+   .phonelogin .server .checked{
+       background-image: url("//127.0.0.1:7000/img/checked.PNG");
+       background-size: 100%;
+       background-position: center;
+       border:none;
    }
    .phonelogin .login-box{
        padding:8px 10px;
