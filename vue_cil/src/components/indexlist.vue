@@ -1,7 +1,7 @@
 <template>
     <div class="indexlist">
             <mt-header title="选择分区号">
-                <router-link to="/" slot="left">
+                <router-link to="/phonelogin" slot="left">
                     <mt-button icon="back"></mt-button>
                 </router-link>
             </mt-header>

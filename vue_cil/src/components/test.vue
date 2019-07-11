@@ -11,7 +11,6 @@ export default {
     }, 
     methods:{
             mytoast(){
-                console.log(this)
               this.$toast({
                 message: '提示',
                 position: 'bottom',
