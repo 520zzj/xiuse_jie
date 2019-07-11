@@ -10,7 +10,7 @@
             <div class="login_methods">
                   <ul class="login_list">
                       <li class="login_item">
-                            <a class="login_link" href=""><span class="mui-icon mui-icon-weibo icon"></span></a>
+                            <router-link class="login_link" to="/wblogin"><span class="mui-icon mui-icon-weibo icon"></span></router-link>
                       </li>
                       <li class="login_item">
                             <a class="login_link" href=""><span class="mui-icon mui-icon-weixin icon"></span></a>
@@ -19,7 +19,7 @@
                             <a class="login_link" href=""><span class="mui-icon mui-icon-qq icon"></span></a>
                       </li>
                       <li class="login_item">
-                            <a class="login_link" href=""><span class="mui-icon-extra mui-icon-extra-phone icon"></span></a>
+                            <router-link class="login_link" to="/phonelogin"><span class="mui-icon-extra mui-icon-extra-phone icon"></span></router-link>
                       </li>
                   </ul>
             </div>

@@ -1,7 +1,7 @@
 <template>
     <div class="wblogin">
             <header class="mui-bar mui-bar-nav">
-                    <span class="off">关闭</span>
+                    <router-link class="off" to="/mainlogin">关闭</router-link>
                     <h1 class="mui-title">微博登录</h1>
                 </header>
                 <div class="mui-content">
