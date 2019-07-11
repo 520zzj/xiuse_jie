@@ -8,13 +8,14 @@
             <div class="mui-table-view-cell">
                     <router-link to="/indexlist" class="mui-navigate-right">+86 中国</router-link>
             </div>
-            <div class="bottom-box">
+            <div class="iptsec">
                 <div class="phoneNum inputBox">      
-                <input placeholder="请输入你的手机号码" class="ipt"></input><button type="button" class="mui-btn mui-btn-primary getNum">获取验证码</button>
+                <input placeholder="请输入你的手机号码" class="ipt"><button type="button" class="mui-btn mui-btn-primary getNum">获取验证码</button>
                 </div>
                 <div class="inputBox">
-                <input placeholder="请输入验证码"  class="ipt"></input>
+                <input placeholder="请输入验证码"  class="ipt">
                 </div>
+            </div>
                 <div class="server">
                     <span class="checkbox"></span> 
                     无痕浏览
@@ -27,7 +28,7 @@
                     <span class="checkbox"></span>
                   登录即表示阅读并同意<a>秀色服务条款</a>
                 </div>
-            </div>
+           
            
             
     </div>
@@ -65,8 +66,8 @@ export default{
      background: #ffffff;
      font-size: 14px;
  }
- .phonelogin .bottom-box{
-  
+ .phonelogin .iptsec{
+     background: #ffffff;
  }
  .phonelogin .inputBox{
      border-top:1px solid gray;
@@ -74,6 +75,7 @@ export default{
      margin-left:5px;
      display:flex;
      justify-content:space-between;
+     background:#ffffff;
  }
  .phonelogin .inputBox .getNum{
      margin-right:10px;
