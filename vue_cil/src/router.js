@@ -22,4 +22,4 @@ export default new Router({
     {path:"/test",component:test}
   ]
 })
-//npm run serve 启动脚手架
+//npm run dev 启动脚手架
