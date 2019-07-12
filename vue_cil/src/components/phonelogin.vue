@@ -17,7 +17,7 @@
                 </div>
             </div>
                 <div class="server">
-                    <span class="checkbox" :class="{checked:ischecked}" @click="changeChecked"></span> 
+                    <span class="checkbox" :class="{checked:choice[0].clearScan}" @click="changeChecked(`clearScan`)"></span> 
                     无痕浏览
                 </div>
                 <div class="login-box">
@@ -25,7 +25,7 @@
                      <mt-button type="primary"  size="large" v-else disabled class="login">登录</mt-button>
                 </div>
                 <div  class="server">
-                    <span class="checkbox"  :class="{checked:ischecked}" @click="changeChecked"></span>
+                    <span class="checkbox"  :class="{checked:choice[1].agreement}" @click="changeChecked(`agreement`)"></span>
                   登录即表示阅读并同意<a>秀色服务条款</a>
                 </div>
            
@@ -39,12 +39,19 @@ export default{
     data(){
         return{
             isLogin:false,//记录登录的状态，后面用vuex来做
-            ischecked:false//服务条约选中状态
+            choice:[//记录选择状态
+                {clearScan:false},
+                {agreement:false}
+            ]
         }
     },
     methods:{
-        changeChecked(){
-            this.ischecked?this.ischecked=false:this.ischecked=true
+        changeChecked(param){//用参数把选中框状态的改变区分开
+            if(param=="clearScan"){
+            this.choice[0].clearScan=!this.choice[0].clearScan
+            }else if(param=="agreement"){
+             this.choice[1].agreement=!this.choice[1].agreement
+            }
         }
     }
 }
