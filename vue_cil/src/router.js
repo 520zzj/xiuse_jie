@@ -10,6 +10,8 @@ import phonelogin from "./components/phonelogin.vue"
 import test from "./components/test.vue"
 import phoneReg from "./components/phoneReg.vue"
 import accountLog from "./components/accountLog"
+import home from "./components/home.vue"
+import square from "./components/square.vue"
 
 Vue.use(Router)
 //启动脚手架npm run dev 看package.json
@@ -23,7 +25,9 @@ export default new Router({
     {path:"/phonelogin",component:phonelogin},
     {path:"/test",component:test},
     {path:"/phoneReg",component:phoneReg},
-    {path:"/accountLog",component:accountLog}
+    {path:"/accountLog",component:accountLog},
+    {path:"/home",component:home},
+    {path:"/square",component:square}
   ]
 })
 //npm run dev 启动脚手架
