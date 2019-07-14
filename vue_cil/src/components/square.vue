@@ -108,6 +108,7 @@ export default {
 .square .mint-navbar .mint-tab-item.is-selected{
     margin-bottom: -1px;
     color:#fff;
+    border-bottom-color: #F12C71;
 }
 .square .header-box a{
     color:#fff;
