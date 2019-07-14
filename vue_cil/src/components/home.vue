@@ -24,7 +24,7 @@
 </mt-tab-container>
 
 
-        <mt-tabbar v-model="selected">
+        <mt-tabbar v-model="selected" fixed>
         <mt-tab-item :id="elem.fun" v-for="(elem,i) of arrtab" :key="i">
             <img slot="icon" :src="selected==elem.fun?elem.selsrc:elem.befsrc">
            {{elem.fun}}
