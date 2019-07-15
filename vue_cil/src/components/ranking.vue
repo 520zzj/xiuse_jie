@@ -62,17 +62,13 @@ export default {
     methods:{
         //定义获取当前li到视图左边的距离的方法
         getLiLeft($event){
+            //元素帮你ref="ul1"，用this.$refs.ul1获取绑定元素
+             this.ulLeft=this.$refs.ul1.getBoundingClientRect().left
             this.liLeft=$event.target.getBoundingClientRect().left
             this.sliderLeft=this.liLeft-this.ulLeft
             this.nowRank=$event.target.innerHTML
         }
-    },
-    mounted(){
-        //获取ul到视图左边的距离，通过ref="ul1"绑定元素
-      this.ulLeft=this.$refs.ul1.getBoundingClientRect().left
-    //   console.log(this.ulLeft)
     }
-   
 }
 </script>
 <style>
