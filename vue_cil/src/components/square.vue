@@ -6,7 +6,8 @@
                     <!-- <img src="//127.0.0.1:7000/img/hall_new_trends_black.png" alt=""> -->
                 </div>
                 <div class="headnav">
-                    <mt-navbar v-model="selected">
+                    <div @touchstart="touchstart($event)" @touchmove="touchmove($event)" @touchend="touchend()" :style="{left:left+'px'}"  class="slipeBox">
+                        <mt-navbar v-model="selected">
                         <mt-tab-item id="大厅">大厅</mt-tab-item>
                         <mt-tab-item id="关注">关注</mt-tab-item>
                         <mt-tab-item id="最近观看">最近观看</mt-tab-item>
@@ -15,6 +16,8 @@
                         <mt-tab-item id="好声音">好声音</mt-tab-item>
                         <mt-tab-item id="萌妹子">萌妹子</mt-tab-item>
                     </mt-navbar>
+                    </div>
+                   
                 </div>
                 <div class="search navIcon movingIcon">
                     <!-- <img src="//127.0.0.1:7000/img/hall_search_black.png" alt=""> -->
@@ -54,12 +57,36 @@ import focusVue from "./squareHead/focus"
 export default {
     data(){
         return{
-            selected:"大厅"
+            selected:"大厅",
+            start:0,//touch时的位置
+            end:0,//移动时当前位置
+            len:0,//当前这次move的距离
+            endLen:0,//之前所有次数的移动距离的累加和
+            left:0//要改变的元素的left属性
         }
     },
     components:{
         hallVue,
         focusVue
+    },
+    methods:{
+        touchstart(e){         
+            this.start=e.touches[0].clientX
+        },
+         touchmove(e){      
+             this.end=e.touches[0].clientX
+                this.len=this.end-this.start
+                //当滑动的范围不满足left的取值范围，不给left赋值
+                if(this.endLen+this.len>0||this.endLen+this.len<-220){
+                    //如果不在范围内，将本次的移动距离重置为0.
+                      this.len=0;
+                }else{
+                     this.left=this.endLen+this.len
+                }          
+        },
+        touchend(){         
+            this.endLen+=this.len
+        }
     }
 }
 </script>
@@ -79,6 +106,11 @@ export default {
 .square .headnav{
    overflow: hidden;
    width:70%;
+   position: relative;
+}
+.square .headnav .slipeBox{
+    position: relative;
+    left:0px;
 }
 .square .navIcon{
     width:15%;
