@@ -25,25 +25,53 @@
                </div>
            </div>
        </div>
-       <div class="content">
-           <div class="wall">
-               <ul>
-                   <li>
-                       <a href="">
-                           <div>
-                               <img src="" alt="">
-                           </div>
-                           <img src="" alt="">
-                           <span>7039677</span>
-                           <p>
-                               <img src="" alt="">
-                               <img src="" alt="">
-                           </p>
-                       </a>
-                       <p></p>
+       <div class="section clearMarTop">
+           <div class="wallBox">
+               <ul class="wall">
+                    <li>
+                            <a href="" class="link">
+                                    <div class="picFraCir">
+                                        <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
+                                    </div>
+                                     <div class="picFra"></div>
+                                    <p class="score">
+                                        <img src="" alt="">
+                                        <img src="" alt="">
+                                    </p>
+                                <span class="sign">冷凝烟_贺</span>
+                            </a>
+                            <p>7039677</p>
                    </li>
-                   <li></li>
-                   <li></li>
+                    <li class="champ">
+                            <a href="" class="link">
+                                    <div class="picFraCir">
+                                        <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
+                                           
+                                    </div>
+                                     <div class="picFra"></div>
+                                    <p class="score">
+                                    <img src="" alt="">
+                                    <img src="" alt="">
+                                </p>
+                                <span class="sign">冷凝烟_贺</span>
+                            </a>
+                            <p>7039677</p>
+                   </li>
+                    <li>
+                            <a href="" class="link">
+                                    <div class="picFraCir">
+                                        <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
+                                            
+                                    </div>
+                                    <div class="picFra"></div>
+                                    <p class="score">
+                                    <img src="" alt="">
+                                    <img src="" alt="">
+                                </p>
+                                <span class="sign">冷凝烟_贺</span>
+                            </a>
+                            <p>7039677</p>
+                   </li>
                </ul>
            </div>
        </div>
@@ -152,16 +180,72 @@ ul{list-style: none;}
 .ranking .header .sort ul{
     display: flex;
     justify-content: center;
-    /* float:left;
-    margin:0 auto; */
     border-radius: 20px;
     background: rgba(250, 250, 250, 0.3);
 }
 .ranking .header .sort li{
-    /* padding:5px 20px; */
     width:74px;
     padding:5px 0;
     text-align: center;
+}
+.ranking .clearMarTop:before{
+    width:100%;
+    content:"";
+    display:table;
+}
+.ranking .section .wallBox{
+    background-image: url("//127.0.0.1:7000/img/anchor_rank_top_sub_rank3.png");
+    height:200px;
+    /* padding-top:79px; */
+    margin-top:50px;
+    background-repeat: no-repeat;
+    background-size:100%;
+    background-position: center;
+}
+.ranking .section .wall{
+    display:flex;
+    justify-content: center;
+    padding-top:58px;
+}
+.ranking .section .wall .link{
+    display:block;
+    position: relative;
+}
+.ranking .section .wall .picFra{
+    background-image:url("//127.0.0.1:7000/img/anchor_rank_top2.png");
+    background-repeat: no-repeat;
+    background-size:100%;
+    background-position: center;
+    width:76px;
+    height:84px;
+    position: absolute;
+    top:-11px;
+    z-index: 999;
+    left:-5px;
+}
+.ranking .section .wall  .picFraCir{
+    overflow:hidden;
+    width:66px;
+    height:66px;
+    /* border:1px solid green; */
+    border-radius: 50%;
+}
+.ranking .section .wall .picFraCir img{
+    width:100%;
+    height:auto;
+}
+/* 对冠军头像处理 */
+.ranking .section .wall .champ .picFraCir{
+    width:74px;
+    height:74px;
+    position:absolute;
+    top:-8px;
+}
+.ranking .section .wall .champ .picFra{
+    width:86px;
+    height:88px; 
+    left:-6px;
+     top:-17px;
 }
 </style>
 
