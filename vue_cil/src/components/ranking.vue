@@ -35,10 +35,13 @@
                                     </div>
                                      <div class="picFra"></div>
                                     <p class="score">
-                                        <img src="" alt="">
-                                        <img src="" alt="">
+                                        <img src="//127.0.0.1:7000/img/room_pk_count_down_1.png" alt="">
+                                        <img src="//127.0.0.1:7000/img/yinguan.png" alt="">
                                     </p>
-                                <span class="sign">冷凝烟_贺</span>
+                                 <div class="sign">
+                                     <img src="//127.0.0.1:7000/img/anchor_rank_top2_name.png" alt="">
+                                    <span>冷凝烟_贺</span>
+                                </div>
                             </a>
                             <p>7039677</p>
                    </li>
@@ -50,10 +53,17 @@
                                     </div>
                                      <div class="picFra"></div>
                                     <p class="score">
-                                    <img src="" alt="">
-                                   <i class="iconfont icon-huaban"></i>
+                                    <img src="//127.0.0.1:7000/img/room_pk_count_down_1.png" alt="">
+                                    <img src="//127.0.0.1:7000/img/huaban.png" alt="">
+                                   <!-- <i class="iconfont icon-huaban"></i>
+                                   <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-huaban"></use>
+                                    </svg> -->
                                 </p>
-                                <span class="sign">冷凝烟_贺</span>
+                                 <div class="sign">
+                                     <img src="//127.0.0.1:7000/img/anchor_rank_top1_name.png" alt="">
+                                    <span>冷凝烟_贺</span>
+                                </div>
                             </a>
                             <p>7039677</p>
                    </li>
@@ -65,10 +75,13 @@
                                     </div>
                                     <div class="picFra"></div>
                                     <p class="score">
-                                    <img src="" alt="">
-                                    <img src="" alt="">
+                                    <img src="//127.0.0.1:7000/img/room_pk_count_down_1.png" alt="">
+                                    <img src="//127.0.0.1:7000/img/paihangbangicon_tongguan.png" alt="">
                                 </p>
-                                <span class="sign">冷凝烟_贺</span>
+                                <div class="sign">
+                                    <img src="//127.0.0.1:7000/img/anchor_rank_top3_name.png" alt="">
+                                    <span>冷凝烟_贺</span>
+                                </div>
                             </a>
                             <p>7039677</p>
                    </li>
@@ -100,11 +113,13 @@ export default {
 }
 </script>
 <style>
-*{
-    margin:0;
-    padding:0;
-}
-ul{list-style: none;}
+/* 阿里iconfont库 */
+.icon {
+       width: 1em; height: 1em;
+       vertical-align: -0.15em;
+       fill: currentColor;
+       overflow: hidden;
+    }
 .ranking .header{
     position:fixed;
     top:0px;
@@ -254,6 +269,58 @@ ul{list-style: none;}
     height:88px; 
     left:8px;
      top:-17px;
+}
+.ranking .section .wall .score{
+    position: absolute;
+    top:38px;
+    right:8px;
+    z-index: 999;
+    height:18px;
+    width:28px;
+}
+.ranking .section .wall .score img{
+    width:10px;
+    height:12px;
+    /* margin:auto 0; */
+    /* vertical-align: center; */
+      /* line-height: 18px; */
+    /* position: absolute;
+    top:50%;
+    transform:translateY(-50%); */
+}
+.ranking .section .wall .score img:last-child{
+    width:18px;
+    height:18px;
+    /* right:0; */
+}
+.ranking .section .wall .score img:first-child{
+    position:relative;
+    top:3px;
+}
+.ranking .section .wall .sign{
+   position: absolute;
+   width:84px;
+   height:16px;
+   left:6px;
+   bottom:-5px;
+}
+.ranking .section .wall .sign img{
+    width:100%;
+    height:auto;
+}
+.ranking .section .wall .sign span{
+    display:block;
+    position:absolute;
+    border:1px solid green;
+    top:0;
+    width:62px;
+    font-size: 12px;
+    left:50%;
+    transform: translatex(-50%);
+    color:#fff;
+    text-align: center;
+    height: 15px;
+    line-height: 15px;
 }
 </style>
 

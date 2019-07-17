@@ -16,7 +16,7 @@ import'mint-ui/lib/style.css'
 Vue.use(MintUi);
 
 //引入阿里图标库的字体图标css文件,属于单个引入，不用注册
-import "./font/iconfont.css"
+// import "./font/iconfont.css"
 
 
 Vue.config.productionTip = false
