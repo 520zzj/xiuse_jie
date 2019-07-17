@@ -15,7 +15,7 @@ import'mint-ui/lib/style.css'
 //将mint-ui库中所有的组件注册到Vue的实例中
 Vue.use(MintUi);
 
-//引入字体图标css文件,属于单个引入，不用注册
+//引入阿里图标库的字体图标css文件,属于单个引入，不用注册
 import "./font/iconfont.css"
 
 

@@ -51,7 +51,7 @@
                                      <div class="picFra"></div>
                                     <p class="score">
                                     <img src="" alt="">
-                                    <img src="" alt="">
+                                   <i class="iconfont icon-huaban"></i>
                                 </p>
                                 <span class="sign">冷凝烟_贺</span>
                             </a>
@@ -210,6 +210,7 @@ ul{list-style: none;}
 .ranking .section .wall .link{
     display:block;
     position: relative;
+    padding:0 15px;
 }
 .ranking .section .wall .picFra{
     background-image:url("//127.0.0.1:7000/img/anchor_rank_top2.png");
@@ -221,7 +222,7 @@ ul{list-style: none;}
     position: absolute;
     top:-11px;
     z-index: 999;
-    left:-5px;
+    left:10px;
 }
 .ranking .section .wall  .picFraCir{
     overflow:hidden;
@@ -234,17 +235,24 @@ ul{list-style: none;}
     width:100%;
     height:auto;
 }
+.ranking .section .wall .score{
+    position:absolute;
+}
+.ranking .section .wall .sign{
+    position: absolute;
+}
 /* 对冠军头像处理 */
 .ranking .section .wall .champ .picFraCir{
     width:74px;
     height:74px;
-    position:absolute;
-    top:-8px;
+    /* position:absolute;*/
+    /* top:-8px;  */
+    transform: translateY(-8px);
 }
 .ranking .section .wall .champ .picFra{
     width:86px;
     height:88px; 
-    left:-6px;
+    left:8px;
      top:-17px;
 }
 </style>
