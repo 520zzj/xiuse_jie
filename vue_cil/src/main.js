@@ -30,6 +30,14 @@ import './lib/mui/css/mui.css'
 // 还需要加载图标字体文件
 import './lib/mui/css/icons-extra.css'
 
+//引入vantui组件库
+import vantUI from "vant"
+import 'vant/lib/index.css'
+Vue.use(vantUI)
+
+
+
+
 new Vue({
   router,
   render: h => h(App)

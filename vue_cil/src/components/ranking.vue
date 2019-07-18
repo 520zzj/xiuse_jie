@@ -43,7 +43,7 @@
                                     <span>冷凝烟_贺</span>
                                 </div>
                             </a>
-                            <p>7039677</p>
+                            <p class="roomId">7039677</p>
                    </li>
                     <li class="champ">
                             <a href="" class="link">
@@ -65,7 +65,7 @@
                                     <span>冷凝烟_贺</span>
                                 </div>
                             </a>
-                            <p>7039677</p>
+                            <p class="roomId">7039677</p>
                    </li>
                     <li>
                             <a href="" class="link">
@@ -83,9 +83,36 @@
                                     <span>冷凝烟_贺</span>
                                 </div>
                             </a>
-                            <p>7039677</p>
+                            <p class="roomId">7039677</p>
                    </li>
                </ul>
+           </div>
+           <div class="AnchorList">
+               <!-- <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad" >
+                    <van-cell v-for="item in list" :key="item" :title="item" />
+                </van-list> -->
+                 <ul class="mui-table-view">
+                    <li class="mui-table-view-cell">
+                        <a class="mui-navigate-right">
+                            <div class="listBox">
+                                  <span class="listNum">1</span>
+                                    <div class="lisPic">
+                                        <img src="//127.0.0.1:7000/img/f283fbb284_250_350.jpg" alt="">
+                                    </div>
+                                    <div class="textInfo">
+                                        <p class="sign">新人三七在等你</p>
+                                        <div class="achivRoom">
+                                            <div class="achiv">
+                                                <img src="//127.0.0.1:7000/img/room_pk_count_down_1.png" alt=""><img src="//127.0.0.1:7000/img/tongguan.png" alt="">
+                                            </div>
+                                            <div class="roomId">房间号：<span>1234567</span></div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="tip">没有更多...</div>  
            </div>
        </div>
     </div>
@@ -108,18 +135,25 @@ export default {
             this.liLeft=$event.target.getBoundingClientRect().left
             this.sliderLeft=this.liLeft-this.ulLeft
             this.nowRank=$event.target.innerHTML
+        },
+        onLoad() {
+      // 异步更新数据
+          
         }
+    },
+    created(){
+        this.onLoad()
     }
 }
 </script>
 <style>
 /* 阿里iconfont库 */
-.icon {
+/* .icon {
        width: 1em; height: 1em;
        vertical-align: -0.15em;
        fill: currentColor;
        overflow: hidden;
-    }
+    } */
 .ranking .header{
     position:fixed;
     top:0px;
@@ -211,7 +245,6 @@ export default {
 .ranking .section .wallBox{
     background-image: url("//127.0.0.1:7000/img/anchor_rank_top_sub_rank3.png");
     height:200px;
-    /* padding-top:79px; */
     margin-top:50px;
     background-repeat: no-repeat;
     background-size:100%;
@@ -243,7 +276,6 @@ export default {
     overflow:hidden;
     width:66px;
     height:66px;
-    /* border:1px solid green; */
     border-radius: 50%;
 }
 .ranking .section .wall .picFraCir img{
@@ -260,8 +292,6 @@ export default {
 .ranking .section .wall .champ .picFraCir{
     width:74px;
     height:74px;
-    /* position:absolute;*/
-    /* top:-8px;  */
     transform: translateY(-8px);
 }
 .ranking .section .wall .champ .picFra{
@@ -281,17 +311,10 @@ export default {
 .ranking .section .wall .score img{
     width:10px;
     height:12px;
-    /* margin:auto 0; */
-    /* vertical-align: center; */
-      /* line-height: 18px; */
-    /* position: absolute;
-    top:50%;
-    transform:translateY(-50%); */
 }
 .ranking .section .wall .score img:last-child{
     width:18px;
     height:18px;
-    /* right:0; */
 }
 .ranking .section .wall .score img:first-child{
     position:relative;
@@ -311,16 +334,92 @@ export default {
 .ranking .section .wall .sign span{
     display:block;
     position:absolute;
-    border:1px solid green;
-    top:0;
+    top:1px;
     width:62px;
     font-size: 12px;
     left:50%;
     transform: translatex(-50%);
     color:#fff;
     text-align: center;
-    height: 15px;
-    line-height: 15px;
+    height: 14px;
+    line-height: 14px;
+}
+.ranking .section .wall li:nth-child(2) .sign{
+    bottom:1px;
+}
+.ranking .section .wall .roomId{
+    text-align: center;
+    padding-top:20px;
+    color:#fff;
+}
+.ranking .section .wall li:nth-child(2) .roomId{
+    padding-top:10px;
+}
+.ranking .section .AnchorList .listBox{
+    display: flex;
+    align-items: center;
+}
+.ranking .section .AnchorList .listBox .lisPic{
+    width:50px;
+    height:50px;
+    overflow: hidden;
+    border-radius: 50%;
+    border:1px solid #FF8F9B;
+    margin-left:30px;
+}
+.ranking .section .AnchorList .listBox .lisPic img{
+    width:100%;
+    height:auto;
+}
+.ranking .section .AnchorList .listBox .achiv{
+    width:30px;
+    height:21px;
+    display: flex;
+    align-items:center;
+}
+.ranking .section .AnchorList .listBox .achiv img:last-child{
+    width:16px;
+    height: 14px;
+}
+.ranking .section .AnchorList .listBox .achiv img:first-child{
+    width:14px;
+    height:14px;
+}
+.ranking .section .AnchorList .listBox .achivRoom{
+    display: flex;
+    align-items: center;
+}
+.ranking .section .AnchorList .listBox .listNum{
+    color:#555;
+    font-size: 12px;
+}
+.ranking .section .AnchorList .listBox .sign{
+    color:black;
+    font-size: 14px;
+}
+.ranking .section .AnchorList .listBox .roomId{
+    font-size: 12px;
+    color:#555;
+    margin-left:22px;
+}
+.ranking .section .AnchorList .listBox .roomId span{
+    color:red;
+    font-size: 13px;
+}
+.ranking .section .AnchorList .listBox .textInfo{
+    margin-left:20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.ranking .section .AnchorList .mui-table-view-cell > a:not(.mui-btn){
+    margin:-16px -15px;
+}
+.ranking .section .AnchorList .tip{
+    text-align: center;
+    padding:25px 0;
+    font-size: 14px;
+    color:#555;
 }
 </style>
 
