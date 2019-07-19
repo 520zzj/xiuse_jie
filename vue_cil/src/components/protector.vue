@@ -17,27 +17,27 @@
        </div>
        <div class="section"> 
            <!-- 刷新静态背景 -->
-           <div class="freBgSta bg"></div>
+           <div class="freBgSta"></div>
            <!-- 刷新动态背景 -->
            <div class="freMovBox">
                <div class="freBgMovOne bg freBgMov"></div>
            </div>
            <div class="befThree">
-               <ul>
+               <ul class="threeBox">
                    <li>
-                       <a href="">
-                           <div>
-                               <div><img src="" alt=""></div>
+                       <a href="" class="link">
+                           <div class="Medal">
+                               <div class="circle"><img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt=""></div>
                            </div>
-                           <div>
-                               <p></p>
-                               <div>
+                           <div class="details">
+                               <p class="style"></p>
+                               <div class="rank">
                                    <img src="" alt="">
                                    <div class="num">
                                        <img src="" alt="">
                                    </div>
                                </div>
-                               <div>贡献：<span>86247</span></div>
+                               <div class="fight">战力值：<span>86247</span></div>
                            </div>
                        </a>
                     </li>
@@ -157,7 +157,7 @@ export default {
 .protector .guaConBox{
     position: fixed;
     transition: all .3s linear;
-    background:rgba(240,243,246,0.3);
+    background:rgba(248,248,248,0.3);
     top:0;
     bottom:0;
     left:0;
@@ -169,7 +169,7 @@ export default {
     transform-origin: center 72px;
 }   
 .protector .section .freBgSta{
-    background-image: url("//127.0.0.1:7000/img/hall_room_layout_empty_bg.png");
+    background:#f8f8f8;
     height:80px;
     width:100%;
 }
@@ -202,6 +202,59 @@ export default {
 }
 .protector .section .freBgMovOne{
     background-image: url("//127.0.0.1:7000/img/showself_loading_6.png");
+}
+.protector .section .befThree a{
+    display:block;
+}
+.protector .section .befThree .threeBox{
+    display:flex;
+    justify-content: center;
+}
+.protector .section .befThree .threeBox li{
+    width:32%;
+}
+.protector .section .befThree .threeBox li:first-child{
+    background:#FEEBEF;
+}
+.protector .section .befThree .threeBox li:nth-child(2){
+    background:#FEE4D9;
+}
+.protector .section .befThree .threeBox li:last-child{
+    background:#DEF6FB;
+}
+.protector .section .befThree li:first-child .Medal{
+    background-image:url("//127.0.0.1:7000/img/showself_team_icon_ranking_2.png");
+}
+.protector .section .befThree li:nth-child(2) .Medal{
+    background-image:url("//127.0.0.1:7000/img/showself_team_icon_ranking_1.png");
+}
+.protector .section .befThree li:last-child .Medal{
+    background-image:url("//127.0.0.1:7000/img/showself_team_icon_ranking_3.png");
+}
+.protector .section .befThree .Medal{
+    background:center;
+    background-repeat: no-repeat;
+    height:100px;
+    width:70px;
+    background-size: 100%;
+    margin:0 auto;
+    position: relative;
+    background-position:top center;
+}   
+.protector .section .befThree .circle{
+    width:47px;
+    height:47px;
+    /* border:1px solid #008000; */
+    position: absolute;
+    top:26px;
+    left:12px;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 0;
+}
+.protector .section .befThree .circle img{
+    width:100%;
+    height:auto;
 }
 </style>
 
