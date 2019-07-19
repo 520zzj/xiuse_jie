@@ -382,8 +382,8 @@ export default {
     height: 14px;
 }
 .ranking .section .AnchorList .listBox .achiv img:first-child{
-    width:14px;
-    height:14px;
+    width:10px;
+    height:12px;
 }
 .ranking .section .AnchorList .listBox .achivRoom{
     display: flex;
