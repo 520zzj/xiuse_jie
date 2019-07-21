@@ -15,43 +15,445 @@
                <div class="slider"></div>
            </div>
        </div>
-       <div class="section"> 
-           <!-- 刷新静态背景 -->
-           <div class="freBgSta"></div>
-           <!-- 刷新动态背景 -->
-           <div class="freMovBox">
-               <div class="freBgMovOne bg freBgMov"></div>
-           </div>
-           <div class="befThree">
-               <ul class="threeBox">
-                   <li>
-                       <a href="" class="link">
-                           <div class="Medal">
-                               <div class="circle"><img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt=""></div>
-                           </div>
-                           <div class="details">
-                               <p class="style"></p>
-                               <div class="rank">
-                                   <img src="" alt="">
-                                   <div class="num">
-                                       <img src="" alt="">
-                                   </div>
-                               </div>
-                               <div class="fight">战力值：<span>86247</span></div>
-                           </div>
-                       </a>
-                    </li>
-                   <li><a href=""></a></li>
-                   <li><a href=""></a></li>
-               </ul>
-           </div>
-           <div class="aftThree">
-               <ul>
-                   <li><a href=""></a></li>
-                   <li><a href=""></a></li>
-                   <li><a href=""></a></li>
-               </ul>
-           </div>
+       <div class="relBox">
+           <ul class="pageBox">
+           <li class="page-item">
+                 <div class="section"> 
+                    <!-- 刷新静态背景 -->
+                    <div class="freBgSta"></div>
+                    <!-- 刷新动态背景 -->
+                    <div class="freMovBox">
+                        <div class="freBgMovOne bg freBgMov"></div>
+                    </div>
+                    <div class="befThree">
+                        <ul class="threeBox">
+                            <li>
+                                    <a href="" class="link">
+                                        <div class="Medal">
+                                            <div class="circle"><img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt=""></div>
+                                        </div>
+                                        <div class="details">
+                                            <p class="style">名牌</p>
+                                            <div class="rankBgBox">
+                                                <img src="//127.0.0.1:7000/img/armybackground80_99.png" alt="" class="rankBg">
+                                                    <span class="rankText">名牌</span>
+                                                <div class="num">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="fight">战力值：<span>86247</span></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="link">
+                                        <div class="Medal">
+                                            <div class="circle"><img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt=""></div>
+                                        </div>
+                                        <div class="details">
+                                            <p class="style">名牌</p>
+                                            <div class="rankBgBox">
+                                                <img src="//127.0.0.1:7000/img/armybackground80_99.png" alt="" class="rankBg">
+                                                    <span class="rankText">名牌</span>
+                                                <div class="num">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="fight">战力值：<span>86247</span></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="link">
+                                        <div class="Medal">
+                                            <div class="circle"><img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt=""></div>
+                                        </div>
+                                        <div class="details">
+                                            <p class="style">名牌</p>
+                                            <div class="rankBgBox">
+                                                <img src="//127.0.0.1:7000/img/armybackground80_99.png" alt="" class="rankBg">
+                                                    <span class="rankText">名牌</span>
+                                                <div class="num">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="fight">战力值：<span>86247</span></div>
+                                        </div>
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    </div>
+                    <div class="aftThree">
+                        <ul class="mui-table-view">
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">
+                                    <div class="listItem">
+                                                <span class="ranking">4</span>
+                                            <div class="picFra"><img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt=""></div>
+                                            <span class="name">名牌</span>
+                                            <div class="rankBgBox">
+                                                <img src="//127.0.0.1:7000/img/armybackground80_99.png" alt="" class="rankBg">
+                                                    <span class="rankText">名牌</span>
+                                                <div class="num">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="fight">战力值：<span>86247</span></div>
+                                    </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">Item 2</a>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">Item 3</a>
+                                </li>
+                            </ul>
+                    </div>
+                </div>
+           </li>
+            <li class="page-item">
+                 <div class="section"> 
+                    <!-- 刷新静态背景 -->
+                    <div class="freBgSta"></div>
+                    <!-- 刷新动态背景 -->
+                    <div class="freMovBox">
+                        <div class="freBgMovOne bg freBgMov"></div>
+                    </div>
+                    <div class="befThree">
+                        <ul class="threeBox">
+                            <li>
+                                    <a href="" class="link">
+                                        <div class="Medal">
+                                            <div class="circle"><img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt=""></div>
+                                        </div>
+                                        <div class="details">
+                                            <p class="style">名牌</p>
+                                            <div class="rankBgBox">
+                                                <img src="//127.0.0.1:7000/img/armybackground80_99.png" alt="" class="rankBg">
+                                                    <span class="rankText">名牌</span>
+                                                <div class="num">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="fight">战力值：<span>86247</span></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="link">
+                                        <div class="Medal">
+                                            <div class="circle"><img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt=""></div>
+                                        </div>
+                                        <div class="details">
+                                            <p class="style">名牌</p>
+                                            <div class="rankBgBox">
+                                                <img src="//127.0.0.1:7000/img/armybackground80_99.png" alt="" class="rankBg">
+                                                    <span class="rankText">名牌</span>
+                                                <div class="num">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="fight">战力值：<span>86247</span></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="link">
+                                        <div class="Medal">
+                                            <div class="circle"><img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt=""></div>
+                                        </div>
+                                        <div class="details">
+                                            <p class="style">名牌</p>
+                                            <div class="rankBgBox">
+                                                <img src="//127.0.0.1:7000/img/armybackground80_99.png" alt="" class="rankBg">
+                                                    <span class="rankText">名牌</span>
+                                                <div class="num">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="fight">战力值：<span>86247</span></div>
+                                        </div>
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    </div>
+                    <div class="aftThree">
+                        <ul class="mui-table-view">
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">
+                                    <div class="listItem">
+                                                <span class="ranking">4</span>
+                                            <div class="picFra"><img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt=""></div>
+                                            <span class="name">名牌</span>
+                                            <div class="rankBgBox">
+                                                <img src="//127.0.0.1:7000/img/armybackground80_99.png" alt="" class="rankBg">
+                                                    <span class="rankText">名牌</span>
+                                                <div class="num">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="fight">战力值：<span>86247</span></div>
+                                    </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">Item 2</a>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">Item 3</a>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">Item 2</a>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">Item 3</a>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">Item 2</a>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">Item 3</a>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">Item 2</a>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">Item 3</a>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">Item 2</a>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">Item 3</a>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">Item 2</a>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">Item 3</a>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">Item 2</a>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">Item 3</a>
+                                </li>
+                            </ul>
+                    </div>
+                </div>
+           </li>
+           <li class="goddess page-item">
+                 <div class="section"> 
+                    <!-- 刷新静态背景 -->
+                    <div class="freBgSta"></div>
+                    <!-- 刷新动态背景 -->
+                    <div class="freMovBox">
+                        <div class="freBgMovOne bg freBgMov"></div>
+                    </div>
+                    <div class="befThree">
+                        <ul class="threeBox">
+                            <li>
+                                    <a href="" class="link">
+                                        <div class="Medal">
+                                            <div class="circle"><img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt=""></div>
+                                        </div>
+                                        <div class="details">
+                                            <p class="style">名牌</p>
+                                            <div class="rankBgBox">
+                                                <img src="//127.0.0.1:7000/img/armybackground80_99.png" alt="" class="rankBg">
+                                                    <span class="rankText">名牌</span>
+                                                <div class="num">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="fight">战力值：<span>86247</span></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="link">
+                                        <div class="Medal">
+                                            <div class="circle"><img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt=""></div>
+                                        </div>
+                                        <div class="details">
+                                            <p class="style">名牌</p>
+                                            <div class="rankBgBox">
+                                                <img src="//127.0.0.1:7000/img/armybackground80_99.png" alt="" class="rankBg">
+                                                    <span class="rankText">名牌</span>
+                                                <div class="num">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="fight">战力值：<span>86247</span></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="link">
+                                        <div class="Medal">
+                                            <div class="circle"><img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt=""></div>
+                                        </div>
+                                        <div class="details">
+                                            <p class="style">名牌</p>
+                                            <div class="rankBgBox">
+                                                <img src="//127.0.0.1:7000/img/armybackground80_99.png" alt="" class="rankBg">
+                                                    <span class="rankText">名牌</span>
+                                                <div class="num">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="fight">战力值：<span>86247</span></div>
+                                        </div>
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    </div>
+                    <div class="aftThree">
+                        <ul class="mui-table-view">
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">
+                                    <div class="listItem">
+                                                <span class="ranking">4</span>
+                                            <div class="picFra"><img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt=""></div>
+                                            <span class="name">名牌</span>
+                                            <div class="rankBgBox">
+                                                <img src="//127.0.0.1:7000/img/armybackground80_99.png" alt="" class="rankBg">
+                                                    <span class="rankText">名牌</span>
+                                                <div class="num">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="fight">战力值：<span>86247</span></div>
+                                    </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">Item 2</a>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">Item 3</a>
+                                </li>
+                            </ul>
+                    </div>
+                </div>
+           </li>
+            <li class="goddess page-item">
+                 <div class="section"> 
+                    <!-- 刷新静态背景 -->
+                    <div class="freBgSta"></div>
+                    <!-- 刷新动态背景 -->
+                    <div class="freMovBox">
+                        <div class="freBgMovOne bg freBgMov"></div>
+                    </div>
+                    <div class="befThree">
+                        <ul class="threeBox">
+                            <li>
+                                    <a href="" class="link">
+                                        <div class="Medal">
+                                            <div class="circle"><img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt=""></div>
+                                        </div>
+                                        <div class="details">
+                                            <p class="style">名牌</p>
+                                            <div class="rankBgBox">
+                                                <img src="//127.0.0.1:7000/img/armybackground80_99.png" alt="" class="rankBg">
+                                                    <span class="rankText">名牌</span>
+                                                <div class="num">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="fight">战力值：<span>86247</span></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="link">
+                                        <div class="Medal">
+                                            <div class="circle"><img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt=""></div>
+                                        </div>
+                                        <div class="details">
+                                            <p class="style">名牌</p>
+                                            <div class="rankBgBox">
+                                                <img src="//127.0.0.1:7000/img/armybackground80_99.png" alt="" class="rankBg">
+                                                    <span class="rankText">名牌</span>
+                                                <div class="num">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="fight">战力值：<span>86247</span></div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="link">
+                                        <div class="Medal">
+                                            <div class="circle"><img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt=""></div>
+                                        </div>
+                                        <div class="details">
+                                            <p class="style">名牌</p>
+                                            <div class="rankBgBox">
+                                                <img src="//127.0.0.1:7000/img/armybackground80_99.png" alt="" class="rankBg">
+                                                    <span class="rankText">名牌</span>
+                                                <div class="num">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="fight">战力值：<span>86247</span></div>
+                                        </div>
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    </div>
+                    <div class="aftThree">
+                        <ul class="mui-table-view">
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">
+                                    <div class="listItem">
+                                                <span class="ranking">4</span>
+                                            <div class="picFra"><img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt=""></div>
+                                            <span class="name">名牌</span>
+                                            <div class="rankBgBox">
+                                                <img src="//127.0.0.1:7000/img/armybackground80_99.png" alt="" class="rankBg">
+                                                    <span class="rankText">名牌</span>
+                                                <div class="num">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                    <img src="//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="fight">战力值：<span>86247</span></div>
+                                    </div>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">Item 2</a>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <a class="mui-navigate-right">Item 3</a>
+                                </li>
+                            </ul>
+                    </div>
+                </div>
+           </li>
+       </ul>
        </div>
        <!-- 遮罩层 -->
         <div class="guaConBox disappear">
@@ -73,12 +475,26 @@ export default {
 }
 </script>
 <style>
+.protector .relBox{
+    width:100%;
+}
+.protector .pageBox{
+    display: flex;
+    width:400%;
+    position: relative;
+    left:-100px;
+    overflow:hidden;
+}
+.protector .pageBox .page-item{
+    width:25%;
+}
 .protector .header{
     position: fixed;
     width:100%;
     top:0px;
     left: 0px;
     right:0px;
+    z-index: 10;
 }
 .protector .header .titleBox{
     position: relative;
@@ -168,6 +584,9 @@ export default {
     transform: rotateX(90deg);
     transform-origin: center 72px;
 }   
+.protector .section{
+    background:#fff;
+}
 .protector .section .freBgSta{
     background:#f8f8f8;
     height:80px;
@@ -177,6 +596,9 @@ export default {
     background-size: 100% auto;
     background-position: center;
     background-repeat: no-repeat;
+}
+.protector .section .freMovBox{
+    background:#fff;
 }
 .protector .section .freBgMov{
     width:17px;
@@ -205,10 +627,13 @@ export default {
 }
 .protector .section .befThree a{
     display:block;
+    text-align: center;
 }
 .protector .section .befThree .threeBox{
     display:flex;
     justify-content: center;
+    height:193px;
+    align-items:flex-end;
 }
 .protector .section .befThree .threeBox li{
     width:32%;
@@ -234,14 +659,14 @@ export default {
 .protector .section .befThree .Medal{
     background:center;
     background-repeat: no-repeat;
-    height:100px;
+    height:82px;
     width:70px;
     background-size: 100%;
     margin:0 auto;
     position: relative;
     background-position:top center;
 }   
-.protector .section .befThree .circle{
+.protector .section .circle{
     width:47px;
     height:47px;
     /* border:1px solid #008000; */
@@ -252,9 +677,103 @@ export default {
     overflow: hidden;
     z-index: 0;
 }
-.protector .section .befThree .circle img{
+.protector .section .circle img{
     width:100%;
     height:auto;
+}
+.protector .section .befThree .style{
+    font-size: 10px;
+    margin-bottom:3px;
+}
+.protector .section .befThree li:first-child .style{
+    color:#D23F72;
+}
+.protector .section .befThree  li:nth-child(2) .style{
+    color:#CC7958;
+}
+.protector .section .befThree  li:last-child .style{
+    color:#57ACAA;
+}
+.protector .section .rankBgBox{
+    position: relative;
+    width:46px;
+    height:22px;
+    /* text-align: center; */
+    margin:0 auto;
+}
+.protector .section .rankBgBox .num{
+    position: absolute;
+    top:14px;
+    right:-6px;
+}
+.protector .section .num img{
+    width:7px;
+    height:11px;
+}
+.protector .section .rankBg{
+    width:100%;
+    height:100%;
+}
+.protector .section .rankBgBox .rankText{
+    position:absolute;
+    white-space: nowrap;
+    top:0px;
+    right: 10px;
+    font-size:12px;
+    color:#fff;
+}
+.protector .section .befThree .fight{
+    font-size: 12px;
+    color:gray;
+    padding:12px 0;
+}
+.protector .section .befThree  li:first-child .fight span{
+    color:#D23F72;
+}
+.protector .section .befThree  li:nth-child(2) .fight span{
+    color:#CC7958;
+}
+.protector .section .befThree  li:last-child .fight span{
+    color:#57ACAA;
+}
+.protector .section .befThree  li:nth-child(2) .Medal{
+    margin-bottom: 10px;
+}
+.protector .section .aftThree .listItem{
+    display:flex;
+    align-items:center;
+}
+.protector .section .aftThree .picFra{
+    width:44px;
+    height:44px;
+    /* border:1px solid green; */
+    border-radius: 50%;
+    overflow:hidden;
+}
+.protector .section .aftThree .picFra img{
+    width:100%;
+    height:auto;
+}
+.protector .section .aftThree .rankBgBox{
+    margin:0px;
+}
+.protector .section .aftThree .ranking{
+    padding-right:10px;
+    color:gray;
+}
+.protector .section .aftThree .name{
+    padding:0 12px;
+    color:gray;
+    font-size: 12px;
+
+}
+.protector .section .aftThree .fight{
+    font-size:12px;
+    color:gray;
+    padding-left:60px;
+}
+.protector .section .aftThree .fight span{
+    color:#D23F72;
 }
 </style>
 
