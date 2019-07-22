@@ -482,7 +482,7 @@ export default {
     display: flex;
     width:400%;
     position: relative;
-    left:-100px;
+    /* left:-100px; */
     overflow:hidden;
 }
 .protector .pageBox .page-item{
@@ -495,6 +495,7 @@ export default {
     left: 0px;
     right:0px;
     z-index: 10;
+    background: #F8F8F8;
 }
 .protector .header .titleBox{
     position: relative;
