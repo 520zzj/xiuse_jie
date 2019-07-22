@@ -13,6 +13,12 @@ import accountLog from "./components/accountLog"
 import home from "./components/home.vue"
 import square from "./components/square.vue"
 
+
+import pageOne from "./components/pages/pageOne"
+import pageTwo from "./components/pages/pageTwo"
+import pageThree from "./components/pages/pageThree"
+import guardHead from "./components/protector/guardHead"
+import guardSwiper from "./components/protector/guardSwiper"
 Vue.use(Router)
 //启动脚手架npm run dev 看package.json
 //地址栏访问脚手架 127.0.0.1:8080看package.json
@@ -27,7 +33,12 @@ export default new Router({
     {path:"/phoneReg",component:phoneReg},
     {path:"/accountLog",component:accountLog},
     {path:"/home",component:home},
-    {path:"/square",component:square}
+    {path:"/square",component:square},
+    {path:"/pageOne",component:pageOne},
+    {path:"/pageTwo",component:pageTwo},
+    {path:"/pageThree",component:pageThree},
+    {path:"/guardHead",component:guardHead},
+    {path:"/guardSwiper",component:guardSwiper}
   ]
 })
 //npm run dev 启动脚手架

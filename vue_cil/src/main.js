@@ -35,6 +35,17 @@ import vantUI from "vant"
 import 'vant/lib/index.css'
 Vue.use(vantUI)
 
+//引入vue-touch
+import vueTouch from "vue-touch"
+Vue.use(vueTouch)
+vueTouch.config.swipe={
+  threshold:50//设置滑动距离
+}
+
+//引入vue-awesome-swiper组件
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
+Vue.use(VueAwesomeSwiper)
 
 
 
