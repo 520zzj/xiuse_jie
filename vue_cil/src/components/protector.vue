@@ -282,12 +282,57 @@ export default {
     display: flex;
     width:400%;
     position: relative;
-    left:-100px;
+    /* left:-100px; */
     overflow:hidden;
 }
 .protector .pageBox .page-item{
     width:25%;
 }
+<<<<<<< HEAD
+=======
+.protector .header{
+    position: fixed;
+    width:100%;
+    top:0px;
+    left: 0px;
+    right:0px;
+    z-index: 10;
+    background: #F8F8F8;
+}
+.protector .header .titleBox{
+    position: relative;
+    font-size: 18px;
+    padding-bottom: 10px;
+    padding-top:10px;
+    border-bottom: 1px solid gray;
+}
+/* 遮罩层按钮的切换 */
+.protector .header .titleBox .inGuard{
+    background-image: url("//127.0.0.1:7000/img/icon_army_title_open.png");
+}
+.protector .header .titleBox .outGuard{
+    background-image: url("//127.0.0.1:7000/img/icon_army_title_close.png")
+}
+.protector .header .titleBox .title{
+    text-align: center;
+}
+.protector .header .titleBox .guard{
+    position: absolute;
+    right:0px;
+    top:8px;
+    width:25px;
+    height:25px;
+    display: block;
+    background-size:100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right:20px;
+}
+.protector .header .sortList{
+    display: flex;
+    justify-content: space-around;
+    font-size: 13px;
+>>>>>>> f3342e1fe6fb3e43d64bcbbd5b3c9fd3662b45fb
 
 .protector .guaCon{
     display: flex;
