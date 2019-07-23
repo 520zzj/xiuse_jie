@@ -17,8 +17,8 @@ import square from "./components/square.vue"
 import pageOne from "./components/pages/pageOne"
 import pageTwo from "./components/pages/pageTwo"
 import pageThree from "./components/pages/pageThree"
-import guardHead from "./components/protector/guardHead"
-import guardSwiper from "./components/protector/guardSwiper"
+import guardHead from "./components/guard/guardHead"
+import guardSwiper from "./components/guard/guardSwiper"
 Vue.use(Router)
 //启动脚手架npm run dev 看package.json
 //地址栏访问脚手架 127.0.0.1:8080看package.json

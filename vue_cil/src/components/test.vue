@@ -29,24 +29,6 @@ export default {
 }   
 </script>
 <style>
-.test .header{
-    position: fixed;
-    left:0;
-    right:0;
-    top:0;
-}
-.test .header ul{
-    display: flex;
-    justify-content: center;
-    height:30px;
-}
-.test .header ul li{
-    width:33%;
-    border:1px solid red;
-}
-.test .section{
-    margin-top:30px;
-}
 </style>
 
 

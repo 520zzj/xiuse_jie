@@ -213,7 +213,7 @@
     </swiper>
     </div>
 </template>
-<script>
+<script> 
 export default {
     // name: 'carrousel',
     data() {
@@ -241,11 +241,22 @@ export default {
       // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
       console.log('this is current swiper instance object', this.swiper)
       this.swiper.slideTo(0, 1000, false)
+    },
+    methods:{
+        callback(){
+
+        }
     }
   
 }
 </script>
 <style>
+.guardSwiper{
+    margin-top: 79px;
+}
+.guardSwiper .section{
+    background:#fff;
+}
 .guardSwiper .section .befThree a{
     display:block;
     text-align: center;
