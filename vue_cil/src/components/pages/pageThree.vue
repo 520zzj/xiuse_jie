@@ -1,6 +1,6 @@
 <template>
     <div class="pageThree">
-           <v-touch @swiperight="menutwo">
+           <v-touch @swiperight="menuTwo">
                 <div class="page">页面3</div>
            </v-touch>
 

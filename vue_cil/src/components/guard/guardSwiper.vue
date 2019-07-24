@@ -1,10 +1,6 @@
 <template>
     <div class="guardSwiper">
-        <swiper :options="swiperOption" ref="mySwiper" @someSwiperEvent="callback">
-            <!-- slides -->
-            <swiper-slide>
-                
-                    <div class="section">   
+            <div class="section">   
                         <!-- 刷新静态背景
                         <div class="freBgSta"></div>
                         刷新动态背景 
@@ -36,7 +32,7 @@
                         </div>
                         <div class="aftThree">
                             <ul class="mui-table-view">
-                                    <li class="mui-table-view-cell"  v-for="(item,index) in befThree" :key="index">
+                                    <li class="mui-table-view-cell"  v-for="(item,index) in aftThree" :key="index">
                                         <a class="mui-navigate-right">
                                         <div class="listItem">
                                                     <span class="ranking">4</span>
@@ -57,165 +53,10 @@
                                 </ul>
                         </div>
                 </div>
-            </swiper-slide>
-            <swiper-slide>
-                    <div class="section">     
-                        <div class="befThree">
-                            <ul class="threeBox">
-                                <li v-for="(item,index) in befThree" :key="index">
-                                        <a href="" class="link">
-                                            <div class="Medal">
-                                                <div class="circle"><img :src="item.proPic" alt=""></div>
-                                            </div>
-                                            <div class="details">
-                                                <p class="style">{{item.name}}</p>
-                                                <div class="rankBgBox">
-                                                    <img :src="item.nameBg" alt="" class="rankBg">
-                                                        <span class="rankText">{{item.name}}</span>
-                                                    <div class="num">
-                                                        <img :src="item.numOne" alt="">
-                                                        <img :src="item.numTwo" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="fight">战力值：<span>{{item.fight}}</span></div>
-                                            </div>
-                                        </a>
-                                    </li>
-                            </ul>
-                        </div>
-                        <div class="aftThree">
-                            <ul class="mui-table-view">
-                                    <li class="mui-table-view-cell"  v-for="(item,index) in befThree" :key="index">
-                                        <a class="mui-navigate-right">
-                                        <div class="listItem">
-                                                    <span class="ranking">4</span>
-                                                <div class="picFra"><img :src="item.proPic" alt=""></div>
-                                                <span class="name">{{item.name}}</span>
-                                                <div class="rankBgBox">
-                                                    <img :src="item.nameBg" alt="" class="rankBg">
-                                                        <span class="rankText">{{item.name}}</span>
-                                                    <div class="num">
-                                                        <img :src="item.numOne" alt="">
-                                                        <img :src="item.numTwo" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="fight">战力值：<span>{{item.fight}}</span></div>
-                                        </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                        </div>
-                </div>
-            </swiper-slide>
-            <swiper-slide>
-                <div class="section">     
-                        <div class="befThree">
-                            <ul class="threeBox">
-                                <li v-for="(item,index) in befThree" :key="index">
-                                        <a href="" class="link">
-                                            <div class="Medal">
-                                                <div class="circle"><img :src="item.proPic" alt=""></div>
-                                            </div>
-                                            <div class="details">
-                                                <p class="style">{{item.name}}</p>
-                                                <div class="rankBgBox">
-                                                    <img :src="item.nameBg" alt="" class="rankBg">
-                                                        <span class="rankText">{{item.name}}</span>
-                                                    <div class="num">
-                                                        <img :src="item.numOne" alt="">
-                                                        <img :src="item.numTwo" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="fight">战力值：<span>{{item.fight}}</span></div>
-                                            </div>
-                                        </a>
-                                    </li>
-                            </ul>
-                        </div>
-                        <div class="aftThree">
-                            <ul class="mui-table-view">
-                                    <li class="mui-table-view-cell"  v-for="(item,index) in befThree" :key="index">
-                                        <a class="mui-navigate-right">
-                                        <div class="listItem">
-                                                    <span class="ranking">4</span>
-                                                <div class="picFra"><img :src="item.proPic" alt=""></div>
-                                                <span class="name">{{item.name}}</span>
-                                                <div class="rankBgBox">
-                                                    <img :src="item.nameBg" alt="" class="rankBg">
-                                                        <span class="rankText">{{item.name}}</span>
-                                                    <div class="num">
-                                                        <img :src="item.numOne" alt="">
-                                                        <img :src="item.numTwo" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="fight">战力值：<span>{{item.fight}}</span></div>
-                                        </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                        </div>
-                </div>
-            </swiper-slide>
-            <swiper-slide>
-                <div class="section">     
-                        <div class="befThree">
-                            <ul class="threeBox">
-                                <li v-for="(item,index) in befThree" :key="index">
-                                        <a href="" class="link">
-                                            <div class="Medal">
-                                                <div class="circle"><img :src="item.proPic" alt=""></div>
-                                            </div>
-                                            <div class="details">
-                                                <p class="style">{{item.name}}</p>
-                                                <div class="rankBgBox">
-                                                    <img :src="item.nameBg" alt="" class="rankBg">
-                                                        <span class="rankText">{{item.name}}</span>
-                                                    <div class="num">
-                                                        <img :src="item.numOne" alt="">
-                                                        <img :src="item.numTwo" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="fight">战力值：<span>{{item.fight}}</span></div>
-                                            </div>
-                                        </a>
-                                    </li>
-                            </ul>
-                        </div>
-                        <div class="aftThree">
-                            <ul class="mui-table-view">
-                                    <li class="mui-table-view-cell"  v-for="(item,index) in befThree" :key="index">
-                                        <a class="mui-navigate-right">
-                                        <div class="listItem">
-                                                    <span class="ranking">4</span>
-                                                <div class="picFra"><img :src="item.proPic" alt=""></div>
-                                                <span class="name">{{item.name}}</span>
-                                                <div class="rankBgBox">
-                                                    <img :src="item.nameBg" alt="" class="rankBg">
-                                                        <span class="rankText">{{item.name}}</span>
-                                                    <div class="num">
-                                                        <img :src="item.numOne" alt="">
-                                                        <img :src="item.numTwo" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="fight">战力值：<span>{{item.fight}}</span></div>
-                                        </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                        </div>
-                </div>
-            </swiper-slide>
-            <!-- Optional controls -->
-            <!-- <div class="swiper-pagination"  slot="pagination"></div>
-            <div class="swiper-button-prev" slot="button-prev"></div>
-            <div class="swiper-button-next" slot="button-next"></div>
-            <div class="swiper-scrollbar"   slot="scrollbar"></div> -->
-    </swiper>
     </div>
 </template>
 <script> 
 export default {
-    // name: 'carrousel',
     data() {
       return {
         befThree:[
@@ -223,37 +64,28 @@ export default {
             {proPic:"//127.0.0.1:7000/img/69ded6a598_250_350.jpg",name:"名牌",nameBg:"//127.0.0.1:7000/img/armybackground80_99.png",numOne:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",numTwo:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",fight:"86247"},
             {proPic:"//127.0.0.1:7000/img/69ded6a598_250_350.jpg",name:"名牌",nameBg:"//127.0.0.1:7000/img/armybackground80_99.png",numOne:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",numTwo:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",fight:"86247"}
         ],
+        aftThree:[
+             {proPic:"//127.0.0.1:7000/img/69ded6a598_250_350.jpg",name:"名牌",nameBg:"//127.0.0.1:7000/img/armybackground80_99.png",numOne:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",numTwo:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",fight:"86247"},
+            {proPic:"//127.0.0.1:7000/img/69ded6a598_250_350.jpg",name:"名牌",nameBg:"//127.0.0.1:7000/img/armybackground80_99.png",numOne:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",numTwo:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",fight:"86247"},
+            {proPic:"//127.0.0.1:7000/img/69ded6a598_250_350.jpg",name:"名牌",nameBg:"//127.0.0.1:7000/img/armybackground80_99.png",numOne:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",numTwo:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",fight:"86247"},
+             {proPic:"//127.0.0.1:7000/img/69ded6a598_250_350.jpg",name:"名牌",nameBg:"//127.0.0.1:7000/img/armybackground80_99.png",numOne:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",numTwo:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",fight:"86247"},
+            {proPic:"//127.0.0.1:7000/img/69ded6a598_250_350.jpg",name:"名牌",nameBg:"//127.0.0.1:7000/img/armybackground80_99.png",numOne:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",numTwo:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",fight:"86247"},
+            {proPic:"//127.0.0.1:7000/img/69ded6a598_250_350.jpg",name:"名牌",nameBg:"//127.0.0.1:7000/img/armybackground80_99.png",numOne:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",numTwo:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",fight:"86247"},
+             {proPic:"//127.0.0.1:7000/img/69ded6a598_250_350.jpg",name:"名牌",nameBg:"//127.0.0.1:7000/img/armybackground80_99.png",numOne:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",numTwo:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",fight:"86247"},
+            {proPic:"//127.0.0.1:7000/img/69ded6a598_250_350.jpg",name:"名牌",nameBg:"//127.0.0.1:7000/img/armybackground80_99.png",numOne:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",numTwo:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",fight:"86247"},
+            {proPic:"//127.0.0.1:7000/img/69ded6a598_250_350.jpg",name:"名牌",nameBg:"//127.0.0.1:7000/img/armybackground80_99.png",numOne:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",numTwo:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",fight:"86247"},
+             {proPic:"//127.0.0.1:7000/img/69ded6a598_250_350.jpg",name:"名牌",nameBg:"//127.0.0.1:7000/img/armybackground80_99.png",numOne:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",numTwo:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",fight:"86247"},
+            {proPic:"//127.0.0.1:7000/img/69ded6a598_250_350.jpg",name:"名牌",nameBg:"//127.0.0.1:7000/img/armybackground80_99.png",numOne:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",numTwo:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",fight:"86247"},
+            {proPic:"//127.0.0.1:7000/img/69ded6a598_250_350.jpg",name:"名牌",nameBg:"//127.0.0.1:7000/img/armybackground80_99.png",numOne:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",numTwo:"//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",fight:"86247"}
+        ]
 
-        swiperOption: {
-          // some swiper options/callbacks
-          // 所有的参数同 swiper 官方 api 参数
-          // ...
-        }
+       
       }
-    },
-    computed: {
-      swiper() {
-        return this.$refs.mySwiper.swiper
-      }
-    },
-    mounted() {
-      // current swiper instance
-      // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
-      console.log('this is current swiper instance object', this.swiper)
-      this.swiper.slideTo(0, 1000, false)
-    },
-    methods:{
-        callback(){
-
-        }
     }
   
 }
 </script>
 <style>
-.guardSwiper{
-    margin-top: 79px;
-}
 .guardSwiper .section{
     background:#fff;
 }

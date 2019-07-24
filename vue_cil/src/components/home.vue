@@ -11,7 +11,7 @@
         </mt-tab-container-item>
         <mt-tab-container-item id="护卫队">
             <!-- <mt-cell  v-for="(elem,i) in arr" :key="i" title="第三页"></mt-cell> -->
-            <protector-vue></protector-vue>
+            <guard-vue></guard-vue>
         </mt-tab-container-item>
         <mt-tab-container-item id="发现">
             <!-- <mt-cell  v-for="(elem,i) in arr" :key="i" title="第四页"></mt-cell> -->
@@ -19,7 +19,7 @@
         </mt-tab-container-item>
           <mt-tab-container-item id="我">
             <!-- <mt-cell  v-for="(elem,i) in arr" :key="i" title="第四页"></mt-cell> -->
-           <me-vue></me-vue>
+              <me-vue></me-vue>
         </mt-tab-container-item>
 </mt-tab-container>
 
@@ -36,7 +36,7 @@
 <script>
 import squareVue from "./square"
 import rankingVue from "./ranking"
-import protectorVue from "./protector"
+import guardVue from "./guard.vue"
 import findVue from "./find"
 import meVue from "./me"
 export default {
@@ -61,7 +61,7 @@ export default {
     components:{
         squareVue,
         rankingVue,
-        protectorVue,
+        guardVue,
         findVue,
         meVue
     }
