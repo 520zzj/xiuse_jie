@@ -8,8 +8,10 @@
             </li>
         </ul>
         <div class="swipe">
-            <transition name="left">
-                <router-view></router-view>        
+            <transition :name="direction">
+                <keep-alive>
+                    <router-view class=".router-view" key="index" v-if="$route.meta.keepAlive"></router-view>        
+                </keep-alive>
             </transition>
         </div>
      
@@ -22,41 +24,61 @@ import vueThree from "./pages/pageThree.vue"
 export default {
     data(){
         return{
-            active:0,
-            arr:["页面","页面","页面","页面","页面","页面"]
+            direction:"forward"
         }
     },
     components:{
         vueOne,
         vueTwo,
         vueThree
-    }
+    },
+    watch:{
+        '$route' (to,from){
+            this.direction=to.meta.index<from.meta.index?"back":"forward"
+        }
+    },
 }   
 </script>
 <style>
 .swipe{
     width:100%;
-    height: 300px;
+    height: 400px;
 }
-.v-enter{opacity: 0;}
-  .v-enter-to{opacity: 1;}
-  .v-enter-active{transition: 1s;} /*定义过渡时间*/
-  .v-leave{opacity: 1;}
-  .v-leave-to{opacity: 0;}
-  .v-leave-active{transition: 2s;} 
-  .left-enter{transform: translateX(100%)}/*100%代表在屏幕外*/
-  .left-enter-to{transform: translateX(0)}
-  .left-enter-active{transition:1s}
-  .left-leave{transform: translateX(0)}
-  .left-leave-to{transform: translateX(-100%)}
-  .left-leave-active{transition:.5s}
 
-  .right-enter{transform: translateX(-100%)}/*-100%代表在屏幕外,屏幕的左边*/
-  /* .right-enter-to{transform: translateX(0)}; */
-  /* .right-leave{transform: translateX(0)} */
-  .right-leave-to{transform: translateX(100%)}/*屏幕的右边*/
-  .right-enter-active{transition:1s}
-  .right-leave-active{transition:1s}
+.router-view{
+    position: absolute;
+    top:0;
+    left:0;
+}
+/* 左滑也就是前进的样式 */
+.forward-leave-active{
+    transition:all 1s linear;
+}
+.forward-leave-to{
+    transform: translateX(-100%);
+}
+.forward-enter{
+    transform: translateX(100%);
+}
+.forward-enter-active{
+    transition: all 1s linear;
+}
+/* 右滑既是后退的样式 */
+.back-enter{
+    transform: translateX(-100%);
+}
+.back-enter-active{
+    transition: all 1s linear;
+}
+.back-leave-to{
+    transform: translateX(100%);
+}
+.back-leave-active{
+    transition: all 1s linear;
+}
+.transitionBody{
+    transition: all 1s linear;
+}
 </style>
 
 

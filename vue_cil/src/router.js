@@ -37,9 +37,9 @@ export default new Router({
     {path:"/indexlist",component:indexlist},
     {path:"/phonelogin",component:phonelogin},
     {path:"/test",component:test,children:[
-      {path:"/pageOne",component:pageOne},
-      {path:"/pageTwo",component:pageTwo},
-      {path:"/pageThree",component:pageThree},
+      {path:"/pageOne",component:pageOne,meta:{index:1,keepAlive:true}},
+      {path:"/pageTwo",component:pageTwo,meta:{index:2,keepAlive:true}},
+      {path:"/pageThree",component:pageThree,meta:{index:3,keepAlive:true}},
     ]},
     {path:"/phoneReg",component:phoneReg},
     {path:"/accountLog",component:accountLog},

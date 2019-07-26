@@ -1,5 +1,5 @@
 <template>
-    <div class="pageTwo">
+    <div class="pageTwo" :style="{width:this.$store.state.width_s+'px'}">
            <v-touch @swipeleft="menuThree" @swiperight="menuOne">
                 <div class="page">页面2</div>
            </v-touch>

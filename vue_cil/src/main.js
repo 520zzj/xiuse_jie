@@ -35,21 +35,34 @@ import vantUI from "vant"
 import 'vant/lib/index.css'
 Vue.use(vantUI)
 
-//引入vue-touch
-import vueTouch from "vue-touch"
-Vue.use(vueTouch)
-vueTouch.config.swipe={
-  threshold:50//设置滑动距离
-}
-
 //引入vue-awesome-swiper组件
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper)
 
-
+//引入vuex
+import Vuex from "vuex"
+Vue.use(Vuex)
+const store = new Vuex.Store({
+  state:{
+    width_s:document.documentElement.clientWidth
+  }
+})
+router.beforeEach((to,from,next)=>{
+  console.log(store.state.width_s)
+  next();
+  })
+  
+  //引入vue-touch
+import vueTouch from "vue-touch"
+Vue.use(vueTouch)
+vueTouch.config.swipe={
+  threshold:store.state.width_s/2
+  //设置滑动距离
+}
 
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')

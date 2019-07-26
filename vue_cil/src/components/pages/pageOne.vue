@@ -1,5 +1,5 @@
 <template>
-    <div class="pageOne">
+    <div class="pageOne" :style="{width:this.$store.state.width_s+'px'}">
          <v-touch  v-on:swipeleft="menuTwo">
              <div class="page">页面1</div>
          </v-touch>
@@ -9,12 +9,12 @@
 export default {
     data(){
         return{
-
         }
     },
     methods:{
         menuTwo(){
             this.$router.push({"path":"/pageTwo"})
+            console.log(1)
         }
     }
 }
