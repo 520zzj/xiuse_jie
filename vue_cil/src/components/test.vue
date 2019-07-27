@@ -1,20 +1,26 @@
 <template>
     <div class="test">
-        <ul>
+        <ul class="navBar">
             <li>
                 <router-link to="/pageOne">页面1</router-link>
+            </li>
+             <li>
                 <router-link to="/pageTwo">页面2</router-link>
-               <router-link to="/pageThree">页面3</router-link>
+            </li>
+             <li>
+                <router-link to="/pageThree">页面3</router-link>
             </li>
         </ul>
         <div class="swipe">
-            <transition :name="direction">
-                <keep-alive>
-                    <router-view class=".router-view" key="index" v-if="$route.meta.keepAlive"></router-view>        
-                </keep-alive>
+        <v-touch v-on:swipeleft="swipeleft" v-on:swiperight="swiperight">
+         <transition :name="direction">
+                <!-- <keep-alive> -->
+                    <router-view class=".router-view" key="index" ></router-view>        
+                <!-- </keep-alive> -->
             </transition>
+        </v-touch>
+           
         </div>
-     
     </div>
 </template>
 <script>
@@ -24,7 +30,8 @@ import vueThree from "./pages/pageThree.vue"
 export default {
     data(){
         return{
-            direction:"forward"
+            direction:"forward",
+            topath:"",
         }
     },
     components:{
@@ -35,8 +42,36 @@ export default {
     watch:{
         '$route' (to,from){
             this.direction=to.meta.index<from.meta.index?"back":"forward"
-        }
+        },
+        
     },
+    methods:{
+        swipeleft(){
+            console.log(this.$route.meta.index)
+            switch (this.$route.meta.index) {
+                case 1:
+            this.$router.push({"path":"/pageTwo"})                    
+                    break;
+                case 2:
+            this.$router.push({"path":"/pageThree"})
+                    break;
+                default:
+                    break;
+            }
+        },
+        swiperight(){
+              switch (this.$route.meta.index) {
+                case 3:
+            this.$router.push({"path":"/pageTwo"})                    
+                    break;
+                case 2:
+            this.$router.push({"path":"/pageOne"})
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
 }   
 </script>
 <style>
@@ -78,6 +113,15 @@ export default {
 }
 .transitionBody{
     transition: all 1s linear;
+}
+/* 头部样式 */
+.test .navBar{
+    display:flex;
+    justify-content:center;
+}
+.test .navBar li{
+    padding:10px 15px;
+
 }
 </style>
 

@@ -1,8 +1,8 @@
 <template>
     <div class="pageOne" :style="{width:this.$store.state.width_s+'px'}">
-         <v-touch  v-on:swipeleft="menuTwo">
+         <!-- <v-touch  v-on:swipeleft="menuTwo"> -->
              <div class="page">页面1</div>
-         </v-touch>
+         <!-- </v-touch> -->
     </div>
 </template>
 <script>
