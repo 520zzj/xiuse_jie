@@ -24,11 +24,15 @@ Vue.config.productionTip = false
 //Vue.http.options.root = "http://127.0.0.1/vue_ser/";
 //6:全局设置post 时候表音的数据组织格式为 application/x-www-form-urlencoded
 //Vue.http.options.emulateJSON = true;
+
 // 导入 MUI 的样式表， 和 Bootstrap 用法没有差别
 import './lib/mui/css/mui.css'
 // 导入 MUI 的样式表，扩展图标样式，购物车图标
 // 还需要加载图标字体文件
 import './lib/mui/css/icons-extra.css'
+// 引入mui的js文件
+// import './lib/mui/js/mui.js'
+
 
 //引入vantui组件库
 import vantUI from "vant"
@@ -60,6 +64,11 @@ vueTouch.config.swipe={
   threshold:store.state.width_s/2
   //设置滑动距离
 }
+
+//引入上下拉刷新的组件,全局注册
+import MescrollVue from 'mescroll.js/mescroll.vue'
+Vue.use(MescrollVue)
+
 
 new Vue({
   router,

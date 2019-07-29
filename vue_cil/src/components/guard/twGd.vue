@@ -1,5 +1,6 @@
 <template>
-    <div class="guardFour">
+    <!-- 本周女神 -->
+    <div class="twGd">
           <div class="section">   
                         <!-- 刷新静态背景
                         <div class="freBgSta"></div>
@@ -37,13 +38,15 @@
                                         <div class="listItem">
                                                     <span class="ranking">4</span>
                                                 <div class="picFra"><img :src="item.proPic" alt=""></div>
-                                                <span class="name">{{item.name}}</span>
-                                                <div class="rankBgBox">
-                                                    <img :src="item.nameBg" alt="" class="rankBg">
-                                                        <span class="rankText">{{item.name}}</span>
-                                                    <div class="num">
-                                                        <img :src="item.numOne" alt="">
-                                                        <img :src="item.numTwo" alt="">
+                                                <div class="goddess">
+                                                     <span class="name">{{item.name}}</span>
+                                                    <div class="rankBgBox">
+                                                        <img :src="item.nameBg" alt="" class="rankBg">
+                                                            <span class="rankText">{{item.name}}</span>
+                                                        <div class="num">
+                                                            <img :src="item.numOne" alt="">
+                                                            <img :src="item.numTwo" alt="">
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="fight">战力值：<span>{{item.fight}}</span></div>
@@ -83,159 +86,7 @@ export default {
 }
 </script>
 <style>
-.guardFour .section{
-    background:#fff;
-}
-.guardFour .section .befThree a{
-    display:block;
-    text-align: center;
-}
-.guardFour .section .befThree .threeBox{
-    display:flex;
-    justify-content: center;
-    height:193px;
-    align-items:flex-end;
-}
-.guardFour  .section .befThree .threeBox li{
-    width:32%;
-}
-.guardFour  .section .befThree .threeBox li:first-child{
-    background:#FEEBEF;
-}
-.guardFour .section .befThree .threeBox li:nth-child(2){
-    background:#FEE4D9;
-}
-.guardFour .section .befThree .threeBox li:last-child{
-    background:#DEF6FB;
-}
-.guardFour .section .befThree li:first-child .Medal{
-    background-image:url("//127.0.0.1:7000/img/showself_team_icon_ranking_2.png");
-}
-.guardFour  .section .befThree li:nth-child(2) .Medal{
-    background-image:url("//127.0.0.1:7000/img/showself_team_icon_ranking_1.png");
-}
-.guardFour .section .befThree li:last-child .Medal{
-    background-image:url("//127.0.0.1:7000/img/showself_team_icon_ranking_3.png");
-}
-.guardFour  .section .befThree .Medal{
-    background:center;
-    background-repeat: no-repeat;
-    height:82px;
-    width:70px;
-    background-size: 100%;
-    margin:0 auto;
-    position: relative;
-    background-position:top center;
-}   
-.guardFour  .section .circle{
-    width:47px;
-    height:47px;
-    /* border:1px solid #008000; */
-    position: absolute;
-    top:26px;
-    left:12px;
-    border-radius: 50%;
-    overflow: hidden;
-    z-index: 0;
-}
-.guardFour .section .circle img{
-    width:100%;
-    height:auto;
-}
-.guardFour .section .befThree .style{
-    font-size: 10px;
-    margin-bottom:3px;
-}
-.guardFour .section .befThree li:first-child .style{
-    color:#D23F72;
-}
-.guardFour  .section .befThree  li:nth-child(2) .style{
-    color:#CC7958;
-}
-.guardFour .section .befThree  li:last-child .style{
-    color:#57ACAA;
-}
-.guardFour .section .rankBgBox{
-    position: relative;
-    width:46px;
-    height:22px;
-    /* text-align: center; */
-    margin:0 auto;
-}
-.guardFour .section .rankBgBox .num{
-    position: absolute;
-    top:14px;
-    right:-6px;
-}
-.guardFour .section .num img{
-    width:7px;
-    height:11px;
-}
-.guardFour .section .rankBg{
-    width:100%;
-    height:100%;
-}
-.guardFour .section .rankBgBox .rankText{
-    position:absolute;
-    white-space: nowrap;
-    top:0px;
-    right: 10px;
-    font-size:12px;
-    color:#fff;
-}
-.guardFour .section .befThree .fight{
-    font-size: 12px;
-    color:gray;
-    padding:12px 0;
-}
-.guardFour  .section .befThree  li:first-child .fight span{
-    color:#D23F72;
-}
-.guardFour .section .befThree  li:nth-child(2) .fight span{
-    color:#CC7958;
-}
-.guardFour .section .befThree  li:last-child .fight span{
-    color:#57ACAA;
-}
-.guardFour .section .befThree  li:nth-child(2) .Medal{
-    margin-bottom: 10px;
-}
-.guardFour .section .aftThree .listItem{
-    display:flex;
-    align-items:center;
-}
-.guardFour  .section .aftThree .picFra{
-    width:44px;
-    height:44px;
-    /* border:1px solid green; */
-    border-radius: 50%;
-    overflow:hidden;
-}
-.guardFour .section .aftThree .picFra img{
-    width:100%;
-    height:auto;
-}
-.guardFour .section .aftThree .rankBgBox{
-    margin:0px;
-}
-.guardFour .section .aftThree .ranking{
-    padding-right:10px;
-    color:gray;
-}
-.guardFour .section .aftThree .name{
-    padding:0 12px;
-    color:gray;
-    font-size: 12px;
 
-}
-.guardFour .section .aftThree .fight{
-    font-size:12px;
-    color:gray;
-    padding-left:60px;
-}
-.guardFour .section .aftThree .fight span{
-    color:#D23F72;
-}
 </style>
 
 

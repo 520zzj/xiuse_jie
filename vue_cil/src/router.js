@@ -21,10 +21,10 @@ import pageThree from "./components/pages/pageThree"
 import guardHead from "./components/guard/guardHead"
 import guardSwiper from "./components/guard/guardSwiper"
 
-import guardOne from "./components/guard/guardOne"
-import guardTwo from "./components/guard/guardTwo"
-import guardThree from "./components/guard/guardThree"
-import guardFour from "./components/guard/guardFour"
+import guardDay from "./components/guard/guardDay"
+import guardWeek from "./components/guard/guardWeek"
+import twGd from "./components/guard/twGd"
+import lwGd from "./components/guard/lwGd"
 import me from "./components/me.vue"
 Vue.use(Router)
 //启动脚手架npm run dev 看package.json
@@ -48,10 +48,10 @@ export default new Router({
     {path:"/guardHead",component:guardHead},
     {path:"/guardSwiper",component:guardSwiper},
     {path:"/guard",component:guard},
-    {path:"/guardOne",component:guardOne},
-    {path:"/guardTwo",component:guardTwo},
-    {path:"/guardThree",component:guardThree},
-    {path:"/guardFour",component:guardFour},
+    {path:"/guardDay",component:guardDay},
+    {path:"/guardWeek",component:guardWeek},
+    {path:"/twGd",component:twGd},
+    {path:"/lwGd",component:lwGd},
   ]
 })
 //npm run dev 启动脚手架
