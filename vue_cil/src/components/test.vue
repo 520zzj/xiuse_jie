@@ -1,127 +1,102 @@
 <template>
     <div class="test">
-        <ul class="navBar">
-            <li>
-                <router-link to="/pageOne">页面1</router-link>
-            </li>
-             <li>
-                <router-link to="/pageTwo">页面2</router-link>
-            </li>
-             <li>
-                <router-link to="/pageThree">页面3</router-link>
+        <div class="header">
+            <ul class="navBar">
+            <li v-for="(item,index) in tabs" :key="index" @click="changeContent(index)" :class="{active:isActive==index}">
+                <a>{{item}}</a>
             </li>
         </ul>
+        </div>
+        
         <div class="swipe">
-        <v-touch v-on:swipeleft="swipeleft" v-on:swiperight="swiperight">
-         <transition :name="direction">
-                <!-- <keep-alive> -->
-                    <router-view class=".router-view" key="index" ></router-view>        
-                <!-- </keep-alive> -->
-            </transition>
-        </v-touch>
-           
+            <swiper :options="swiperOption" ref="mySwiper">
+                <swiper-slide v-for="(item,index) in list" :key="index">
+                    <div class="content">
+                        <ul class="proList">
+                            <li>{{item.id}}</li>
+                            <li>{{item.pdImg}}</li>
+                            <li>{{item.pdPrice}}</li>
+                            <li>{{item.pdSold}}</li>
+                            <li>{{item.pdName}}</li>
+                        </ul>
+                    </div>
+                </swiper-slide>
+            </swiper>
         </div>
     </div>
 </template>
 <script>
-import vueOne from "./pages/pageOne.vue"
-import vueTwo from "./pages/pageTwo.vue"
-import vueThree from "./pages/pageThree.vue"
+import mockData from '../mock/pdlist'
 export default {
     data(){
         return{
-            direction:"forward",
-            topath:"",
+          list:["页面1","页面2","页面3"],
+          tabs:["衣服","鞋子","化妆品"],
+          isActive:0,
+          swiperOption:{
+              on:{
+                  //注册页面滑动触发的事件
+                  transitionEnd:()=>{
+                      console.log(this.swiper.activeIndex)
+                      this.isActive=this.swiper.activeIndex
+                  }
+              }
+          }
         }
     },
-    components:{
-        vueOne,
-        vueTwo,
-        vueThree
-    },
-    watch:{
-        '$route' (to,from){
-            this.direction=to.meta.index<from.meta.index?"back":"forward"
-        },
-        
+    computed:{
+        swiper() {
+        return this.$refs.mySwiper.swiper
+      }
     },
     methods:{
-        swipeleft(){
-            console.log(this.$route.meta.index)
-            switch (this.$route.meta.index) {
-                case 1:
-            this.$router.push({"path":"/pageTwo"})                    
-                    break;
-                case 2:
-            this.$router.push({"path":"/pageThree"})
-                    break;
-                default:
-                    break;
-            }
+        changeContent(index){
+            this.swiper.slideTo(index)
+            this.isActive=index
         },
-        swiperight(){
-              switch (this.$route.meta.index) {
-                case 3:
-            this.$router.push({"path":"/pageTwo"})                    
-                    break;
-                case 2:
-            this.$router.push({"path":"/pageOne"})
-                    break;
-                default:
-                    break;
-            }
+        loadDate(){
+            this.list=mockData.slice(0,3)
         }
+    },
+    mounted(){
+        this.loadDate()
+        console.log(mockData)
     }
-}   
+  
+}
+  
 </script>
-<style>
-.swipe{
-    width:100%;
-    height: 400px;
+<style scoped>
+
+.test .content{
+    background:green;
+    /* height:200px; */
 }
 
-.router-view{
-    position: absolute;
-    top:0;
-    left:0;
-}
-/* 左滑也就是前进的样式 */
-.forward-leave-active{
-    transition:all 1s linear;
-}
-.forward-leave-to{
-    transform: translateX(-100%);
-}
-.forward-enter{
-    transform: translateX(100%);
-}
-.forward-enter-active{
-    transition: all 1s linear;
-}
-/* 右滑既是后退的样式 */
-.back-enter{
-    transform: translateX(-100%);
-}
-.back-enter-active{
-    transition: all 1s linear;
-}
-.back-leave-to{
-    transform: translateX(100%);
-}
-.back-leave-active{
-    transition: all 1s linear;
-}
-.transitionBody{
-    transition: all 1s linear;
-}
+
 /* 头部样式 */
 .test .navBar{
     display:flex;
     justify-content:center;
 }
+.test .header{
+    position: fixed;
+    z-index: 10;
+    left:0;
+    right:0;
+    top:0;
+}
 .test .navBar li{
     padding:10px 15px;
-
+}
+.test .navBar li.active{
+    background:red;
+}
+.test .proList li{
+    height: 200px;
+}
+.test .swipe{
+    margin-top:41px;
 }
 </style>
 

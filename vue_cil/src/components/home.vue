@@ -3,7 +3,7 @@
     <mt-tab-container v-model="active">
         <mt-tab-container-item id="广场">
             <!-- <mt-cell v-for="(elem,i) in arr" :key="i" title="第一页"></mt-cell> -->
-            <square-vue></square-vue>
+            <square-vue></square-vue> 
         </mt-tab-container-item>
         <mt-tab-container-item id="排行">
             <!-- <mt-cell  v-for="(elem,i) in arr" :key="i" title="第二页"></mt-cell> -->
