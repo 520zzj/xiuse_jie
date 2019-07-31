@@ -4,9 +4,6 @@ import App from './App.vue'
 import router from './router'
 //第三方组件库在下面引
 
-//引入基础css样式
-import './assets/css/reset.css'
-
 import axios from "axios"//引入axios模块
 axios.defaults.withCredentials=true//配置跨域选项,跨域访问要保存session中的数据
 Vue.prototype.axios=axios//配置到vue的原型对象中  this.axios.get/post 
@@ -44,7 +41,7 @@ Vue.use(vantUI)
 
 //引入vue-awesome-swiper组件
 import swiper from 'vue-awesome-swiper'
-import 'swiper/dist/css/swiper.css'
+import 'swiper/dist/css/swiper.css' 
 Vue.use(swiper)
 
 //引入vuex
@@ -72,6 +69,8 @@ vueTouch.config.swipe={
 import MescrollVue from 'mescroll.js/mescroll.vue'
 Vue.use(MescrollVue)
 
+//引入基础css样式
+import './assets/css/reset.css'
 
 new Vue({
   router,

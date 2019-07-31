@@ -4,6 +4,7 @@ const cors=require("cors");//引入跨域模块
 const bodyParser=require("body-parser");//中间件
 const session=require("express-session");//session模块
 const mainlogin=require("./routes/mainlogin_router.js")//路由器
+const square=require("./routes/square_router")//大厅路由器
 
 var app=express();
 var server=app.listen(7000);//监听端口
@@ -23,3 +24,4 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static('public'));
 //挂载路由
 app.use("/mainlogin",mainlogin);
+app.use("/square",square);
