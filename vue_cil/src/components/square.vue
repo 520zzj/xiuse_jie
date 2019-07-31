@@ -438,7 +438,8 @@ export default {
 			      }).then((response) => {
                     // 请求的列表数据
                     console.log(response)
-			        let arr = response.data
+              let arr = response.data
+              this.tabs[mescroll.tabIndex].isListInit = true;// 标记列表已初始化,保证列表只初始化一次
 			        // 如果是第一页需手动置空列表
 			        if (page.num === 1) this.dataList = []
 			        // 把请求到的数据添加到列表
@@ -452,7 +453,7 @@ export default {
 			        mescroll.endErr()
 			      })
 			    
-      this.tabs[mescroll.tabIndex].isListInit = true;// 标记列表已初始化,保证列表只初始化一次
+      // this.tabs[mescroll.tabIndex].isListInit = true;// 标记列表已初始化,保证列表只初始化一次
     //   this.getListDataFromNet(mescroll.tabIndex, page.num, page.size, (curPageData) => {
     //     mescroll.endSuccess(curPageData.length);// 联网成功的回调,隐藏下拉刷新和上拉加载的状态;
     //     if (page.num === 1) this.tabs[mescroll.tabIndex].list = []; // 如果是第一页需手动制空列表

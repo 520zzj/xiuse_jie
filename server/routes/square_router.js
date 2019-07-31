@@ -15,7 +15,7 @@ router.get("/hall",(req,res)=>{
     pool.query(sql,[offset,size],(err,result)=>{
         if(err)throw err;
        if(result.length>0){
-          res.send({code:1,data:result})
+          res.send(result)
        }
     })
 })
