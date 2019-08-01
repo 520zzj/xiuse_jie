@@ -43,8 +43,8 @@
             </div>
             <div class="imgList">
                 <div class="recommend container">
-                    <div class="reLeftBox">
-                        <div class="inCon">
+                    <div class="picBox">
+                        <div class="imgbox">
                             <a href="" class="link">
                                 <img src="//127.0.0.1:7000/img/b127f14ce1_250_350.jpg" alt="">
                                 <div class="perInfo">
@@ -61,7 +61,7 @@
                             </a>  
                         </div>    
                     </div>
-                    <div class="reRightBox">
+                    <div class="picBox">
                         <div class="imgbox">
                             <a href="" class="link noPadLeft">
                                     <img src="//127.0.0.1:7000/img/f283fbb284_250_350.jpg" alt="">
@@ -94,8 +94,7 @@
                                     </div>
                                 </a>
                         </div>
-                    </div>
-                
+                    </div>    
                 </div>
                 <div class="floor">
                     <div class="sort">
@@ -104,7 +103,7 @@
                     </div>
                     <div class="floorImgList container">
                         <div class="listItem">
-                            <div class="inCon">
+                            <div class="imgbox">
                                 <a href="" class="link">
                                     <img src="//127.0.0.1:7000/img/b127f14ce1_250_350.jpg" alt="">
                                     <div class="perInfo">
@@ -122,7 +121,7 @@
                             </div>    
                         </div>
                         <div class="listItem">
-                            <div class="inCon">
+                            <div class="imgbox">
                                 <a href="" class="link">
                                     <img src="//127.0.0.1:7000/img/b127f14ce1_250_350.jpg" alt="">
                                     <p class="perInfo">zuo</p>
@@ -130,7 +129,7 @@
                             </div>    
                         </div>
                         <div class="listItem">
-                            <div class="inCon">
+                            <div class="imgbox">
                                 <a href="" class="link">
                                     <img src="//127.0.0.1:7000/img/b127f14ce1_250_350.jpg" alt="">
                                     <p class="perInfo">zuo</p>
@@ -138,7 +137,7 @@
                             </div>    
                         </div>
                         <div class="listItem">
-                            <div class="inCon">
+                            <div class="imgbox">
                                 <a href="" class="link">
                                     <img src="//127.0.0.1:7000/img/b127f14ce1_250_350.jpg" alt="">
                                     <p class="perInfo">zuo</p>
@@ -425,25 +424,27 @@ export default {
     },
     /* 上拉加载的回调 page = {num:1, size:10}; num:当前页 从1开始, size:每页数据条数 */
     upCallback (page, mescroll) {
-     // if (mescroll.tabType === 0) {
-      //   // 可以单独处理每个tab的请求
-      // }else if (mescroll.tabType === 1) {
-      //   // 可以单独处理每个tab的请求
-      // }
-      this.axios.get('http://127.0.0.1:7000/square/hall', {
+     if (mescroll.tabIndex === 0) {
+        // 可以单独处理每个tab的请求
+         this.axios.get('http://127.0.0.1:7000/square/hall', {
 			        params: {
-			          num: 1, // 页码
-			          size:10// 每页长度
+			          num: page.num, // 页码
+			          size:page.size// 每页长度
 			        }
 			      }).then((response) => {
                     // 请求的列表数据
-                    console.log(response)
-              let arr = response.data
+                    // console.log(response.data)
+
+              let arr =[]
+              arr.push({recommend:response.data.slice(0,3)})
+              arr.push({sweet:response.data.slice(3,6)})
+              arr.push({charming:response.data.slice(6)})
+              console.log(arr)
               this.tabs[mescroll.tabIndex].isListInit = true;// 标记列表已初始化,保证列表只初始化一次
 			        // 如果是第一页需手动置空列表
-			        if (page.num === 1) this.dataList = []
+			        if (page.num === 1) this.tabs[mescroll.tabIndex].list = [];
 			        // 把请求到的数据添加到列表
-			        this.dataList = this.dataList.concat(arr)
+			        this.tabs[mescroll.tabIndex].list = this.tabs[mescroll.tabIndex].list.concat(arr);
 			        // 数据渲染成功后,隐藏下拉刷新的状态
 			        this.$nextTick(() => {
 			          mescroll.endSuccess(arr.length)
@@ -452,6 +453,10 @@ export default {
 			        // 联网失败的回调,隐藏下拉刷新和上拉加载的状态;
 			        mescroll.endErr()
 			      })
+      }else if (mescroll.tabIndex === 1) {
+        // 可以单独处理每个tab的请求
+      }
+     
 			    
       // this.tabs[mescroll.tabIndex].isListInit = true;// 标记列表已初始化,保证列表只初始化一次
     //   this.getListDataFromNet(mescroll.tabIndex, page.num, page.size, (curPageData) => {
@@ -631,18 +636,25 @@ export default {
         display: flex;
         flex-wrap: wrap;
     }
-    .hall .imgList .container .inCon{
+    .hall .imgList .container .imgbox{
     position: absolute;
     width:100%;
     height:100%;
     top:0;
     left:0;
     }
-    .hall .imgList .recommend .inCon .reRight{
+      .hall .imgList .recommend .picBox:first-child .imgbox{
+    position: absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    }
+    /* .hall .imgList .recommend .inCon .reRight{
         width:100%;
         height:50%;
         position: relative;
-    }
+    } */
     .hall .imgList .container .link{
         width:100%;
         height:100%;
@@ -654,12 +666,12 @@ export default {
     .hall .imgList .recommend a.noPadLeft{
         padding-left:0;
     }
-    .hall .imgList .recommend .reLeftBox{
+    .hall .imgList .recommend .picBox:first-child{
         width:60%;
         padding-top:60%;
         position: relative;
     }
-    .hall .imgList .recommend .reRightBox{
+    .hall .imgList .recommend .picBox:last-child{
         width:40%;
         position: relative;
     }
@@ -679,7 +691,7 @@ export default {
         padding:0px 5px 0px 5px;
         align-items: center;
     }
-    .hall .imgList .recommend .reRightBox .perInfo{
+    .hall .imgList .recommend .picBox:last-child .perInfo{
         padding-right:15px;
     }
     .hall .imgList .container .perInfo .achievement{
