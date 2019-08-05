@@ -81,13 +81,37 @@
                     </div>
                 </div>
 
-              <!-- 楼层 -->
+              <!-- 楼层  甜美主播 -->
                 <div class="floor">
                     <div class="sweetTittle">
                         <img src="//127.0.0.1:7000/img/hall_anchor_classfy_bar.png" alt="">
                         <span>甜美主播</span>
                     </div>
-                    <!-- <div class="flexBox">
+                    <div class="cf sweet">
+                        <div class="imgBox">
+                            <div class="bgPic">
+                                <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
+                                <div class="infoBox">
+                                      <div class="info">
+                                          <div class="ranking"><img src="//127.0.0.1:7000/img/red_packet_gf5.png" alt=""><img src="//127.0.0.1:7000/img/friend_dp_all.png" alt=""></div>
+                                          <div class="sign">放开那个女孩</div>
+                                          <div class="watching"><img src="http://127.0.0.1:7000/img/hall_anchor_audience.png" alt=""><span>1000</span></div>
+                                      </div>
+                                </div>               
+                            </div>
+                        </div>
+                        <div class="imgBox">
+                              <div class="bgPic">
+                                      <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
+                                      <div class="infoBox">
+                                      <div class="info">
+                                          <div class="ranking"><img src="//127.0.0.1:7000/img/red_packet_gf5.png" alt=""><img src="//127.0.0.1:7000/img/friend_dp_all.png" alt=""></div>
+                                          <div class="sign">放开那个女孩</div>
+                                          <div class="watching"><img src="http://127.0.0.1:7000/img/hall_anchor_audience.png" alt=""><span>1000</span></div>
+                                      </div>
+                                </div>
+                              </div>    
+                          </div>
                         <div class="imgBox">            
                             <div class="bgPic">
                                 <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
@@ -100,47 +124,54 @@
                                 </div>
                             </div>
                         </div>
-
-                          <div class="imgBox">            
-                              <div class="bgPic">
-                                  <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
-                                    <div class="infoBox">
-                                        <div class="info">
-                                            <div class="ranking"><img src="//127.0.0.1:7000/img/red_packet_gf5.png" alt=""><img src="//127.0.0.1:7000/img/friend_dp_all.png" alt=""></div>
-                                            <div class="sign">放开那个女孩</div>
-                                            <div class="watching"><img src="http://127.0.0.1:7000/img/hall_anchor_audience.png" alt=""><span>1000</span></div>
-                                        </div>
-                                  </div>
-                              </div>
-                          </div>
-                           <div class="imgBox">            
-                              <div class="bgPic">
-                                  <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
-                                    <div class="infoBox">
-                                        <div class="info">
-                                            <div class="ranking"><img src="//127.0.0.1:7000/img/red_packet_gf5.png" alt=""><img src="//127.0.0.1:7000/img/friend_dp_all.png" alt=""></div>
-                                            <div class="sign">放开那个女孩</div>
-                                            <div class="watching"><img src="http://127.0.0.1:7000/img/hall_anchor_audience.png" alt=""><span>1000</span></div>
-                                        </div>
-                                  </div>
-                              </div>
-                          </div>
-                           <div class="imgBox">            
-                              <div class="bgPic">
-                                  <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
-                                    <div class="infoBox">
-                                        <div class="info">
-                                            <div class="ranking"><img src="//127.0.0.1:7000/img/red_packet_gf5.png" alt=""><img src="//127.0.0.1:7000/img/friend_dp_all.png" alt=""></div>
-                                            <div class="sign">放开那个女孩</div>
-                                            <div class="watching"><img src="http://127.0.0.1:7000/img/hall_anchor_audience.png" alt=""><span>1000</span></div>
-                                        </div>
-                                  </div>
-                              </div>
-                          </div>
-                        
-                    </div> -->
+                    </div>
                 </div>
-            
+                 <!-- 楼层  魅力主播 -->
+                 <div class="floor">
+                    <div class="sweetTittle">
+                        <img src="//127.0.0.1:7000/img/hall_anchor_classfy_bar.png" alt="">
+                        <span>魅力主播</span>
+                    </div>
+                    <div class="cf sweet">
+                        <div class="imgBox">
+                            <div class="bgPic">
+                                <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
+                                <div class="infoBox">
+                                      <div class="info">
+                                          <div class="ranking"><img src="//127.0.0.1:7000/img/red_packet_gf5.png" alt=""><img src="//127.0.0.1:7000/img/friend_dp_all.png" alt=""></div>
+                                          <div class="sign">放开那个女孩</div>
+                                          <div class="watching"><img src="http://127.0.0.1:7000/img/hall_anchor_audience.png" alt=""><span>1000</span></div>
+                                      </div>
+                                </div>               
+                            </div>
+                        </div>
+                        <div class="imgBox">
+                              <div class="bgPic">
+                                      <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
+                                      <div class="infoBox">
+                                      <div class="info">
+                                          <div class="ranking"><img src="//127.0.0.1:7000/img/red_packet_gf5.png" alt=""><img src="//127.0.0.1:7000/img/friend_dp_all.png" alt=""></div>
+                                          <div class="sign">放开那个女孩</div>
+                                          <div class="watching"><img src="http://127.0.0.1:7000/img/hall_anchor_audience.png" alt=""><span>1000</span></div>
+                                      </div>
+                                </div>
+                              </div>    
+                          </div>
+                        <div class="imgBox">            
+                            <div class="bgPic">
+                                <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
+                                  <div class="infoBox">
+                                      <div class="info">
+                                          <div class="ranking"><img src="//127.0.0.1:7000/img/red_packet_gf5.png" alt=""><img src="//127.0.0.1:7000/img/friend_dp_all.png" alt=""></div>
+                                          <div class="sign">放开那个女孩</div>
+                                          <div class="watching"><img src="http://127.0.0.1:7000/img/hall_anchor_audience.png" alt=""><span>1000</span></div>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
         </mescroll-vue>
@@ -674,7 +705,7 @@ export default {
     left: 3px;
     right:6px;
 }
-.recommend .infoBox{
+.infoBox{
     position:absolute;
     top:67%;
     left: 0;
@@ -722,5 +753,20 @@ export default {
         top:1px;
     }
 
-   
+   .sweet{
+     display: flex;
+     flex-wrap: wrap;
+   }
+   .sweet .imgBox{
+     width:50%;
+     padding-top:50%;
+     overflow: hidden;
+   }
+   .sweet .imgBox:nth-of-type(2n) .bgPic{
+     right: 6px;
+     left:3px;
+   }
+   .sweet .infoBox{
+     top:66%;
+   }
 </style>
