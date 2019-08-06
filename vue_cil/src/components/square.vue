@@ -43,19 +43,19 @@
             </div>
             <div class="imgList">
                 <div class="cf recommend">
-                    <div class="imgBox">
+                    <div class="imgBox" v-for="(item,index) in tabs[curIndex].list.slice(0,3)" :key="index">
                         <div class="bgPic">
-                            <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
+                            <img :src="item.hallBg_src" alt="">
                             <div class="infoBox">
                                   <div class="info">
-                                      <div class="ranking"><img src="//127.0.0.1:7000/img/red_packet_gf5.png" alt=""><img src="//127.0.0.1:7000/img/friend_dp_all.png" alt=""></div>
-                                      <div class="sign">放开那个女孩</div>
-                                      <div class="watching"><img src="http://127.0.0.1:7000/img/hall_anchor_audience.png" alt=""><span>1000</span></div>
+                                      <div class="ranking"><img :src="item.hallRanking_src" alt=""><img :src="item.RankIcon_src" alt=""></div>
+                                      <div class="sign">{{item.sign}}</div>
+                                      <div class="watching"><img :src="item.watchingIcon_src" alt=""><span>{{item.watchNum}}</span></div>
                                   </div>
                             </div>               
                         </div>
                     </div>
-                    <div class="imgBox">
+                    <!-- <div class="imgBox">
                           <div class="bgPic">
                                   <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
                                   <div class="infoBox">
@@ -78,7 +78,7 @@
                                   </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
               <!-- 楼层  甜美主播 -->
@@ -88,19 +88,19 @@
                         <span>甜美主播</span>
                     </div>
                     <div class="cf sweet">
-                        <div class="imgBox">
+                        <div class="imgBox" v-for="(item,index) in tabs[curIndex].list.slice(3,9)" :key="index">
                             <div class="bgPic">
-                                <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
+                                <img :src="item.hallBg_src" alt="">
                                 <div class="infoBox">
                                       <div class="info">
-                                          <div class="ranking"><img src="//127.0.0.1:7000/img/red_packet_gf5.png" alt=""><img src="//127.0.0.1:7000/img/friend_dp_all.png" alt=""></div>
-                                          <div class="sign">放开那个女孩</div>
-                                          <div class="watching"><img src="http://127.0.0.1:7000/img/hall_anchor_audience.png" alt=""><span>1000</span></div>
+                                          <div class="ranking"><img :src="item.hallRanking_src" alt=""><img :src="item.RankIcon_src" alt=""></div>
+                                          <div class="sign">{{item.sign}}</div>
+                                          <div class="watching"><img :src="item.watchingIcon_src" alt=""><span>{{item.watchNum}}</span></div>
                                       </div>
                                 </div>               
                             </div>
                         </div>
-                        <div class="imgBox">
+                        <!-- <div class="imgBox">
                               <div class="bgPic">
                                       <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
                                       <div class="infoBox">
@@ -123,7 +123,7 @@
                                       </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                  <!-- 楼层  魅力主播 -->
@@ -133,19 +133,19 @@
                         <span>魅力主播</span>
                     </div>
                     <div class="cf sweet">
-                        <div class="imgBox">
+                         <div class="imgBox" v-for="(item,index) in tabs[curIndex].list.slice(9)" :key="index">
                             <div class="bgPic">
-                                <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
+                                <img :src="item.hallBg_src" alt="">
                                 <div class="infoBox">
                                       <div class="info">
-                                          <div class="ranking"><img src="//127.0.0.1:7000/img/red_packet_gf5.png" alt=""><img src="//127.0.0.1:7000/img/friend_dp_all.png" alt=""></div>
-                                          <div class="sign">放开那个女孩</div>
-                                          <div class="watching"><img src="http://127.0.0.1:7000/img/hall_anchor_audience.png" alt=""><span>1000</span></div>
+                                          <div class="ranking"><img :src="item.hallRanking_src" alt=""><img :src="item.RankIcon_src" alt=""></div>
+                                          <div class="sign">{{item.sign}}</div>
+                                          <div class="watching"><img :src="item.watchingIcon_src" alt=""><span>{{item.watchNum}}</span></div>
                                       </div>
                                 </div>               
                             </div>
                         </div>
-                        <div class="imgBox">
+                        <!-- <div class="imgBox">
                               <div class="bgPic">
                                       <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
                                       <div class="infoBox">
@@ -168,7 +168,7 @@
                                       </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 
@@ -336,7 +336,7 @@ export default {
   name: 'mescrollSwiperNav',
   data () { 
     return {
-      tabs: [{name: '首页', mescroll: null, list: [], isListInit: false}, {name: '奶粉', mescroll: null, list: [], isListInit: false}, {name: '面膜', mescroll: null, list: [], isListInit: false}, {name: '图书', mescroll: null, list: [], isListInit: false}, {name: '果汁', mescroll: null, list: [], isListInit: false}, {name: '奶瓶', mescroll: null, list: [], isListInit: false}, {name: '美素', mescroll: null, list: [], isListInit: false}, {name: '璐拉', mescroll: null, list: [], isListInit: false}, {name: '启赋', mescroll: null, list: [], isListInit: false}, {name: '雅培', mescroll: null, list: [], isListInit: false}, {name: '花王', mescroll: null, list: [], isListInit: false}, {name: '韩蜜', mescroll: null, list: [], isListInit: false}],
+      tabs: [{name: '首页', mescroll: null, list: [], isListInit: false,newList:{}}, {name: '奶粉', mescroll: null, list: [], isListInit: false,newList:{}}, {name: '面膜', mescroll: null, list: [], isListInit: false,newList:{}}, {name: '图书', mescroll: null, list: [], isListInit: false,newList:{}}, {name: '果汁', mescroll: null, list: [], isListInit: false,newList:{}}, {name: '奶瓶', mescroll: null, list: [], isListInit: false,newList:{}}, {name: '美素', mescroll: null, list: [], isListInit: false,newList:{}}, {name: '璐拉', mescroll: null, list: [], isListInit: false,newList:{}}, {name: '启赋', mescroll: null, list: [], isListInit: false,newList:{}}, {name: '雅培', mescroll: null, list: [], isListInit: false,newList:{}}, {name: '花王', mescroll: null, list: [], isListInit: false,newList:{}}, {name: '韩蜜', mescroll: null, list: [], isListInit: false,newList:{}}],
       tabWidth: 60, // 每个tab的宽度
       barWidth: 30, // tab底部红色线的宽度
       curIndex: 0, // 当前tab的下标
@@ -347,7 +347,8 @@ export default {
             this.changeTab(this.swiper.activeIndex)
           }
         }
-      }
+      },
+      
     }
   },
   components: {
@@ -450,6 +451,9 @@ export default {
     /* 上拉加载的回调 page = {num:1, size:10}; num:当前页 从1开始, size:每页数据条数 */
     upCallback (page, mescroll) {
      if (mescroll.tabIndex === 0) {
+           console.log("触发了上拉回调")
+           
+          
         // 可以单独处理每个tab的请求
          this.axios.get('http://127.0.0.1:7000/square/hall', {
 			        params: {
@@ -459,17 +463,32 @@ export default {
 			      }).then((response) => {
                     // 请求的列表数据
                     // console.log(response.data)
-
-              let arr =[]
-              arr.push({recommend:response.data.slice(0,3)})
-              arr.push({sweet:response.data.slice(3,6)})
-              arr.push({charming:response.data.slice(6)})
+              // 如果是第一页前十条数据
+              let arr =response.data
+              
+              // if(page.num===1){
+              //   arr.push({recommend:response.data.slice(0,3)})
+              //   arr.push({sweet:response.data.slice(3,6)})
+              //   arr.push({charming:response.data.slice(6)})
+              // }else{
+              //   //前十条后的数据都加到charming处
+              //   arr.push({charming:response.data})
+              // }
+              
+              
               console.log(arr)
               this.tabs[mescroll.tabIndex].isListInit = true;// 标记列表已初始化,保证列表只初始化一次
 			        // 如果是第一页需手动置空列表
 			        if (page.num === 1) this.tabs[mescroll.tabIndex].list = [];
 			        // 把请求到的数据添加到列表
-			        this.tabs[mescroll.tabIndex].list = this.tabs[mescroll.tabIndex].list.concat(arr);
+              this.tabs[mescroll.tabIndex].list = this.tabs[mescroll.tabIndex].list.concat(arr);
+                console.log(this.tabs[mescroll.tabIndex].list)
+              //数据保存到数据列表里面后，提取前三个数据为推荐组数据,下标3-8数据为甜美主播，9到最后为魅力主播
+                //   this.tabs[mescroll.tabIndex].newList.recommend=this.tabs[mescroll.tabIndex].list.slice(0,3)
+                //   this.tabs[mescroll.tabIndex].newList.sweet=this.tabs[mescroll.tabIndex].list.slice(3,9)
+                //   this.tabs[mescroll.tabIndex].newList.charming=this.tabs[mescroll.tabIndex].list.slice(9)
+                //   //  console.log(this.tabs[mescroll.tabIndex])
+                // console.log(this.tabs[this.curIndex].newList)
 			        // 数据渲染成功后,隐藏下拉刷新的状态
 			        this.$nextTick(() => {
 			          mescroll.endSuccess(arr.length)
@@ -668,7 +687,7 @@ export default {
     padding-right: 6px;
 }
 .recommend .imgBox:first-child{
-    background: red;
+    /* background: red; */
     width: 60%;
     padding-top: 60%;
     float: left;
@@ -676,10 +695,10 @@ export default {
     padding-right: 3px;
 }
 .recommend .imgBox:nth-child(2){
-    background:green;
+    /* background:green; */
 }
 .recommend .imgBox:last-child{
-    background: gray;
+    /* background: gray; */
 }
 .imgBox{
     box-sizing: border-box;
