@@ -336,7 +336,7 @@ export default {
   name: 'mescrollSwiperNav',
   data () { 
     return {
-      tabs: [{name: '首页', mescroll: null, list: [], isListInit: false,newList:{}}, {name: '奶粉', mescroll: null, list: [], isListInit: false,newList:{}}, {name: '面膜', mescroll: null, list: [], isListInit: false,newList:{}}, {name: '图书', mescroll: null, list: [], isListInit: false,newList:{}}, {name: '果汁', mescroll: null, list: [], isListInit: false,newList:{}}, {name: '奶瓶', mescroll: null, list: [], isListInit: false,newList:{}}, {name: '美素', mescroll: null, list: [], isListInit: false,newList:{}}, {name: '璐拉', mescroll: null, list: [], isListInit: false,newList:{}}, {name: '启赋', mescroll: null, list: [], isListInit: false,newList:{}}, {name: '雅培', mescroll: null, list: [], isListInit: false,newList:{}}, {name: '花王', mescroll: null, list: [], isListInit: false,newList:{}}, {name: '韩蜜', mescroll: null, list: [], isListInit: false,newList:{}}],
+      tabs: [{name: '首页', mescroll: null, list: [], isListInit: false}, {name: '奶粉', mescroll: null, list: [], isListInit: false}, {name: '面膜', mescroll: null, list: [], isListInit: false}, {name: '图书', mescroll: null, list: [], isListInit: false}, {name: '果汁', mescroll: null, list: [], isListInit: false}, {name: '奶瓶', mescroll: null, list: [], isListInit: false}, {name: '美素', mescroll: null, list: [], isListInit: false}, {name: '璐拉', mescroll: null, list: [], isListInit: false}, {name: '启赋', mescroll: null, list: [], isListInit: false}, {name: '雅培', mescroll: null, list: [], isListInit: false}, {name: '花王', mescroll: null, list: [], isListInit: false}, {name: '韩蜜', mescroll: null, list: [], isListInit: false}],
       tabWidth: 60, // 每个tab的宽度
       barWidth: 30, // tab底部红色线的宽度
       curIndex: 0, // 当前tab的下标
