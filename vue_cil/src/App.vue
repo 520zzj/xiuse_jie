@@ -1,7 +1,9 @@
 <template>
  <div class="app-container">
-    <router-view></router-view>
+   <keep-alive>
+      <router-view></router-view>
     <!-- 容器：1，接收客户请求组件路径，2.查找并显示组件 -->
+   </keep-alive>
  </div>
 </template>
 

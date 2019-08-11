@@ -45,7 +45,7 @@
                 <div class="cf recommend">
                     <div class="imgBox" v-for="(item,index) in tabs[curIndex].list.slice(0,3)" :key="index">
                         <div class="bgPic">
-                            <img :src="item.hallBg_src" alt="">
+                            <img src="../img/defalt_big_image_live2.png" alt="" :imgurl="item.hallBg_src">
                             <div class="infoBox">
                                   <div class="info">
                                       <div class="ranking"><img :src="item.hallRanking_src" alt=""><img :src="item.RankIcon_src" alt=""></div>
@@ -90,7 +90,7 @@
                     <div class="cf sweet">
                         <div class="imgBox" v-for="(item,index) in tabs[curIndex].list.slice(3,9)" :key="index">
                             <div class="bgPic">
-                                <img :src="item.hallBg_src" alt="">
+                                <img src="../img/defalt_big_image_live2.png" alt="" :imgurl="item.hallBg_src">
                                 <div class="infoBox">
                                       <div class="info">
                                           <div class="ranking"><img :src="item.hallRanking_src" alt=""><img :src="item.RankIcon_src" alt=""></div>
@@ -135,7 +135,7 @@
                     <div class="cf sweet">
                          <div class="imgBox" v-for="(item,index) in tabs[curIndex].list.slice(9)" :key="index">
                             <div class="bgPic">
-                                <img :src="item.hallBg_src" alt="">
+                                <img :imgurl="item.hallBg_src" alt="" src="../img/defalt_big_image_live2.png">
                                 <div class="infoBox">
                                       <div class="info">
                                           <div class="ranking"><img :src="item.hallRanking_src" alt=""><img :src="item.RankIcon_src" alt=""></div>
@@ -378,7 +378,15 @@ export default {
     getMescrollUp (tabIndex) {
       let emptyWarpId = 'dataList' + tabIndex;
       return {
+        lazyLoad: {
+		        	use: true, // 是否开启懒加载,默认false
+			        attr: 'imgurl', // 网络地址的属性名 (图片加载成功会移除该属性): <img imgurl='网络图  src='占位图''/>
+			        showClass: 'mescroll-lazy-in', // 图片加载成功的显示动画: 渐变显示,参见mescroll.css
+			        delay: 500, // 列表滚动的过程中每500ms检查一次图片是否在可视区域,如果在可视区域则加载图片
+			        offset: 200 // 超出可视区域200px的图片仍可触发懒加载,目的是提前加载部分图片
+		    	},
         auto: false,
+        htmlNodata:'<p class="upwarp-nodata">没有更多...</p>',
         callback: this.upCallback, // 上拉回调,此处可简写; 相当于 callback: function (page) { upCallback(page); }
         noMoreSize: 4, // 如果列表已无数据,可设置列表的总数量要大于半页才显示无更多数据;避免列表数据过少(比如只有一条数据),显示无更多数据会不好看; 默认5
         empty: {
@@ -422,7 +430,7 @@ export default {
       if (newTab.mescroll) {
         if (!newTab.isListInit) {
           // 加载列表
-          newTab.mescroll.triggerDownScroll();
+          newTab.mescroll.triggerDownScroll();//主动触发下拉回调
         } else {
           // 检查新转换的列表是否需要显示回到到顶按钮
           setTimeout(() => {
@@ -481,8 +489,7 @@ export default {
 			        // 如果是第一页需手动置空列表
 			        if (page.num === 1) this.tabs[mescroll.tabIndex].list = [];
 			        // 把请求到的数据添加到列表
-              this.tabs[mescroll.tabIndex].list = this.tabs[mescroll.tabIndex].list.concat(arr);
-                console.log(this.tabs[mescroll.tabIndex].list)
+              this.tabs[mescroll.tabIndex].list = this.tabs[mescroll.tabIndex].list.concat(arr)
               //数据保存到数据列表里面后，提取前三个数据为推荐组数据,下标3-8数据为甜美主播，9到最后为魅力主播
                 //   this.tabs[mescroll.tabIndex].newList.recommend=this.tabs[mescroll.tabIndex].list.slice(0,3)
                 //   this.tabs[mescroll.tabIndex].newList.sweet=this.tabs[mescroll.tabIndex].list.slice(3,9)
@@ -664,6 +671,10 @@ export default {
     font-size: 12px;
     margin-top: 8px;
     color: gray;
+  }
+  /* 因为使用了底部导航栏，要看到“没有更多...”加以下样式 */
+  .mescroll{
+    padding-bottom: 50px;
   }
     /* 大厅 */
     /* 轮播图 */
