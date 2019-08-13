@@ -40,9 +40,9 @@ import 'vant/lib/index.css'
 Vue.use(vantUI)
 
 //引入vue-awesome-swiper组件
-import swiper from 'vue-awesome-swiper'
-import 'swiper/dist/css/swiper.css' 
-Vue.use(swiper)
+// import swiper from 'vue-awesome-swiper'
+// import 'swiper/dist/css/swiper.css' 
+// Vue.use(swiper)
 
 //引入vuex
 import Vuex from "vuex"
@@ -66,8 +66,8 @@ vueTouch.config.swipe={
 }
 
 //引入上下拉刷新的组件,全局注册
-import MescrollVue from 'mescroll.js/mescroll.vue'
-Vue.use(MescrollVue)
+// import MescrollVue from 'mescroll.js/mescroll.vue'
+// Vue.use(MescrollVue)
 
 //引入基础css样式
 import './assets/css/reset.css'

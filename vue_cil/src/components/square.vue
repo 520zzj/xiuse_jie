@@ -333,7 +333,7 @@ import MescrollVue from 'mescroll.js/mescroll.vue'
 import mockData from '../mock/pdlist'
 
 export default {
-  name: 'mescrollSwiperNav',
+  name: 'square',
   data () { 
     return {
       tabs: [{name: '首页', mescroll: null, list: [], isListInit: false}, {name: '奶粉', mescroll: null, list: [], isListInit: false}, {name: '面膜', mescroll: null, list: [], isListInit: false}, {name: '图书', mescroll: null, list: [], isListInit: false}, {name: '果汁', mescroll: null, list: [], isListInit: false}, {name: '奶瓶', mescroll: null, list: [], isListInit: false}, {name: '美素', mescroll: null, list: [], isListInit: false}, {name: '璐拉', mescroll: null, list: [], isListInit: false}, {name: '启赋', mescroll: null, list: [], isListInit: false}, {name: '雅培', mescroll: null, list: [], isListInit: false}, {name: '花王', mescroll: null, list: [], isListInit: false}, {name: '韩蜜', mescroll: null, list: [], isListInit: false}],
@@ -431,6 +431,7 @@ export default {
         if (!newTab.isListInit) {
           // 加载列表
           newTab.mescroll.triggerDownScroll();//主动触发下拉回调
+          console.log("触发下拉回调")
         } else {
           // 检查新转换的列表是否需要显示回到到顶按钮
           setTimeout(() => {
@@ -501,7 +502,8 @@ export default {
 			          mescroll.endSuccess(arr.length)
 			        })
 			      }).catch((e) => {
-			        // 联网失败的回调,隐藏下拉刷新和上拉加载的状态;
+              // 联网失败的回调,隐藏下拉刷新和上拉加载的状态;
+               if (page.num === 1) this.tabs[mescroll.tabIndex].isListInit = false;
 			        mescroll.endErr()
 			      })
       }else if (mescroll.tabIndex === 1) {

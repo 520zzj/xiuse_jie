@@ -40,6 +40,7 @@ import guardVue from "./guard.vue"
 import findVue from "./find"
 import meVue from "./me"
 export default {
+    // name:"home",
     data(){
         return{
             active:"广场",
