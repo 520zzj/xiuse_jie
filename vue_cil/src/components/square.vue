@@ -179,14 +179,22 @@
       <!-- 奶粉 可不配down-->
       <swiper-slide>
         <mescroll-vue ref="mescroll1" :up="getMescrollUp(1)" @init="mescrollInit(1,arguments)">
-          <ul id="dataList1">
-            <li class="data-li" v-for="pd in tabs[1].list" :key="pd.id">
-              <img class="pd-img" :src="pd.pdImg"/>
-              <div class="pd-name">{{pd.pdName}}</div>
-              <p class="pd-price">{{pd.pdPrice}} 元</p>
-              <p class="pd-sold">已售{{pd.pdSold}}件</p>
-            </li>
-          </ul>
+          <div id="dataList1">
+            <div class="cf sweet">
+                         <div class="imgBox" v-for="(item,index) in tabs[curIndex].list.slice(9)" :key="index">
+                            <div class="bgPic">
+                                <img :imgurl="item.hallBg_src" alt="" src="../img/defalt_big_image_live2.png">
+                                <div class="infoBox">
+                                      <div class="info">
+                                          <div class="ranking"><img :src="item.hallRanking_src" alt=""><img :src="item.RankIcon_src" alt=""></div>
+                                          <div class="sign">{{item.sign}}</div>
+                                          <div class="watching"><img :src="item.watchingIcon_src" alt=""><span>{{item.watchNum}}</span></div>
+                                      </div>
+                                </div>               
+                            </div>
+                        </div>
+                </div>
+          </div>
         </mescroll-vue>
       </swiper-slide>
       <!-- 面膜-->
@@ -460,9 +468,7 @@ export default {
     /* 上拉加载的回调 page = {num:1, size:10}; num:当前页 从1开始, size:每页数据条数 */
     upCallback (page, mescroll) {
      if (mescroll.tabIndex === 0) {
-           console.log("触发了上拉回调")
-           
-          
+           console.log("触发了上拉回调")      
         // 可以单独处理每个tab的请求
          this.axios.get('http://127.0.0.1:7000/square/hall', {
 			        params: {
@@ -474,29 +480,12 @@ export default {
                     // console.log(response.data)
               // 如果是第一页前十条数据
               let arr =response.data
-              
-              // if(page.num===1){
-              //   arr.push({recommend:response.data.slice(0,3)})
-              //   arr.push({sweet:response.data.slice(3,6)})
-              //   arr.push({charming:response.data.slice(6)})
-              // }else{
-              //   //前十条后的数据都加到charming处
-              //   arr.push({charming:response.data})
-              // }
-              
-              
               console.log(arr)
               this.tabs[mescroll.tabIndex].isListInit = true;// 标记列表已初始化,保证列表只初始化一次
 			        // 如果是第一页需手动置空列表
 			        if (page.num === 1) this.tabs[mescroll.tabIndex].list = [];
 			        // 把请求到的数据添加到列表
               this.tabs[mescroll.tabIndex].list = this.tabs[mescroll.tabIndex].list.concat(arr)
-              //数据保存到数据列表里面后，提取前三个数据为推荐组数据,下标3-8数据为甜美主播，9到最后为魅力主播
-                //   this.tabs[mescroll.tabIndex].newList.recommend=this.tabs[mescroll.tabIndex].list.slice(0,3)
-                //   this.tabs[mescroll.tabIndex].newList.sweet=this.tabs[mescroll.tabIndex].list.slice(3,9)
-                //   this.tabs[mescroll.tabIndex].newList.charming=this.tabs[mescroll.tabIndex].list.slice(9)
-                //   //  console.log(this.tabs[mescroll.tabIndex])
-                // console.log(this.tabs[this.curIndex].newList)
 			        // 数据渲染成功后,隐藏下拉刷新的状态
 			        this.$nextTick(() => {
 			          mescroll.endSuccess(arr.length)
@@ -508,6 +497,31 @@ export default {
 			      })
       }else if (mescroll.tabIndex === 1) {
         // 可以单独处理每个tab的请求
+             this.axios.get('http://127.0.0.1:7000/square/hall', {
+			        params: {
+			          num: page.num, // 页码
+			          size:page.size// 每页长度
+			        }
+			      }).then((response) => {
+                    // 请求的列表数据
+                    // console.log(response.data)
+              // 如果是第一页前十条数据
+              let arr =response.data
+              console.log(arr)
+              this.tabs[mescroll.tabIndex].isListInit = true;// 标记列表已初始化,保证列表只初始化一次
+			        // 如果是第一页需手动置空列表
+			        if (page.num === 1) this.tabs[mescroll.tabIndex].list = [];
+			        // 把请求到的数据添加到列表
+              this.tabs[mescroll.tabIndex].list = this.tabs[mescroll.tabIndex].list.concat(arr)
+			        // 数据渲染成功后,隐藏下拉刷新的状态
+			        this.$nextTick(() => {
+			          mescroll.endSuccess(arr.length)
+			        })
+			      }).catch((e) => {
+              // 联网失败的回调,隐藏下拉刷新和上拉加载的状态;
+               if (page.num === 1) this.tabs[mescroll.tabIndex].isListInit = false;
+			        mescroll.endErr()
+			      })
       }
      
 			    
@@ -574,9 +588,9 @@ export default {
 
 <style scoped>
     /* 刷新的高度 */
-    .swiper-container[data-v-1c7566a6]{
+    /* .swiper-container{
         top:0px;
-    }
+    } */
   /*模拟的标题*/
   .header{
     z-index: 9990;
@@ -638,7 +652,7 @@ export default {
   /*列表*/
   .swiper-container{
     position: fixed;
-    top: 80px;
+    top: 0px;
     left: 0;
     right: 0;
     bottom: 0;
