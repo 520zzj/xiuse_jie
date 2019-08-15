@@ -50,5 +50,9 @@
   height:100%;
 } */
 
+.mescroll-totop{
+  bottom: 60px !important;
+}
+
 
 </style>
