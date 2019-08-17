@@ -202,27 +202,43 @@
       <!-- 最近观看-->
       <swiper-slide>
         <mescroll-vue ref="mescroll2" :up="getMescrollUp(2)" @init="mescrollInit(2,arguments)">
-          <ul id="dataList2">
-            <li class="data-li" v-for="pd in tabs[2].list" :key="pd.id">
-              <img class="pd-img" :src="pd.pdImg"/>
-              <div class="pd-name">{{pd.pdName}}</div>
-              <p class="pd-price">{{pd.pdPrice}} 元</p>
-              <p class="pd-sold">已售{{pd.pdSold}}件</p>
-            </li>
-          </ul>
+          <div id="dataList2">
+           <div class="cf sweet">
+                         <div class="imgBox" v-for="(item,index) in tabs[curIndex].list" :key="index">
+                            <div class="bgPic">
+                                <img :imgurl="item.hallBg_src" alt="" src="../img/defalt_big_image_live2.png">
+                                <div class="infoBox">
+                                      <div class="info">
+                                          <div class="ranking"><img :src="item.hallRanking_src" alt=""><img :src="item.RankIcon_src" alt=""></div>
+                                          <div class="sign">{{item.sign}}</div>
+                                          <div class="watching"><img :src="item.watchingIcon_src" alt=""><span>{{item.watchNum}}</span></div>
+                                      </div>
+                                </div>               
+                            </div>
+                        </div>
+                </div>
+          </div>
         </mescroll-vue>
       </swiper-slide>
       <!-- pk-->
       <swiper-slide>
         <mescroll-vue ref="mescroll3" :up="getMescrollUp(3)" @init="mescrollInit(3,arguments)">
-          <ul id="dataList3">
-            <li class="data-li" v-for="pd in tabs[3].list" :key="pd.id">
-              <img class="pd-img" :src="pd.pdImg"/>
-              <div class="pd-name">{{pd.pdName}}</div>
-              <p class="pd-price">{{pd.pdPrice}} 元</p>
-              <p class="pd-sold">已售{{pd.pdSold}}件</p>
-            </li>
-          </ul>
+          <div id="dataList3">
+           <div class="cf sweet">
+                         <div class="imgBox" v-for="(item,index) in tabs[curIndex].list" :key="index">
+                            <div class="bgPic">
+                                <img :imgurl="item.hallBg_src" alt="" src="../img/defalt_big_image_live2.png">
+                                <div class="infoBox">
+                                      <div class="info">
+                                          <div class="ranking"><img :src="item.hallRanking_src" alt=""><img :src="item.RankIcon_src" alt=""></div>
+                                          <div class="sign">{{item.sign}}</div>
+                                          <div class="watching"><img :src="item.watchingIcon_src" alt=""><span>{{item.watchNum}}</span></div>
+                                      </div>
+                                </div>               
+                            </div>
+                        </div>
+                </div>
+          </div>
         </mescroll-vue>
       </swiper-slide>
       <!-- 新秀-->
@@ -346,7 +362,7 @@ export default {
   name: 'square',
   data () { 
     return {
-      tabs: [{name: '大厅', mescroll: null, list: [], isListInit: false}, {name: '关注', mescroll: null, list: [], isListInit: false}, {name: '最近观看', mescroll: null, list: [], isListInit: false}, {name: 'pk', mescroll: null, list: [], isListInit: false}, {name: '新秀', mescroll: null, list: [], isListInit: false}, {name: '好声音', mescroll: null, list: [], isListInit: false}, {name: '萌妹子', mescroll: null, list: [], isListInit: false}, {name: '够劲爆', mescroll: null, list: [], isListInit: false}, {name: '同城', mescroll: null, list: [], isListInit: false}, {name: '热舞', mescroll: null, list: [], isListInit: false}, {name: '手机', mescroll: null, list: [], isListInit: false}, {name: '代言人', mescroll: null, list: [], isListInit: false}],
+      tabs: [{name: '大厅', mescroll: null, list: [], isListInit: false}, {name: '关注', mescroll: null, list: [], isListInit: false}, {name: '最近观看', mescroll: null, list: [], isListInit: false}, {name: '新秀', mescroll: null, list: [], isListInit: false}, {name: 'pk', mescroll: null, list: [], isListInit: false}, {name: '好声音', mescroll: null, list: [], isListInit: false}, {name: '萌妹子', mescroll: null, list: [], isListInit: false}, {name: '够劲爆', mescroll: null, list: [], isListInit: false}, {name: '同城', mescroll: null, list: [], isListInit: false}, {name: '热舞', mescroll: null, list: [], isListInit: false}, {name: '手机', mescroll: null, list: [], isListInit: false}, {name: '代言人', mescroll: null, list: [], isListInit: false}],
       tabWidth: 60, // 每个tab的宽度
       barWidth: 30, // tab底部红色线的宽度
       curIndex: 0, // 当前tab的下标
@@ -518,6 +534,64 @@ export default {
       }else if (mescroll.tabIndex === 1) {
         // 可以单独处理每个tab的请求
              this.axios.get('http://127.0.0.1:7000/square/focus', {
+			        params: {
+			          num: page.num, // 页码
+			          size:page.size// 每页长度 
+			        }
+			      }).then((response) => {
+                    // 请求的列表数据
+                    // console.log(response.data)
+              // 如果是第一页前十条数据
+              console.log(response)
+              let arr=response.data
+              console.log(this.tabs[mescroll.tabIndex])
+              this.tabs[mescroll.tabIndex].isListInit = true;// 标记列表已初始化,保证列表只初始化一次
+			        // 如果是第一页需手动置空列表
+			        if (page.num === 1) this.tabs[mescroll.tabIndex].list = [];
+			        // 把请求到的数据添加到列表
+              this.tabs[mescroll.tabIndex].list = this.tabs[mescroll.tabIndex].list.concat(arr)
+              console.log(this.tabs[mescroll.tabIndex])
+			        // 数据渲染成功后,隐藏下拉刷新的状态  
+			        this.$nextTick(() => {
+			          mescroll.endSuccess(arr.length)
+			        })
+			      }).catch((e) => {
+              // 联网失败的回调,隐藏下拉刷新和上拉加载的状态;
+               if (page.num === 1) this.tabs[mescroll.tabIndex].isListInit = false;
+			        mescroll.endErr()
+			      })
+      }else if(mescroll.tabIndex === 2){
+            // 可以单独处理每个tab的请求
+             this.axios.get('http://127.0.0.1:7000/square/scaned', {
+			        params: {
+			          num: page.num, // 页码
+			          size:page.size// 每页长度 
+			        }
+			      }).then((response) => {
+                    // 请求的列表数据
+                    // console.log(response.data)
+              // 如果是第一页前十条数据
+              console.log(response)
+              let arr=response.data
+              console.log(this.tabs[mescroll.tabIndex])
+              this.tabs[mescroll.tabIndex].isListInit = true;// 标记列表已初始化,保证列表只初始化一次
+			        // 如果是第一页需手动置空列表
+			        if (page.num === 1) this.tabs[mescroll.tabIndex].list = [];
+			        // 把请求到的数据添加到列表
+              this.tabs[mescroll.tabIndex].list = this.tabs[mescroll.tabIndex].list.concat(arr)
+              console.log(this.tabs[mescroll.tabIndex])
+			        // 数据渲染成功后,隐藏下拉刷新的状态  
+			        this.$nextTick(() => {
+			          mescroll.endSuccess(arr.length)
+			        })
+			      }).catch((e) => {
+              // 联网失败的回调,隐藏下拉刷新和上拉加载的状态;
+               if (page.num === 1) this.tabs[mescroll.tabIndex].isListInit = false;
+			        mescroll.endErr()
+			      })
+      }else if(mescroll.tabIndex === 3){
+             // 可以单独处理每个tab的请求
+             this.axios.get('http://127.0.0.1:7000/square/hall', {
 			        params: {
 			          num: page.num, // 页码
 			          size:page.size// 每页长度 

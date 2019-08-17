@@ -59,6 +59,18 @@ create table xs_focus(
     fid int,
     foreign key(fid) references xs_user(uid)
 );
+#最近观看
+create table xs_scaned(
+    id int primary key auto_increment,
+    hallBg_src varchar(100),
+    hallRanking_src varchar(100),
+    RankIcon_src varchar(100),
+    sign varchar(50),
+    watchIcon_src varchar(100),
+    watchNum bigint,
+    sid int,
+    foreign key(sid) references xs_user(uid)
+);
 
 
 
