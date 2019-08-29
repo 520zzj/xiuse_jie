@@ -10,22 +10,20 @@ import phonelogin from "./components/phonelogin.vue"
 import test from "./components/test.vue"
 import phoneReg from "./components/phoneReg.vue"
 import accountLog from "./components/accountLog"
-import home from "./components/home.vue"
 import square from "./components/square.vue"
-import guard from "./components/guard.vue"
+import home from "./components/home.vue"
 
 
 import pageOne from "./components/pages/pageOne"
 import pageTwo from "./components/pages/pageTwo"
 import pageThree from "./components/pages/pageThree"
-import guardHead from "./components/guard/guardHead"
-import guardSwiper from "./components/guard/guardSwiper"
+import guardHead from "./components/guardHead"
 
-import guardDay from "./components/guard/guardDay"
-import guardWeek from "./components/guard/guardWeek"
-import twGd from "./components/guard/twGd"
-import lwGd from "./components/guard/lwGd"
+
 import me from "./components/me.vue"
+import ranking from "./components/ranking"
+import find from "./components/find"
+import guard from "./components/guard"
 Vue.use(Router)
 //启动脚手架npm run dev 看package.json
 //地址栏访问脚手架 127.0.0.1:8080看package.json
@@ -43,15 +41,14 @@ export default new Router({
     ]},
     {path:"/phoneReg",component:phoneReg},
     {path:"/accountLog",component:accountLog},
-    {path:"/home",component:home},
-    {path:"/square",component:square},
     {path:"/guardHead",component:guardHead},
-    {path:"/guardSwiper",component:guardSwiper},
-    {path:"/guard",component:guard},
-    {path:"/guardDay",component:guardDay},
-    {path:"/guardWeek",component:guardWeek},
-    {path:"/twGd",component:twGd},
-    {path:"/lwGd",component:lwGd},
+    {path:"/home",component:home,redirect:"square",children:[
+      { path:"/find",component:find},
+      {path:"/ranking",component:ranking},
+      {path:"/guard",component:guard},
+      {path:"/square",component:square},
+      {path:"/me",component:me}
+    ]}
   ]
 })
 //npm run dev 启动脚手架

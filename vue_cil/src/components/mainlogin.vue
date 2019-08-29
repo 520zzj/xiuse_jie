@@ -3,32 +3,47 @@
         <div class="bg_box">
         </div>
         <div class="over">
-            <div class="showself"></div>
-            <div class="once_login_box">
-                    <a href="" class="once_login">一键登录</a>
-            </div>
-            <div class="login_methods">
-                  <ul class="login_list">
-                      <li class="login_item">
-                            <router-link class="login_link" to="/wblogin"><span class="mui-icon mui-icon-weibo icon"></span></router-link>
-                      </li>
-                      <li class="login_item">
-                            <a class="login_link" href=""><span class="mui-icon mui-icon-weixin icon"></span></a>
-                      </li>
-                      <li class="login_item">
-                            <a class="login_link" href=""><span class="mui-icon mui-icon-qq icon"></span></a>
-                      </li>
-                      <li class="login_item">
-                            <router-link class="login_link" to="/phonelogin"><span class="mui-icon-extra mui-icon-extra-phone icon"></span></router-link>
-                      </li>
-                  </ul>
-            </div>
-            <div class="reg_log">
-                    <router-link to="/phoneReg" class="reg">快速注册</router-link><router-link to="/accountLog" class="log">账号登录</router-link>
-            </div>
-            <div class="contract">
-                <span>登录即代表你同意</span>
-                <a href="">秀色直播服务和条款</a>
+            <div class="overBox">
+                <div class="showself">
+                    <img src="//127.0.0.1:7000/img/login_slogan.png" alt="">
+                </div>
+                <div class="logInfo">
+                    <a class="once_login">
+                        一键登录
+                    </a>
+                    <div class="login_methods">
+                        <ul class="login_list">
+                            <li class="login_item">
+                                    <router-link class="login_link" to="/wblogin">
+                                        <img src="//127.0.0.1:7000/img/icon_onekey_login_sina.png" alt="">
+                                    </router-link>
+                            </li>
+                            <li class="login_item">
+                                    <router-link class="login_link" to="/wblogin">
+                                        <img src="//127.0.0.1:7000/img/icon_onekey_login_wx.png" alt="">
+                                    </router-link>                                    
+                            </li>
+                            <li class="login_item">
+                                    <router-link class="login_link" to="/wblogin">
+                                        <img src="//127.0.0.1:7000/img/icon_onekey_login_qq.png" alt="">
+                                    </router-link>                                    
+                            </li>
+                            <li class="login_item">
+                                    <router-link class="login_link" to="/phonelogin">
+                                        <img src="//127.0.0.1:7000/img/icon_onekey_login_phone.png" alt="">
+                                    </router-link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="reg_log">
+                            <router-link to="/phoneReg" class="reg">快速注册</router-link><router-link to="/accountLog" class="log">账号登录</router-link>
+                    </div>
+                    <div class="contract">
+                        <span>登录即代表你同意</span>
+                        <a href="">秀色直播服务和条款</a>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>
@@ -42,121 +57,152 @@ export default{
     }
 }
 </script>
-<style>
-
-.mainlogin{
-    position: absolute;
-    overflow-x: hidden;
-    bottom:0;
-    top:0;
-    width:100%;
-    height:100%;
-   z-index: -1;
-}
-.mainlogin .bg_box{
-    position: absolute;
-    z-index: -10;
-    bottom:0;
-    top:0;
-    left:-100px;
-    right:-100px;
-    height:100%;
-    background-image: url("//127.0.0.1:7000/img/login_bg.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-position: center;
-}
-.mainlogin .over{
-    /* background: gray; */
-    position: absolute;
-    top:0;
-    bottom:0;
-    width:100%;
-    height:100%;
-}
-
-.mainlogin .once_login_box{
-    position: absolute;
-    bottom: 28%;
-    right:0;
-    left:0;
-    width:100%;
-}
-.mainlogin .once_login_box .once_login{
-   display: block;
-   height:42px;
-   width:60%;
-   margin:0 auto;
-   text-align: center;
-   line-height: 42px;
-   color:white;
-   border-radius: 20px;
-   border:1px solid white;
-}
-.mainlogin .login_methods{
-    position: absolute;
-    width:100%;
-    bottom:23%;
-}
-
-.mainlogin .login_methods .login_list{
-   position: absolute;
-   width:75%;
-   display: flex;
-   margin: 0;
-   padding:0;
-   justify-content:space-between;
-   left:50%;
-   transform: translatex(-50%)
-}
-.mainlogin .login_methods .login_item{
-    background-color: transparent;
-    list-style: none;
-    /* border-color:transparent; */
-    text-align: center;
-   
-}
-.mainlogin .login_link{
-    display: block;
-    width:40px;
-    height:40px;
-    padding:5px;
-    border:1px solid white;
-    border-radius: 50%;
-}
-.mainlogin .login_link span.icon{
-    position: relative;
-    top:2px;
-    color:white;    
-}
-.mainlogin .contract{
-    position: absolute;
-    bottom:2%;
-    width:100%;
-    text-align: center;
-    font-size: 12px;    
-}
-.mainlogin .contract span{
-    color:white;
-}
-.mainlogin .contract a{
-    color:red;
-    text-decoration:underline;
-}
-.mainlogin .reg_log{
-    position: absolute;
-    bottom: 10%;
-    left:50%;
-    transform: translatex(-50%);
-    font-size: 12px;
-}
-.mainlogin .reg_log .reg{
-    padding-right:15px;
-    color:white;
-}
-.mainlogin .reg_log .log{
-    padding-left:15px;
-    color:white;
-}
-
+<style scoped>
+    .mainlogin{
+        width:100%;
+        height:100%;
+        overflow: hidden;
+    }
+    /* 定义动画 */
+    @keyframes logBg{
+      0%{
+          transform: translate(0);
+      }
+      25%{
+          transform: translate(100px);
+      }
+      50%{
+          transform: translateX(0px);
+      }
+      75%{
+          transform: translate(-100px);
+      }
+      100%{
+          transform: translate(0);
+      }
+    }
+    /* 兼容浏览器 */
+       @-webkit-keyframes logBg{
+       0%{
+          transform: translate(0);
+      }
+      25%{
+          transform: translate(100px);
+      }
+      50%{
+          transform: translateX(0px);
+      }
+      75%{
+          transform: translate(-100px);
+      }
+      100%{
+          transform: translate(0);
+      }
+    }
+     @-ms-keyframes logBg{
+       0%{
+          transform: translate(0);
+      }
+      25%{
+          transform: translate(100px);
+      }
+      50%{
+          transform: translateX(0px);
+      }
+      75%{
+          transform: translate(-100px);
+      }
+      100%{
+          transform: translate(0);
+      }
+    }
+    /* 登录背景  调用动画*/
+    .bg_box{
+        position: fixed;
+        left:-100px;
+        right:-100px;
+        top:0;
+        bottom: 0;
+        z-index: 5;
+        background-image: url("//127.0.0.1:7000/img/login_bg.jpg");
+        background-repeat: no-repeat;
+        background-position:center;
+        background-size: auto 119%;
+        animation: logBg 10s linear 0s infinite normal;
+    }
+    /* 封面 */
+    .over{
+        position: absolute;
+        z-index: 999;
+        width:100%;
+        height:100%;
+        top:0;
+        bottom: 0;
+        overflow: hidden;
+    }
+    .overBox{
+       display: flex;
+       justify-content: space-between;
+       flex-direction: column;
+       align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+    .over .showself{
+        width:80%;
+        height:auto;
+        margin-top:100px;
+    }
+    .over .showself img{
+        width:100%;
+        height:auto;
+    }
+    .logInfo{
+        width:75%;
+    }
+    .logInfo .once_login{
+        display: block;
+        height:45px;
+        text-align: center;
+        line-height: 45px;
+        border:1px solid #fff;
+        border-radius: 35px;
+        color:#fff;
+        font-size: 16px;
+    }
+    .login_list{
+        display: flex;
+        justify-content: space-between;
+        margin:30px 0;
+    }
+    .login_list .login_link{
+        display: block;
+        width:40px;
+        height:40px;
+        overflow: hidden;
+    }
+      .login_list .login_link img{
+          width:100%;
+          height:100%;
+      }
+      .reg_log{
+          display: flex;
+          justify-content: space-around;
+          margin-bottom: 50px;
+      }
+      .reg_log a{
+          color:#fff;
+      }
+    .contract{
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 12px;
+    }
+    .contract span{
+        color:#fff;
+    }
+    .contract a{
+        color:red;
+        text-decoration: underline;
+    }
 </style>

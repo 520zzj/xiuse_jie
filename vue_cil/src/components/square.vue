@@ -503,8 +503,8 @@ export default {
     },
     /* 上拉加载的回调 page = {num:1, size:10}; num:当前页 从1开始, size:每页数据条数 */
     upCallback (page, mescroll) {
-     if (mescroll.tabIndex === 0) {
-           console.log("触发了上拉回调")      
+         console.log("触发了上拉回调") 
+     if (mescroll.tabIndex === 0) {     
         // 可以单独处理每个tab的请求
          this.axios.get('http://127.0.0.1:7000/square/hall', {
 			        params: {
@@ -793,12 +793,6 @@ export default {
     float: left;
     padding-left:6px;
     padding-right: 3px;
-}
-.recommend .imgBox:nth-child(2){
-    /* background:green; */
-}
-.recommend .imgBox:last-child{
-    /* background: gray; */
 }
 .imgBox{
     box-sizing: border-box;

@@ -40,7 +40,6 @@ export default {
 }
 </script>
 <style>
-
 /* 遮罩层按钮的切换 */
 .guardHead  .titleBox .inGuard{
     background-image: url("//127.0.0.1:7000/img/icon_army_title_open.png");
@@ -50,14 +49,9 @@ export default {
 }
 /* 护卫队，遮罩层按钮 */
 .guardHead .titleBox{
-    position: fixed;
-    left:0;
-    right:0;
-    top:0;
     padding:12px 0;
-    border-bottom: 1px solid #555;
-    background: #f8f8f8;
-    z-index: 10;
+    border-bottom: 1px solid #c1c1c1;
+    /* background: #f8f8f8; */
 }
 .guardHead .titleBox .title{
     text-align: center;
@@ -104,8 +98,7 @@ export default {
     z-index: 999;
 }
 .guardHead .disappear{
-    transform: rotateX(90deg);
-    transform-origin: center 72px;
+    display: none;
 }   
 </style>
 

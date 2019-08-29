@@ -11,7 +11,7 @@ router.get("/hall",(req,res)=>{
     }
     if(!size){size=10}
     var offset=parseInt((num-1)*size)
-    var sql=`SELECT id,hallBg_src,hallRanking_src,RankIcon_src,sign,watchIcon_src,watchNum FROM hall limit ?,?`
+    var sql=`SELECT id,hallBg_src,hallRanking_src,RankIcon_src,sign,watchIcon_src,watchNum,subscription FROM hall limit ?,?`
     pool.query(sql,[offset,size],(err,result)=>{
         if(err) throw err;
         else{

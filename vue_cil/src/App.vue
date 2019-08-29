@@ -1,17 +1,19 @@
 <template>
  <div class="app-container">
-   <keep-alive :include="['home']">
+   <!-- <keep-alive :include="['home']"> -->
       <router-view></router-view>
     <!-- 容器：1，接收客户请求组件路径，2.查找并显示组件 -->
-   </keep-alive>
+   <!-- </keep-alive> -->
  </div>
 </template>
 
 <style>
-   /* .app-container{
+  .app-container{
      overflow-x:hidden; 
+     width:100%;
+     height:100%;
    }
-
+ /* 
  .mui-bar-tab .mui-tab-item-tao.mui-active {
     color: #007aff;
  }
@@ -50,9 +52,13 @@
   height:100%;
 } */
 
+/* 回到顶部图标位置 */
 .mescroll-totop{
   bottom: 60px !important;
 }
-
+/* 没有更多位置调整 */
+.mescroll-upwarp{
+  margin-bottom: 50px;
+}
 
 </style>

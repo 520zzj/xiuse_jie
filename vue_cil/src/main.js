@@ -9,11 +9,21 @@ axios.defaults.withCredentials=true//配置跨域选项,跨域访问要保存ses
 Vue.prototype.axios=axios//配置到vue的原型对象中  this.axios.get/post 
 
 //引入mint-ui，完整引入,会在node_modules下自动找mint-ui
-import MintUi from 'mint-ui'
-//还需单独引入mint-ui的样式表
+//全局引入
+// import MintUi from 'mint-ui'
+// //还需单独引入mint-ui的样式表
 import'mint-ui/lib/style.css'
-//将mint-ui库中所有的组件注册到Vue的实例中
-Vue.use(MintUi);
+// //将mint-ui库中所有的组件注册到Vue的实例中
+// Vue.use(MintUi);
+// 按需引入
+import { Header, Button, IndexList, IndexSection,Cell,Swipe, SwipeItem  } from 'mint-ui';
+Vue.component(Header.name, Header);
+Vue.component(Button.name, Button);
+Vue.component(IndexList.name, IndexList);
+Vue.component(IndexSection.name, IndexSection);
+Vue.component(Cell.name, Cell);
+Vue.component(Swipe.name, Swipe);
+Vue.component(SwipeItem.name, SwipeItem);
 
 //引入阿里图标库的字体图标css文件,属于单个引入，不用注册
 // import "./font/iconfont.css"
@@ -35,9 +45,16 @@ import './lib/mui/css/icons-extra.css'
 
 
 //引入vantui组件库
-import vantUI from "vant"
+//全局引入
+// import vantUI from "vant"
 import 'vant/lib/index.css'
-Vue.use(vantUI)
+// Vue.use(vantUI)
+// 按需引入
+import { Icon,Tabbar, TabbarItem,Row, Col , Tab, Tabs } from 'vant';
+Vue.use(Icon);
+Vue.use(Tabbar).use(TabbarItem);
+Vue.use(Row).use(Col);
+Vue.use(Tab).use(Tabs);
 
 //引入vue-awesome-swiper组件
 // import swiper from 'vue-awesome-swiper'
@@ -49,7 +66,7 @@ import Vuex from "vuex"
 Vue.use(Vuex)
 const store = new Vuex.Store({
   state:{
-    width_s:document.documentElement.clientWidth
+    width_s:document.documentElement.clientWidth//屏幕宽度
   }
 })
 router.beforeEach((to,from,next)=>{

@@ -113,9 +113,6 @@ export default {
     float: right;
 }
 .accountLog .login_methods{
-    /* position: absolute;
-    width:100%;
-    bottom:23%; */
     margin-top:25px;
 }
 
