@@ -145,8 +145,29 @@
                         </li>
                     </ul>
                 </van-tab>
-                <van-tab title="靓照">内容 3</van-tab>
-                <van-tab title="动态">内容 4</van-tab>
+                <van-tab>
+                    <!-- title卡槽 -->
+                    <div slot="title">
+                        靓照({{tabs[2].list.length}})
+                    </div>
+                    <div class="picListBox">
+                        <div class="loading" v-show="tabs[2].loading">
+                            <van-loading size="34px">加载中...</van-loading>
+                        </div>
+                         <ul class="picList">
+                            <li>  
+                                <div class="itemBox"><img src="//127.0.0.1:7000/img/add_pic_bg.png" alt=""></div>
+                            </li>
+                            <li v-for="(item,index) in tabs[active].list" :key="index">
+                                <div class="itemBox"><img :src="item.img_src" alt=""></div>
+                            </li>
+                        </ul>
+                        <div class="tipMore" v-show="noMore">没有更多了...</div>
+                    </div>
+                </van-tab>
+                <van-tab title="动态">
+                        <div class="tipMore" v-show="noMore">没有更多了...</div>
+                </van-tab>
             </van-tabs>
         </div>
     </div>
@@ -155,33 +176,84 @@
 export default {
     data(){
         return{
+            tabs:[{list:[]},{list:[]},{list:[],loading:false},{list:[]}],
             active:0,//当前tab的下标
+            noMore:true
         }
     },
     methods:{
         onClick(tabIndex,title){//组件内置方法，传入tabindex和title
-            console.log(tabIndex,title)
-            console.log(this.active)
-            if(tabIndex===2){ 
-            //   this.$toast({
-            //     message:"加载中...",
-            //     type:'loading',
-            //     loadingType:'circular',
-            //     mask:true
-            //   })
-                // var t=setTimeout(()=>{
-                //     this.$toast.clear()
-                // },3000)
-            }
+            // console.log(tabIndex,title)
+            // console.log(this.active)
+            this.sendAjax(tabIndex)
+
         },
+        sendAjax(tabIndex){
+            if(tabIndex==2){ 
+                this.tabs[tabIndex].loading=true
+                this.axios.get("//127.0.0.1:7000/photo/down").then((res)=>{
+                    console.log(res.data)
+                    this.tabs[tabIndex].loading=false 
+                    this.tabs[tabIndex].list=res.data
+                  
+                })
+            }
+        }
     },
     mounted(){
-       
     }
 
 }
 </script>
 <style>
+/* 加载提示 */
+.me .loading{
+    position: absolute;
+    width:80%;
+    height:auto;
+    background:#fff;
+    left:50%;
+    transform: translateX(-50%);
+    top:20px;
+    padding:10px;
+    z-index: 999;
+}
+/* 靓照 */
+.me .picListBox{
+    margin-bottom: 50px;
+    position: relative;
+}
+.me .picListBox .picList{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 5px;
+}
+.me .picListBox .picList li{
+    width:50%;
+    position: relative;
+    padding-top: 50%;
+}
+.me .picListBox .picList .itemBox{
+    position: absolute;
+    width:100%;
+    height:100%;
+    left:0;
+    top:0;
+    padding:0 2.5px 5px 5px;
+}
+.me .picListBox .picList li:nth-of-type(2n) .itemBox{
+    padding-right: 5px;
+    padding-left:2.5px;
+}
+.me .picListBox .picList .itemBox img{
+    width:100%;
+    height:100%;
+}
+.me .tipMore{
+    text-align: center;
+    padding:20px 0;
+}
+/* 特权 */
 .me .medal{
     position: relative;
     background:#fff;

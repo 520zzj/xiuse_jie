@@ -29,153 +29,87 @@
       <!--大厅-->
       <swiper-slide>
         <mescroll-vue ref="mescroll0" :down="getMescrollDown(0)" :up="getMescrollUp(0)" @init="mescrollInit(0,arguments)">
-          <div class="hall" id="dataList0">
-            <div class="banner">
-                <mt-swipe :auto="5000" :continuous="true">
-                    <mt-swipe-item>
-                        <img src="//127.0.0.1:7000/img/01ed6558f5c863a8012049efb6f345.jpg@2o.jpg" alt="">
-                    </mt-swipe-item>
-                    <mt-swipe-item>
-                        <img src="//127.0.0.1:7000/img/01356d554337fd0000019ae9ceb332.jpg@2o.jpg" alt="">
-                    </mt-swipe-item>
-                    <mt-swipe-item>
-                        <img src="//127.0.0.1:7000/img/01f7a95543380c0000019ae9819de6.jpg@2o.jpg" alt="">
-                    </mt-swipe-item>
-                </mt-swipe>
-            </div>
-            <div class="imgList">
-                <div class="cf recommend">
-                    <div class="imgBox" v-for="(item,index) in tabs[curIndex].list.slice(0,3)" :key="index">
-                        <div class="bgPic">
-                            <img src="../img/defalt_big_image_live2.png" alt="" :imgurl="item.hallBg_src">
-                            <div class="infoBox">
-                                  <div class="info">
-                                      <div class="ranking"><img :src="item.hallRanking_src" alt=""><img :src="item.RankIcon_src" alt=""></div>
-                                      <div class="sign">{{item.sign}}</div>
-                                      <div class="watching"><img :src="item.watchingIcon_src" alt=""><span>{{item.watchNum}}</span></div>
-                                  </div>
-                            </div>               
-                        </div>
-                    </div>
-                    <!-- <div class="imgBox">
-                          <div class="bgPic">
-                                  <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
-                                  <div class="infoBox">
-                                  <div class="info">
-                                      <div class="ranking"><img src="//127.0.0.1:7000/img/red_packet_gf5.png" alt=""><img src="//127.0.0.1:7000/img/friend_dp_all.png" alt=""></div>
-                                      <div class="sign">放开那个女孩</div>
-                                      <div class="watching"><img src="http://127.0.0.1:7000/img/hall_anchor_audience.png" alt=""><span>1000</span></div>
-                                  </div>
-                            </div>
-                          </div>    
-                      </div>
-                    <div class="imgBox">            
-                        <div class="bgPic">
-                            <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
-                              <div class="infoBox">
-                                  <div class="info">
-                                      <div class="ranking"><img src="//127.0.0.1:7000/img/red_packet_gf5.png" alt=""><img src="//127.0.0.1:7000/img/friend_dp_all.png" alt=""></div>
-                                      <div class="sign">放开那个女孩</div>
-                                      <div class="watching"><img src="http://127.0.0.1:7000/img/hall_anchor_audience.png" alt=""><span>1000</span></div>
-                                  </div>
-                            </div>
-                        </div>
-                    </div> -->
+          <div id="dataList0">
+            <div class="hall">
+                <div class="banner">
+                    <mt-swipe :auto="5000" :continuous="true">
+                        <mt-swipe-item>
+                            <img src="//127.0.0.1:7000/img/01ed6558f5c863a8012049efb6f345.jpg@2o.jpg" alt="">
+                        </mt-swipe-item>
+                        <mt-swipe-item>
+                            <img src="//127.0.0.1:7000/img/01356d554337fd0000019ae9ceb332.jpg@2o.jpg" alt="">
+                        </mt-swipe-item>
+                        <mt-swipe-item>
+                            <img src="//127.0.0.1:7000/img/01f7a95543380c0000019ae9819de6.jpg@2o.jpg" alt="">
+                        </mt-swipe-item>
+                    </mt-swipe>
                 </div>
-
-              <!-- 楼层  甜美主播 -->
-                <div class="floor">
-                    <div class="sweetTittle">
-                        <img src="//127.0.0.1:7000/img/hall_anchor_classfy_bar.png" alt="">
-                        <span>甜美主播</span>
-                    </div>
-                    <div class="cf sweet">
-                        <div class="imgBox" v-for="(item,index) in tabs[curIndex].list.slice(3,9)" :key="index">
+                <div class="imgList">
+                    <div class="cf recommend">
+                        <a class="imgBox" v-for="(item,index) in tabs[0].list.slice(0,3)" :key="index"  @click="record(item.id)" href="">
                             <div class="bgPic">
                                 <img src="../img/defalt_big_image_live2.png" alt="" :imgurl="item.hallBg_src">
+                                <!-- <img :src="item.hallBg_src" alt=""> -->
                                 <div class="infoBox">
                                       <div class="info">
                                           <div class="ranking"><img :src="item.hallRanking_src" alt=""><img :src="item.RankIcon_src" alt=""></div>
                                           <div class="sign">{{item.sign}}</div>
-                                          <div class="watching"><img :src="item.watchingIcon_src" alt=""><span>{{item.watchNum}}</span></div>
+                                          <div class="watching"><img :src="item.watchIcon_src" alt=""><span>{{item.watchNum}}</span></div>
                                       </div>
                                 </div>               
                             </div>
+                        </a>
+                    </div>
+
+                  <!-- 楼层  甜美主播 -->
+                    <div class="floor">
+                        <div class="sweetTittle">
+                            <img src="//127.0.0.1:7000/img/hall_anchor_classfy_bar.png" alt="">
+                            <span>甜美主播</span>
                         </div>
-                        <!-- <div class="imgBox">
-                              <div class="bgPic">
-                                      <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
-                                      <div class="infoBox">
-                                      <div class="info">
-                                          <div class="ranking"><img src="//127.0.0.1:7000/img/red_packet_gf5.png" alt=""><img src="//127.0.0.1:7000/img/friend_dp_all.png" alt=""></div>
-                                          <div class="sign">放开那个女孩</div>
-                                          <div class="watching"><img src="http://127.0.0.1:7000/img/hall_anchor_audience.png" alt=""><span>1000</span></div>
-                                      </div>
+                        <div class="cf sweet">
+                            <a class="imgBox" v-for="(item,index) in tabs[0].list.slice(3,9)" :key="index" href="" @click="record(item.id)">
+                                <div class="bgPic">
+                                    <img src="../img/defalt_big_image_live2.png" alt="" :imgurl="item.hallBg_src">
+                                        <!-- <img :src="item.hallBg_src" alt=""> -->
+                                    <div class="infoBox">
+                                          <div class="info">
+                                              <div class="ranking"><img :src="item.hallRanking_src" alt=""><img :src="item.RankIcon_src" alt=""></div>
+                                              <div class="sign">{{item.sign}}</div>
+                                              <div class="watching"><img :src="item.watchIcon_src" alt=""><span>{{item.watchNum}}</span></div>
+                                          </div>
+                                    </div>               
                                 </div>
-                              </div>    
-                          </div>
-                        <div class="imgBox">            
-                            <div class="bgPic">
-                                <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
-                                  <div class="infoBox">
-                                      <div class="info">
-                                          <div class="ranking"><img src="//127.0.0.1:7000/img/red_packet_gf5.png" alt=""><img src="//127.0.0.1:7000/img/friend_dp_all.png" alt=""></div>
-                                          <div class="sign">放开那个女孩</div>
-                                          <div class="watching"><img src="http://127.0.0.1:7000/img/hall_anchor_audience.png" alt=""><span>1000</span></div>
-                                      </div>
-                                </div>
-                            </div>
-                        </div> -->
-                    </div>
-                </div>
-                 <!-- 楼层  魅力主播 -->
-                 <div class="floor">
-                    <div class="sweetTittle">
-                        <img src="//127.0.0.1:7000/img/hall_anchor_classfy_bar.png" alt="">
-                        <span>魅力主播</span>
-                    </div>
-                    <div class="cf sweet">
-                         <div class="imgBox" v-for="(item,index) in tabs[curIndex].list.slice(9)" :key="index">
-                            <div class="bgPic">
-                                <img :imgurl="item.hallBg_src" alt="" src="../img/defalt_big_image_live2.png">
-                                <div class="infoBox">
-                                      <div class="info">
-                                          <div class="ranking"><img :src="item.hallRanking_src" alt=""><img :src="item.RankIcon_src" alt=""></div>
-                                          <div class="sign">{{item.sign}}</div>
-                                          <div class="watching"><img :src="item.watchingIcon_src" alt=""><span>{{item.watchNum}}</span></div>
-                                      </div>
-                                </div>               
-                            </div>
+                            </a>
                         </div>
-                        <!-- <div class="imgBox">
-                              <div class="bgPic">
-                                      <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
-                                      <div class="infoBox">
-                                      <div class="info">
-                                          <div class="ranking"><img src="//127.0.0.1:7000/img/red_packet_gf5.png" alt=""><img src="//127.0.0.1:7000/img/friend_dp_all.png" alt=""></div>
-                                          <div class="sign">放开那个女孩</div>
-                                          <div class="watching"><img src="http://127.0.0.1:7000/img/hall_anchor_audience.png" alt=""><span>1000</span></div>
-                                      </div>
-                                </div>
-                              </div>    
-                          </div>
-                        <div class="imgBox">            
-                            <div class="bgPic">
-                                <img src="//127.0.0.1:7000/img/69ded6a598_250_350.jpg" alt="">
-                                  <div class="infoBox">
-                                      <div class="info">
-                                          <div class="ranking"><img src="//127.0.0.1:7000/img/red_packet_gf5.png" alt=""><img src="//127.0.0.1:7000/img/friend_dp_all.png" alt=""></div>
-                                          <div class="sign">放开那个女孩</div>
-                                          <div class="watching"><img src="http://127.0.0.1:7000/img/hall_anchor_audience.png" alt=""><span>1000</span></div>
-                                      </div>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
+                    <!-- 楼层  魅力主播 -->
+                    <div class="floor">
+                        <div class="sweetTittle">
+                            <img src="//127.0.0.1:7000/img/hall_anchor_classfy_bar.png" alt="">
+                            <span>魅力主播</span>
+                        </div>
+                        <div class="cf sweet">
+                            <a class="imgBox" v-for="(item,index) in tabs[0].list.slice(9)" :key="index" href="" @click="record(item.id)">
+                                <div class="bgPic">
+                                    <img :imgurl="item.hallBg_src" alt="" src="../img/defalt_big_image_live2.png">
+                                    <!-- <img :src="item.hallBg_src" alt=""> -->
+                                    <div class="infoBox">
+                                          <div class="info">
+                                              <div class="ranking"><img :src="item.hallRanking_src" alt=""><img :src="item.RankIcon_src" alt=""></div>
+                                              <div class="sign">{{item.sign}}</div>
+                                              <div class="watching"><img :src="item.watchIcon_src" alt=""><span>{{item.watchNum}}</span></div>
+                                          </div>
+                                    </div>               
+                                </div>
+                            </a>
+                         
+                        </div>
+                    </div>
+                    
                 </div>
-                
             </div>
-        </div>
+          </div>
         </mescroll-vue>
       </swiper-slide>
       <!-- 关注 可不配down-->
@@ -183,12 +117,15 @@
         <mescroll-vue ref="mescroll1" :up="getMescrollUp(1)" @init="mescrollInit(1,arguments)">
           <div id="dataList1">
             <div class="cf sweet">
-                         <div class="imgBox" v-for="(item,index) in tabs[curIndex].list" :key="index">
+                         <div class="imgBox" v-for="(item,index) in tabs[1].list" :key="index">
                             <div class="bgPic">
                                 <img :imgurl="item.hallBg_src" alt="" src="../img/defalt_big_image_live2.png">
+                                    <!-- <img :src="item.hallBg_src" alt=""> -->
                                 <div class="infoBox">
                                       <div class="info">
-                                          <div class="ranking"><img :src="item.hallRanking_src" alt=""><img :src="item.RankIcon_src" alt=""></div>
+                                          <div class="ranking">
+                                            <img :src="item.hallRanking_src" alt=""><img :src="item.RankIcon_src" alt="">
+                                            </div>
                                           <div class="sign">{{item.sign}}</div>
                                           <div class="watching"><img :src="item.watchingIcon_src" alt=""><span>{{item.watchNum}}</span></div>
                                       </div>
@@ -204,7 +141,7 @@
         <mescroll-vue ref="mescroll2" :up="getMescrollUp(2)" @init="mescrollInit(2,arguments)">
           <div id="dataList2">
            <div class="cf sweet">
-                         <div class="imgBox" v-for="(item,index) in tabs[curIndex].list" :key="index">
+                         <div class="imgBox" v-for="(item,index) in tabs[2].list" :key="index">
                             <div class="bgPic">
                                 <img :imgurl="item.hallBg_src" alt="" src="../img/defalt_big_image_live2.png">
                                 <div class="infoBox">
@@ -225,7 +162,7 @@
         <mescroll-vue ref="mescroll3" :up="getMescrollUp(3)" @init="mescrollInit(3,arguments)">
           <div id="dataList3">
            <div class="cf sweet">
-                         <div class="imgBox" v-for="(item,index) in tabs[curIndex].list" :key="index">
+                         <div class="imgBox" v-for="(item,index) in tabs[3].list" :key="index">
                             <div class="bgPic">
                                 <img :imgurl="item.hallBg_src" alt="" src="../img/defalt_big_image_live2.png">
                                 <div class="infoBox">
@@ -356,7 +293,7 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper'
 // 引入mescroll的vue组件
 import MescrollVue from 'mescroll.js/mescroll.vue'
 // 模拟数据
-import mockData from '../mock/pdlist'
+// import mockData from '../mock/pdlist'
 
 export default {
   name: 'square',
@@ -365,7 +302,7 @@ export default {
       tabs: [{name: '大厅', mescroll: null, list: [], isListInit: false}, {name: '关注', mescroll: null, list: [], isListInit: false}, {name: '最近观看', mescroll: null, list: [], isListInit: false}, {name: '新秀', mescroll: null, list: [], isListInit: false}, {name: 'pk', mescroll: null, list: [], isListInit: false}, {name: '好声音', mescroll: null, list: [], isListInit: false}, {name: '萌妹子', mescroll: null, list: [], isListInit: false}, {name: '够劲爆', mescroll: null, list: [], isListInit: false}, {name: '同城', mescroll: null, list: [], isListInit: false}, {name: '热舞', mescroll: null, list: [], isListInit: false}, {name: '手机', mescroll: null, list: [], isListInit: false}, {name: '代言人', mescroll: null, list: [], isListInit: false}],
       tabWidth: 60, // 每个tab的宽度
       barWidth: 30, // tab底部红色线的宽度
-      curIndex: 0, // 当前tab的下标
+      curIndex: 0, // 当前tab的下标,遍历list时不能用tabs[curIndex]，因为curIndex每次切换tab会变化，导致页面不能缓存
       tabScrollLeft: 0, // 菜单滚动条的位置
       swiperOption: { // 轮播配置
         on: {
@@ -395,6 +332,16 @@ export default {
     }
   },
   methods: {
+    //保存观看记录
+    record(id){
+      //记录当前用户的观看当前的主播信息
+      this.axios.post("http://127.0.0.1:7000/square/saveScanned",
+        this.qs.stringify({
+            uid:3,//假设当前的用户3对应的id
+            id:id//当前点击观看的主播id
+        })
+      )
+    },
     // 多mescroll的配置,需通过方法获取,保证每个配置是单例
     getMescrollDown (tabIndex) {
       let isAuto = tabIndex === 0; // 第一个mescroll传入true,列表自动加载
@@ -539,13 +486,14 @@ export default {
 			          size:page.size// 每页长度 
 			        }
 			      }).then((response) => {
+                this.tabs[mescroll.tabIndex].isListInit = true;// 标记列表已初始化,保证列表只初始化一次
                     // 请求的列表数据
                     // console.log(response.data)
               // 如果是第一页前十条数据
               console.log(response)
               let arr=response.data
               console.log(this.tabs[mescroll.tabIndex])
-              this.tabs[mescroll.tabIndex].isListInit = true;// 标记列表已初始化,保证列表只初始化一次
+            
 			        // 如果是第一页需手动置空列表
 			        if (page.num === 1) this.tabs[mescroll.tabIndex].list = [];
 			        // 把请求到的数据添加到列表
@@ -562,8 +510,9 @@ export default {
 			      })
       }else if(mescroll.tabIndex === 2){
             // 可以单独处理每个tab的请求
-             this.axios.get('http://127.0.0.1:7000/square/scaned', {
+             this.axios.get('http://127.0.0.1:7000/square/getScanned', {
 			        params: {
+                uid:3,//假设当前是3号用户
 			          num: page.num, // 页码
 			          size:page.size// 每页长度 
 			        }
@@ -779,6 +728,9 @@ export default {
 .recommend{
     position: relative;
 }
+.recommend .imgBox{
+  display:block;
+}
 .recommend .imgBox:not(:first-child){
      width:40%;
     padding-top: 30%;
@@ -809,6 +761,7 @@ export default {
     left:6px;
     right:3px;
     top:6px;
+    z-index: -1;
 }
 .bgPic img{
     width:100%;

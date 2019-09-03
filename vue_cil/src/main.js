@@ -8,6 +8,8 @@ import axios from "axios"//引入axios模块
 axios.defaults.withCredentials=true//配置跨域选项,跨域访问要保存session中的数据
 Vue.prototype.axios=axios//配置到vue的原型对象中  this.axios.get/post 
 
+import qs from 'qs'//引入qs搭配axios使用，使axios可携带参数
+Vue.prototype.qs=qs
 //引入mint-ui，完整引入,会在node_modules下自动找mint-ui
 //全局引入
 // import MintUi from 'mint-ui'
@@ -50,11 +52,12 @@ import './lib/mui/css/icons-extra.css'
 import 'vant/lib/index.css'
 // Vue.use(vantUI)
 // 按需引入
-import { Icon,Tabbar, TabbarItem,Row, Col , Tab, Tabs } from 'vant';
+import { Icon,Tabbar, TabbarItem,Row, Col , Tab, Tabs , Loading} from 'vant';
 Vue.use(Icon);
 Vue.use(Tabbar).use(TabbarItem);
 Vue.use(Row).use(Col);
 Vue.use(Tab).use(Tabs);
+Vue.use(Loading);
 
 //引入vue-awesome-swiper组件
 // import swiper from 'vue-awesome-swiper'
@@ -74,13 +77,13 @@ router.beforeEach((to,from,next)=>{
   next();
   })
   
-  //引入vue-touch
-import vueTouch from "vue-touch"
-Vue.use(vueTouch)
-vueTouch.config.swipe={
-  threshold:store.state.width_s/2
-  //设置滑动距离
-}
+//   //引入vue-touch
+// import vueTouch from "vue-touch"
+// Vue.use(vueTouch)
+// vueTouch.config.swipe={
+//   threshold:store.state.width_s/2
+//   //设置滑动距离
+// }
 
 //引入上下拉刷新的组件,全局注册
 // import MescrollVue from 'mescroll.js/mescroll.vue'

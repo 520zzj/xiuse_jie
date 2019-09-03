@@ -7,6 +7,7 @@ const mainlogin=require("./routes/mainlogin_router.js")//路由器
 const square=require("./routes/square_router")//大厅路由器
 const ranking=require("./routes/ranking_router")//排行路由器
 const guard=require("./routes/guard_router")//护卫队
+const photo=require("./routes/photo_router")//靓照
 
 var app=express();
 var server=app.listen(7000);//监听端口
@@ -29,3 +30,4 @@ app.use("/mainlogin",mainlogin);
 app.use("/square",square);
 app.use("/ranking",ranking)
 app.use("/guard",guard)
+app.use("/photo",photo)

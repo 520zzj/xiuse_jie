@@ -2,6 +2,15 @@ set names utf8;
 Drop database if exists xiuse;
 create database xiuse charset=utf8;
 use xiuse;
+#用户
+create table xs_user(
+    uid int primary key auto_increment,
+    uname varchar(30),
+    upwd varchar(30)
+);
+insert into xs_user(uid,uname,upwd) values (null,"lisi","123456");
+insert into xs_user(uid,uname,upwd) values (null,"zhangsan","123456");
+insert into xs_user(uid,uname,upwd) values (null,"wangwu","123456");
 #大厅
 create table hall(
     id int primary key auto_increment,
@@ -12,8 +21,13 @@ create table hall(
     watchIcon_src varchar(100),
     watchNum bigint,
     subscription bigint,
-    roomNum varchar(10)
+    roomNum varchar(10),
+    scanned int,
+    focus int,
+    foreign key (scanned) references xs_user(uid),
+    foreign key (focus) references xs_user(uid)
 );
+#外键所在表要放在主键所在表的下面
 insert into hall(id,hallBg_src,hallRanking_src,RankIcon_src,sign,watchIcon_src,watchNum,subscription,roomNum) values (null,"//127.0.0.1:7000/img/b127f14ce1_250_350.jpg","//127.0.0.1:7000/img/red_packet_gf5.png","//127.0.0.1:7000/img/friend_dp_all.png","放开那个女孩","//127.0.0.1:7000/img/hall_anchor_audience.png",1000,2000,"7039677");
 insert into hall(id,hallBg_src,hallRanking_src,RankIcon_src,sign,watchIcon_src,watchNum,subscription,roomNum) values (null,"//127.0.0.1:7000/img/b127f14ce1_250_350.jpg","//127.0.0.1:7000/img/red_packet_gf5.png","//127.0.0.1:7000/img/friend_dp_all.png","放开那个女孩","//127.0.0.1:7000/img/hall_anchor_audience.png",1000,3000,"7039677");
 insert into hall(id,hallBg_src,hallRanking_src,RankIcon_src,sign,watchIcon_src,watchNum,subscription,roomNum) values (null,"//127.0.0.1:7000/img/b127f14ce1_250_350.jpg","//127.0.0.1:7000/img/red_packet_gf5.png","//127.0.0.1:7000/img/friend_dp_all.png","放开那个女孩","//127.0.0.1:7000/img/hall_anchor_audience.png",1000,1500,"7039677");
@@ -42,37 +56,9 @@ insert into hall(id,hallBg_src,hallRanking_src,RankIcon_src,sign,watchIcon_src,w
 insert into hall(id,hallBg_src,hallRanking_src,RankIcon_src,sign,watchIcon_src,watchNum,subscription,roomNum) values (null,"//127.0.0.1:7000/img/b127f14ce1_250_350.jpg","//127.0.0.1:7000/img/red_packet_gf5.png","//127.0.0.1:7000/img/friend_dp_all.png","放开那个女孩","//127.0.0.1:7000/img/hall_anchor_audience.png",1000,1800,"7039677");
 insert into hall(id,hallBg_src,hallRanking_src,RankIcon_src,sign,watchIcon_src,watchNum,subscription,roomNum) values (null,"//127.0.0.1:7000/img/b127f14ce1_250_350.jpg","//127.0.0.1:7000/img/red_packet_gf5.png","//127.0.0.1:7000/img/friend_dp_all.png","放开那个女孩","//127.0.0.1:7000/img/hall_anchor_audience.png",1000,3780,"7039677");
 insert into hall(id,hallBg_src,hallRanking_src,RankIcon_src,sign,watchIcon_src,watchNum,subscription,roomNum) values (null,"//127.0.0.1:7000/img/b127f14ce1_250_350.jpg","//127.0.0.1:7000/img/red_packet_gf5.png","//127.0.0.1:7000/img/friend_dp_all.png","放开那个女孩","//127.0.0.1:7000/img/hall_anchor_audience.png",1000,4780,"7039677");
-#用户
-create table xs_user(
-    uid int primary key auto_increment,
-    uname varchar(30),
-    upwd varchar(30)
-);
-insert into xs_user(uid,uname,upwd) values (1,"lisi","123456");
-#关注
-create table xs_focus(
-    id int primary key auto_increment,
-    hallBg_src varchar(100),
-    hallRanking_src varchar(100),
-    RankIcon_src varchar(100),
-    sign varchar(50),
-    watchIcon_src varchar(100),
-    watchNum bigint,
-    fid int,
-    foreign key(fid) references xs_user(uid)
-);
-#最近观看
-create table xs_scaned(
-    id int primary key auto_increment,
-    hallBg_src varchar(100),
-    hallRanking_src varchar(100),
-    RankIcon_src varchar(100),
-    sign varchar(50),
-    watchIcon_src varchar(100),
-    watchNum bigint,
-    sid int,
-    foreign key(sid) references xs_user(uid)
-);
+
+
+  
 #护卫队
 create table guard(
     id int primary key auto_increment,
@@ -128,7 +114,13 @@ insert into goddess(id,avatar,guardName,rankingOne,rankingTwo,contribute,nameBg,
 insert into goddess(id,avatar,guardName,rankingOne,rankingTwo,contribute,nameBg,sign) values (null,"//127.0.0.1:7000/img/69ded6a598_250_350.jpg","名牌","//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png","//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",88947,"//127.0.0.1:7000/img/armybackground80_99.png","小爱同学今天生日了，一定要庆祝哦");
 insert into goddess(id,avatar,guardName,rankingOne,rankingTwo,contribute,nameBg,sign) values (null,"//127.0.0.1:7000/img/69ded6a598_250_350.jpg","名牌","//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png","//127.0.0.1:7000/img/showself_team_teamlevel_num_9.png",88847,"//127.0.0.1:7000/img/armybackground80_99.png","小爱同学今天生日了，一定要庆祝哦");
 
-
+#靓照
+create table photo(
+    id int primary key auto_increment,
+    img_src varchar(100)
+);
+insert into photo(id,img_src) values (null,"//127.0.0.1:7000/img/69ded6a598_250_350.jpg");
+insert into photo(id,img_src) values (null,"//127.0.0.1:7000/img/69ded6a598_250_350.jpg");
 
 
 
