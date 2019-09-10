@@ -69,7 +69,18 @@ import Vuex from "vuex"
 Vue.use(Vuex)
 const store = new Vuex.Store({
   state:{
-    width_s:document.documentElement.clientWidth//屏幕宽度
+    width_s:document.documentElement.clientWidth,//屏幕宽度
+    uid:1//用户id
+  },
+  mutations:{
+    mutUid(state,newUid){//当登录成功后返回该用户uid，修改state里面的UID
+      state.uid=newUid
+    }
+  },
+  getters:{
+    getUid(state){//获取用户id
+      return state.uid
+    }
   }
 })
 router.beforeEach((to,from,next)=>{

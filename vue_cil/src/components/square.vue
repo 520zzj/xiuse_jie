@@ -46,7 +46,8 @@
                 </div>
                 <div class="imgList">
                     <div class="cf recommend">
-                        <a class="imgBox" v-for="(item,index) in tabs[0].list.slice(0,3)" :key="index"  @click="record(item.id)" href="">
+                        <a class="imgBox" v-for="(item,index) in tabs[0].list.slice(0,3)" :key="index"  @click="record({id:item.id,hallBg_src:item.hallBg_src,hallRanking_src:item.hallRanking_src,RankIcon_src:item.RankIcon_src,sign:item.sign,watchIcon_src:item.watchIcon_src,
+watchNum:item.watchNum,uid:$store.getters.getUid})" >
                             <div class="bgPic">
                                 <img src="../img/defalt_big_image_live2.png" alt="" :imgurl="item.hallBg_src">
                                 <!-- <img :src="item.hallBg_src" alt=""> -->
@@ -68,7 +69,8 @@
                             <span>甜美主播</span>
                         </div>
                         <div class="cf sweet">
-                            <a class="imgBox" v-for="(item,index) in tabs[0].list.slice(3,9)" :key="index" href="" @click="record(item.id)">
+                            <a class="imgBox" v-for="(item,index) in tabs[0].list.slice(3,9)" :key="index" href=""  @click="record({id:item.id,hallBg_src:item.hallBg_src,hallRanking_src:item.hallRanking_src,RankIcon_src:item.RankIcon_src,sign:item.sign,watchIcon_src:item.watchIcon_src,
+watchNum:item.watchNum,uid:$store.getters.getUid})">
                                 <div class="bgPic">
                                     <img src="../img/defalt_big_image_live2.png" alt="" :imgurl="item.hallBg_src">
                                         <!-- <img :src="item.hallBg_src" alt=""> -->
@@ -90,7 +92,8 @@
                             <span>魅力主播</span>
                         </div>
                         <div class="cf sweet">
-                            <a class="imgBox" v-for="(item,index) in tabs[0].list.slice(9)" :key="index" href="" @click="record(item.id)">
+                            <a class="imgBox" v-for="(item,index) in tabs[0].list.slice(9)" :key="index" href=""  @click="record({id:item.id,hallBg_src:item.hallBg_src,hallRanking_src:item.hallRanking_src,RankIcon_src:item.RankIcon_src,sign:item.sign,watchIcon_src:item.watchIcon_src,
+watchNum:item.watchNum,uid:$store.getters.getUid})">
                                 <div class="bgPic">
                                     <img :imgurl="item.hallBg_src" alt="" src="../img/defalt_big_image_live2.png">
                                     <!-- <img :src="item.hallBg_src" alt=""> -->
@@ -148,7 +151,7 @@
                                       <div class="info">
                                           <div class="ranking"><img :src="item.hallRanking_src" alt=""><img :src="item.RankIcon_src" alt=""></div>
                                           <div class="sign">{{item.sign}}</div>
-                                          <div class="watching"><img :src="item.watchingIcon_src" alt=""><span>{{item.watchNum}}</span></div>
+                                          <div class="watching"><img :src="item.watchIcon_src" alt=""><span>{{item.watchNum}}</span></div>
                                       </div>
                                 </div>               
                             </div>
@@ -333,12 +336,18 @@ export default {
   },
   methods: {
     //保存观看记录
-    record(id){
+    record({id,hallBg_src,hallRanking_src,RankIcon_src,sign,watchIcon_src,watchNum,uid}){
       //记录当前用户的观看当前的主播信息
       this.axios.post("http://127.0.0.1:7000/square/saveScanned",
-        this.qs.stringify({
-            uid:3,//假设当前的用户3对应的id
-            id:id//当前点击观看的主播id
+        this.qs.stringify({   
+            hid:id,//当前点击观看的主播id
+            hallBg_src:hallBg_src,
+            hallRanking_src:hallRanking_src,
+            RankIcon_src:RankIcon_src,
+            sign:sign,
+            watchIcon_src:watchIcon_src,
+            watchNum:watchNum,
+            uid:uid//假设当前的用户3对应的id
         })
       )
     },
@@ -480,8 +489,9 @@ export default {
 			      })
       }else if (mescroll.tabIndex === 1) {
         // 可以单独处理每个tab的请求
-             this.axios.get('http://127.0.0.1:7000/square/focus', {
+             this.axios.get('http://127.0.0.1:7000/square/getFocus', {
 			        params: {
+                uid:3,//假设当前是3号用户
 			          num: page.num, // 页码
 			          size:page.size// 每页长度 
 			        }
@@ -512,7 +522,7 @@ export default {
             // 可以单独处理每个tab的请求
              this.axios.get('http://127.0.0.1:7000/square/getScanned', {
 			        params: {
-                uid:3,//假设当前是3号用户
+                uid:this.$store.getters.getUid,//假设当前是3号用户
 			          num: page.num, // 页码
 			          size:page.size// 每页长度 
 			        }

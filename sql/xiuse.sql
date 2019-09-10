@@ -11,6 +11,20 @@ create table xs_user(
 insert into xs_user(uid,uname,upwd) values (null,"lisi","123456");
 insert into xs_user(uid,uname,upwd) values (null,"zhangsan","123456");
 insert into xs_user(uid,uname,upwd) values (null,"wangwu","123456");
+#外键所在表要放在主键所在表的下面
+#浏览记录表
+create table xs_scanned(
+    id int primary key auto_increment,
+    hid int,
+    hallBg_src varchar(100),
+    hallRanking_src varchar(100),
+    RankIcon_src varchar(100),
+    sign varchar(50),
+    watchIcon_src varchar(100),
+    watchNum bigint,
+    fid int,
+    foreign key(fid) references xs_user(uid)
+);
 #大厅
 create table hall(
     id int primary key auto_increment,
@@ -21,13 +35,9 @@ create table hall(
     watchIcon_src varchar(100),
     watchNum bigint,
     subscription bigint,
-    roomNum varchar(10),
-    scanned int,
-    focus int,
-    foreign key (scanned) references xs_user(uid),
-    foreign key (focus) references xs_user(uid)
+    roomNum varchar(10)
 );
-#外键所在表要放在主键所在表的下面
+
 insert into hall(id,hallBg_src,hallRanking_src,RankIcon_src,sign,watchIcon_src,watchNum,subscription,roomNum) values (null,"//127.0.0.1:7000/img/b127f14ce1_250_350.jpg","//127.0.0.1:7000/img/red_packet_gf5.png","//127.0.0.1:7000/img/friend_dp_all.png","放开那个女孩","//127.0.0.1:7000/img/hall_anchor_audience.png",1000,2000,"7039677");
 insert into hall(id,hallBg_src,hallRanking_src,RankIcon_src,sign,watchIcon_src,watchNum,subscription,roomNum) values (null,"//127.0.0.1:7000/img/b127f14ce1_250_350.jpg","//127.0.0.1:7000/img/red_packet_gf5.png","//127.0.0.1:7000/img/friend_dp_all.png","放开那个女孩","//127.0.0.1:7000/img/hall_anchor_audience.png",1000,3000,"7039677");
 insert into hall(id,hallBg_src,hallRanking_src,RankIcon_src,sign,watchIcon_src,watchNum,subscription,roomNum) values (null,"//127.0.0.1:7000/img/b127f14ce1_250_350.jpg","//127.0.0.1:7000/img/red_packet_gf5.png","//127.0.0.1:7000/img/friend_dp_all.png","放开那个女孩","//127.0.0.1:7000/img/hall_anchor_audience.png",1000,1500,"7039677");
