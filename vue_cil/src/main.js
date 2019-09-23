@@ -70,16 +70,23 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state:{
     width_s:document.documentElement.clientWidth,//屏幕宽度
-    uid:1//用户id
+    uid:1,//用户id
+    sourceSrc:""//视频播放源地址
   },
   mutations:{
     mutUid(state,newUid){//当登录成功后返回该用户uid，修改state里面的UID
       state.uid=newUid
+    },
+    mutSourceSrc(state,newSourceSrc){//点击主播列表中一个时，获取到的新源地址修改上一个视频的源地址
+      state.sourceSrc=newSourceSrc
     }
   },
   getters:{
     getUid(state){//获取用户id
       return state.uid
+    },
+    getSourceSrc(state){//获取视频源地址
+      return state.sourceSrc
     }
   }
 })
@@ -88,13 +95,13 @@ router.beforeEach((to,from,next)=>{
   next();
   })
   
-//   //引入vue-touch
-// import vueTouch from "vue-touch"
-// Vue.use(vueTouch)
-// vueTouch.config.swipe={
-//   threshold:store.state.width_s/2
-//   //设置滑动距离
-// }
+  //引入vue-touch
+import vueTouch from "vue-touch"
+Vue.use(vueTouch,{name:'v-touch'})
+vueTouch.config.swipe={
+  // threshold:store.state.width_s/2
+  //设置滑动距离
+}
 
 //引入上下拉刷新的组件,全局注册
 // import MescrollVue from 'mescroll.js/mescroll.vue'

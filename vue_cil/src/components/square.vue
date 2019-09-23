@@ -46,8 +46,9 @@
                 </div>
                 <div class="imgList">
                     <div class="cf recommend">
-                        <a class="imgBox" v-for="(item,index) in tabs[0].list.slice(0,3)" :key="index"  @click="record({id:item.id,hallBg_src:item.hallBg_src,hallRanking_src:item.hallRanking_src,RankIcon_src:item.RankIcon_src,sign:item.sign,watchIcon_src:item.watchIcon_src,
-watchNum:item.watchNum,uid:$store.getters.getUid})" >
+                        <div class="imgBox" v-for="(item,index) in tabs[0].list.slice(0,3)" :key="index"  @click="record({id:item.id,hallBg_src:item.hallBg_src,hallRanking_src:item.hallRanking_src,RankIcon_src:item.RankIcon_src,sign:item.sign,watchIcon_src:item.watchIcon_src,
+watchNum:item.watchNum,uid:$store.getters.getUid,sourceSrc:item.sourceSrc});getSourceSrc({id:item.id,hallBg_src:item.hallBg_src,hallRanking_src:item.hallRanking_src,RankIcon_src:item.RankIcon_src,sign:item.sign,watchIcon_src:item.watchIcon_src,
+watchNum:item.watchNum,uid:$store.getters.getUid,sourceSrc:item.sourceSrc})">
                             <div class="bgPic">
                                 <img src="../img/defalt_big_image_live2.png" alt="" :imgurl="item.hallBg_src">
                                 <!-- <img :src="item.hallBg_src" alt=""> -->
@@ -59,7 +60,7 @@ watchNum:item.watchNum,uid:$store.getters.getUid})" >
                                       </div>
                                 </div>               
                             </div>
-                        </a>
+                        </div>
                     </div>
 
                   <!-- 楼层  甜美主播 -->
@@ -69,8 +70,9 @@ watchNum:item.watchNum,uid:$store.getters.getUid})" >
                             <span>甜美主播</span>
                         </div>
                         <div class="cf sweet">
-                            <a class="imgBox" v-for="(item,index) in tabs[0].list.slice(3,9)" :key="index" href=""  @click="record({id:item.id,hallBg_src:item.hallBg_src,hallRanking_src:item.hallRanking_src,RankIcon_src:item.RankIcon_src,sign:item.sign,watchIcon_src:item.watchIcon_src,
-watchNum:item.watchNum,uid:$store.getters.getUid})">
+                            <div class="imgBox" v-for="(item,index) in tabs[0].list.slice(3,9)" :key="index" href=""  @click="record({id:item.id,hallBg_src:item.hallBg_src,hallRanking_src:item.hallRanking_src,RankIcon_src:item.RankIcon_src,sign:item.sign,watchIcon_src:item.watchIcon_src,
+watchNum:item.watchNum,uid:$store.getters.getUid,sourceSrc:item.sourceSrc});getSourceSrc({id:item.id,hallBg_src:item.hallBg_src,hallRanking_src:item.hallRanking_src,RankIcon_src:item.RankIcon_src,sign:item.sign,watchIcon_src:item.watchIcon_src,
+watchNum:item.watchNum,uid:$store.getters.getUid,sourceSrc:item.sourceSrc})">
                                 <div class="bgPic">
                                     <img src="../img/defalt_big_image_live2.png" alt="" :imgurl="item.hallBg_src">
                                         <!-- <img :src="item.hallBg_src" alt=""> -->
@@ -82,7 +84,7 @@ watchNum:item.watchNum,uid:$store.getters.getUid})">
                                           </div>
                                     </div>               
                                 </div>
-                            </a>
+                            </div>
                         </div>
                     </div>
                     <!-- 楼层  魅力主播 -->
@@ -92,8 +94,9 @@ watchNum:item.watchNum,uid:$store.getters.getUid})">
                             <span>魅力主播</span>
                         </div>
                         <div class="cf sweet">
-                            <a class="imgBox" v-for="(item,index) in tabs[0].list.slice(9)" :key="index" href=""  @click="record({id:item.id,hallBg_src:item.hallBg_src,hallRanking_src:item.hallRanking_src,RankIcon_src:item.RankIcon_src,sign:item.sign,watchIcon_src:item.watchIcon_src,
-watchNum:item.watchNum,uid:$store.getters.getUid})">
+                            <div class="imgBox" v-for="(item,index) in tabs[0].list.slice(9)" :key="index" href=""  @click="record({id:item.id,hallBg_src:item.hallBg_src,hallRanking_src:item.hallRanking_src,RankIcon_src:item.RankIcon_src,sign:item.sign,watchIcon_src:item.watchIcon_src,
+watchNum:item.watchNum,uid:$store.getters.getUid,sourceSrc:item.sourceSrc});getSourceSrc({id:item.id,hallBg_src:item.hallBg_src,hallRanking_src:item.hallRanking_src,RankIcon_src:item.RankIcon_src,sign:item.sign,watchIcon_src:item.watchIcon_src,
+watchNum:item.watchNum,uid:$store.getters.getUid,sourceSrc:item.sourceSrc})">
                                 <div class="bgPic">
                                     <img :imgurl="item.hallBg_src" alt="" src="../img/defalt_big_image_live2.png">
                                     <!-- <img :src="item.hallBg_src" alt=""> -->
@@ -105,7 +108,7 @@ watchNum:item.watchNum,uid:$store.getters.getUid})">
                                           </div>
                                     </div>               
                                 </div>
-                            </a>
+                            </div>
                          
                         </div>
                     </div>
@@ -120,7 +123,8 @@ watchNum:item.watchNum,uid:$store.getters.getUid})">
         <mescroll-vue ref="mescroll1" :up="getMescrollUp(1)" @init="mescrollInit(1,arguments)">
           <div id="dataList1">
             <div class="cf sweet">
-                         <div class="imgBox" v-for="(item,index) in tabs[1].list" :key="index">
+                         <div class="imgBox" v-for="(item,index) in tabs[1].list" :key="index" @click="getSourceSrc({id:item.id,hallBg_src:item.hallBg_src,hallRanking_src:item.hallRanking_src,RankIcon_src:item.RankIcon_src,sign:item.sign,watchIcon_src:item.watchIcon_src,
+watchNum:item.watchNum,uid:$store.getters.getUid,sourceSrc:item.sourceSrc})">
                             <div class="bgPic">
                                 <img :imgurl="item.hallBg_src" alt="" src="../img/defalt_big_image_live2.png">
                                     <!-- <img :src="item.hallBg_src" alt=""> -->
@@ -144,7 +148,8 @@ watchNum:item.watchNum,uid:$store.getters.getUid})">
         <mescroll-vue ref="mescroll2" :up="getMescrollUp(2)" @init="mescrollInit(2,arguments)">
           <div id="dataList2">
            <div class="cf sweet">
-                         <div class="imgBox" v-for="(item,index) in tabs[2].list" :key="index">
+                         <div class="imgBox" v-for="(item,index) in tabs[2].list" :key="index" @click="getSourceSrc({id:item.id,hallBg_src:item.hallBg_src,hallRanking_src:item.hallRanking_src,RankIcon_src:item.RankIcon_src,sign:item.sign,watchIcon_src:item.watchIcon_src,
+watchNum:item.watchNum,uid:$store.getters.getUid,sourceSrc:item.sourceSrc})">
                             <div class="bgPic">
                                 <img :imgurl="item.hallBg_src" alt="" src="../img/defalt_big_image_live2.png">
                                 <div class="infoBox">
@@ -295,6 +300,7 @@ import 'swiper/dist/css/swiper.css'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 // 引入mescroll的vue组件
 import MescrollVue from 'mescroll.js/mescroll.vue'
+import { setTimeout } from 'timers';
 // 模拟数据
 // import mockData from '../mock/pdlist'
 
@@ -335,8 +341,29 @@ export default {
     }
   },
   methods: {
+    //获取视频源地址并修改原来的地址
+    getSourceSrc({id,hallBg_src,hallRanking_src,RankIcon_src,sign,watchIcon_src,watchNum,uid,sourceSrc}){
+      //取消通过发送ajax来获取视频源地址
+      // this.axios.get("http://127.0.0.1:7000/square/sourceSrc",{
+      //   params:{
+      //     id:id
+      //   }
+      // }
+      // ).then(res=>{
+      //     console.log(res.data)
+      //     //修改vuex里面的视频源地址
+      //     this.$store.commit('mutSourceSrc',res.data[0].sourceSrc)
+      // })
+      //采用在视频列表加载时获得源地址
+        this.$store.commit('mutSourceSrc',sourceSrc)
+        console.log(this.$store.getters.getSourceSrc)
+      //修改源地址后再跳转到直播页面
+      setTimeout(()=>{//.5s延迟让其他点击事件先执行完
+        this.$router.push({name:'live',params:{hid:id,hallBg_src:hallBg_src,hallRanking_src:hallRanking_src, RankIcon_src:RankIcon_src,sign:sign,watchIcon_src:watchIcon_src,watchNum:watchNum,uid:uid,sourceSrc:sourceSrc}})
+      },300)
+    },
     //保存观看记录
-    record({id,hallBg_src,hallRanking_src,RankIcon_src,sign,watchIcon_src,watchNum,uid}){
+    record({id,hallBg_src,hallRanking_src,RankIcon_src,sign,watchIcon_src,watchNum,uid,sourceSrc}){
       //记录当前用户的观看当前的主播信息
       this.axios.post("http://127.0.0.1:7000/square/saveScanned",
         this.qs.stringify({   
@@ -347,7 +374,8 @@ export default {
             sign:sign,
             watchIcon_src:watchIcon_src,
             watchNum:watchNum,
-            uid:uid//假设当前的用户3对应的id
+            uid:uid,//假设当前的用户3对应的id
+            sourceSrc:sourceSrc
         })
       )
     },
@@ -489,9 +517,9 @@ export default {
 			      })
       }else if (mescroll.tabIndex === 1) {
         // 可以单独处理每个tab的请求
-             this.axios.get('http://127.0.0.1:7000/square/getFocus', {
+             this.axios.get('http://127.0.0.1:7000/square/focusList', {
 			        params: {
-                uid:3,//假设当前是3号用户
+                uid:this.$store.getters.getUid,//假设当前是3号用户
 			          num: page.num, // 页码
 			          size:page.size// 每页长度 
 			        }
