@@ -143,10 +143,10 @@ insert into goddess(id,avatar,guardName,rankingOne,rankingTwo,contribute,nameBg,
 #靓照
 create table photo(
     id int primary key auto_increment,
-    img_src varchar(100)
+    img_src varchar(100),
+    fid int,
+    foreign key(fid) references xs_user(uid)
 );
-insert into photo(id,img_src) values (null,"//127.0.0.1:7000/img/69ded6a598_250_350.jpg");
-insert into photo(id,img_src) values (null,"//127.0.0.1:7000/img/69ded6a598_250_350.jpg");
 
 
 

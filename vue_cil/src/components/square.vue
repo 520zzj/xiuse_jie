@@ -123,7 +123,7 @@ watchNum:item.watchNum,uid:$store.getters.getUid,sourceSrc:item.sourceSrc})">
         <mescroll-vue ref="mescroll1" :up="getMescrollUp(1)" @init="mescrollInit(1,arguments)">
           <div id="dataList1">
             <div class="cf sweet">
-                         <div class="imgBox" v-for="(item,index) in tabs[1].list" :key="index" @click="getSourceSrc({id:item.id,hallBg_src:item.hallBg_src,hallRanking_src:item.hallRanking_src,RankIcon_src:item.RankIcon_src,sign:item.sign,watchIcon_src:item.watchIcon_src,
+                         <div class="imgBox" v-for="(item,index) in tabs[1].list" :key="index" @click="getSourceSrc({id:item.hid,hallBg_src:item.hallBg_src,hallRanking_src:item.hallRanking_src,RankIcon_src:item.RankIcon_src,sign:item.sign,watchIcon_src:item.watchIcon_src,
 watchNum:item.watchNum,uid:$store.getters.getUid,sourceSrc:item.sourceSrc})">
                             <div class="bgPic">
                                 <img :imgurl="item.hallBg_src" alt="" src="../img/defalt_big_image_live2.png">
@@ -148,7 +148,7 @@ watchNum:item.watchNum,uid:$store.getters.getUid,sourceSrc:item.sourceSrc})">
         <mescroll-vue ref="mescroll2" :up="getMescrollUp(2)" @init="mescrollInit(2,arguments)">
           <div id="dataList2">
            <div class="cf sweet">
-                         <div class="imgBox" v-for="(item,index) in tabs[2].list" :key="index" @click="getSourceSrc({id:item.id,hallBg_src:item.hallBg_src,hallRanking_src:item.hallRanking_src,RankIcon_src:item.RankIcon_src,sign:item.sign,watchIcon_src:item.watchIcon_src,
+                         <div class="imgBox" v-for="(item,index) in tabs[2].list" :key="index" @click="getSourceSrc({id:item.hid,hallBg_src:item.hallBg_src,hallRanking_src:item.hallRanking_src,RankIcon_src:item.RankIcon_src,sign:item.sign,watchIcon_src:item.watchIcon_src,
 watchNum:item.watchNum,uid:$store.getters.getUid,sourceSrc:item.sourceSrc})">
                             <div class="bgPic">
                                 <img :imgurl="item.hallBg_src" alt="" src="../img/defalt_big_image_live2.png">
@@ -341,6 +341,7 @@ export default {
     }
   },
   methods: {
+    //跳转到live（直播）组件，并把主播信息参数传递过去
     //获取视频源地址并修改原来的地址
     getSourceSrc({id,hallBg_src,hallRanking_src,RankIcon_src,sign,watchIcon_src,watchNum,uid,sourceSrc}){
       //取消通过发送ajax来获取视频源地址

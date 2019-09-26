@@ -154,9 +154,13 @@
                         <div class="loading" v-show="tabs[2].loading">
                             <van-loading size="34px">加载中...</van-loading>
                         </div>
+                     
                          <ul class="picList">
                             <li>  
-                                <div class="itemBox"><img src="//127.0.0.1:7000/img/add_pic_bg.png" alt=""></div>
+                                <div class="itemBox takePhoto">
+                                   <!-- 隐藏input -->
+                                    <div><input type="file" name="file" capture="camera" accept="image/*" @change="changeFile($event)"  ref="iptFile" class="iptFile"></div>
+                                </div>
                             </li>
                             <li v-for="(item,index) in tabs[active].list" :key="index">
                                 <div class="itemBox"><img :src="item.img_src" alt=""></div>
@@ -178,7 +182,8 @@ export default {
         return{
             tabs:[{list:[]},{list:[]},{list:[],loading:false},{list:[]}],
             active:0,//当前tab的下标
-            noMore:true
+            noMore:true,
+            inputFile:false,//隐藏input
         }
     },
     methods:{
@@ -188,7 +193,7 @@ export default {
             this.sendAjax(tabIndex)
 
         },
-        sendAjax(tabIndex){
+        sendAjax(tabIndex){//获取照片列表
             if(tabIndex==2){ 
                 this.tabs[tabIndex].loading=true
                 this.axios.get("//127.0.0.1:7000/photo/down").then((res)=>{
@@ -198,9 +203,28 @@ export default {
                   
                 })
             }
-        }
+        },
+        changeFile(e){//上传文件
+            // console.log(e.target.files[0])
+            var file=e.target.files[0]//获取文件信息
+            var fd=new FormData()//创建formdata对象
+            fd.append('file',file)//向formdata里面追加信息，以键值对的形式添加file文件信息
+            fd.append('uid',this.$store.getters.getUid)//以键值对的形式添加，用户的id，后台req.body.uid可以接受
+            // console.log(fd)
+
+            //使用axios上传图片
+            this.axios.post("http://127.0.0.1:7000/photo/uploadImage",fd).then(res=>{
+               if(res.data.code===1){
+                   //如果成功上传则刷新靓照列表
+                   this.sendAjax(2)
+               }
+            })
+
+        },
+       
     },
     mounted(){
+        this.sendAjax(2)
     }
 
 }
@@ -252,6 +276,20 @@ export default {
 .me .tipMore{
     text-align: center;
     padding:20px 0;
+}
+.me .takePhoto{
+    background-image: url("//127.0.0.1:7000/img/add_pic_bg.png");
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.me .takePhoto .iptFile{
+    width:100%;
+    height:100%;
+    z-index: 1;
+    opacity: 0;
+    position: absolute;
 }
 /* 特权 */
 .me .medal{

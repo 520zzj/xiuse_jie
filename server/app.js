@@ -9,6 +9,7 @@ const ranking=require("./routes/ranking_router")//排行路由器
 const guard=require("./routes/guard_router")//护卫队
 const photo=require("./routes/photo_router")//靓照
 
+
 var app=express();
 var server=app.listen(7000);//监听端口
 //服务器地址 127.0.0.1:7000+路由
@@ -25,6 +26,7 @@ app.use(cors({//配置跨域
 app.use(bodyParser.urlencoded({extended:false}));
 //托管静态资源，http://127.0.0.1:8000/img/xxx.jpg
 app.use(express.static('public'));
+app.use(express.static('upload'))
 //挂载路由
 app.use("/mainlogin",mainlogin);
 app.use("/square",square);
