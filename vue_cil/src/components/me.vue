@@ -1,16 +1,16 @@
 <template>
     <div class="me">
-        <div class="header">
+        <div class="header" :style="{backgroundImage:'url('+$store.getters.getAvatar+')'}">
             <div class="headContent">
                 <div class="set_data">
                     <a href=""> <img src="//127.0.0.1:7000/img/user_card_navi_setting_white.png" alt=""></a>
                     <a href=""><img src="//127.0.0.1:7000/img/custom_navi_right_profile_white.png" alt=""></a>
                 </div>
                 <div class="avatar">
-                    <div class="picFra"><img src="//127.0.0.1:7000/img/20160212041257_XcaF5.thumb.700_0.jpg" alt=""></div>
-                    <div class="sex"><img src="//127.0.0.1:7000/img/usercard_gender_man.png" alt=""></div>
+                    <div class="picFra" @click="startPhoto"><img :src="$store.getters.getAvatar" alt=""></div>
+                    <div class="sex"><img :src="showSex" alt=""></div>
                 </div>
-                <p class="name">zzj1y6AvuU</p>
+                <p class="name">{{$store.getters.getUname}}</p>
                 <div>
                     <ul class="userCard">
                         <li>火星</li>
@@ -162,7 +162,7 @@
                                     <div><input type="file" name="file" capture="camera" accept="image/*" @change="changeFile($event)"  ref="iptFile" class="iptFile"></div>
                                 </div>
                             </li>
-                            <li v-for="(item,index) in tabs[active].list" :key="index">
+                            <li v-for="(item,index) in tabs[active].list" :key="index" @click="handlePhoto(index)">
                                 <div class="itemBox"><img :src="item.img_src" alt=""></div>
                             </li>
                         </ul>
@@ -174,6 +174,22 @@
                 </van-tab>
             </van-tabs>
         </div>
+        <!-- 更换头像的功能列表 -->
+        <div class="changeAvatar" :style="{bottom:avaBot+'px'}">
+            <ul class="funList">
+                <li>更换头像</li>
+                <li class="takeAvat">拍照
+                    <!-- 所有type=file类型的input用同一个name -->
+                    <input type="file" name="file" capture="camera" @change="takePhoto($event)">
+                </li>
+                <li class="selFromAlb">从手机相册选择
+                    <input type="file" accept="image/*" @change="takePhoto($event)" name="file">
+                </li>
+                <li @click="quitPhoto">取消</li>
+            </ul>
+        </div>
+        <!-- 遮罩层 -->
+        <div class="overlay" v-show="overlay" @click="quitPhoto"></div>
     </div>
 </template>
 <script>
@@ -184,6 +200,9 @@ export default {
             active:0,//当前tab的下标
             noMore:true,
             inputFile:false,//隐藏input
+            overlay:false,//遮罩层
+            avaBot:-150,//更换头像列表的bottom
+            // avatarSrc:"//127.0.0.1:7000/img/default_avatar.jpg"
         }
     },
     methods:{
@@ -196,24 +215,23 @@ export default {
         sendAjax(tabIndex){//获取照片列表
             if(tabIndex==2){ 
                 this.tabs[tabIndex].loading=true
-                this.axios.get("//127.0.0.1:7000/photo/down").then((res)=>{
-                    console.log(res.data)
+                this.axios.get("http://127.0.0.1:7000/me/down").then((res)=>{
+                    // console.log(res.data)
                     this.tabs[tabIndex].loading=false 
                     this.tabs[tabIndex].list=res.data
-                  
+
                 })
             }
         },
-        changeFile(e){//上传文件
+        changeFile(e){//靓照中拍照功能
             // console.log(e.target.files[0])
             var file=e.target.files[0]//获取文件信息
             var fd=new FormData()//创建formdata对象
             fd.append('file',file)//向formdata里面追加信息，以键值对的形式添加file文件信息
             fd.append('uid',this.$store.getters.getUid)//以键值对的形式添加，用户的id，后台req.body.uid可以接受
             // console.log(fd)
-
             //使用axios上传图片
-            this.axios.post("http://127.0.0.1:7000/photo/uploadImage",fd).then(res=>{
+            this.axios.post("http://127.0.0.1:7000/me/uploadImage",fd).then(res=>{
                if(res.data.code===1){
                    //如果成功上传则刷新靓照列表
                    this.sendAjax(2)
@@ -221,15 +239,113 @@ export default {
             })
 
         },
+        handlePhoto(index){//获取所有照片地址，跳转并传递给delphoto组件,
+            this.$router.push({path:"/delPhoto",query:{defaultIndex:index,srcList:this.tabs[2].list}})
+        },
+        startPhoto(){//显示更换头像功能列表和拉起遮罩层
+            //通过改变bottom值来显示更改头像功能列表
+            this.avaBot=0
+            this.overlay=true
+        },
+        quitPhoto(){//隐藏遮罩层和更换头像功能列表
+            this.overlay=false
+            this.avaBot=-150
+        },
+        takePhoto(e){//拍照功能---上传头像
+            var file=e.target.files[0]
+            var fd=new FormData()
+            fd.append('file',file)
+            fd.append('uid',this.$store.getters.getUid)
+            this.axios.post("http://127.0.0.1:7000/me/upAvatar",fd).then(res=>{
+                if(res.data.code===1){
+                    //如果上传成功，则获取图片的地址
+                   this.getAvatar()
+                }
+            })
+        },
+        getAvatar(){//获取头像
+            this.axios.get("http://127.0.0.1:7000/me/downAvatar",{
+                    params:{
+                        uid:this.$store.getters.getUid
+                    }
+                }).then(res=>{
+                    // console.log(res.data)
+                    if(res.data.code===1){
+                        //隐藏上传头像功能列表和遮罩层
+                    this.quitPhoto()
+                    // this.avatarSrc=res.data.avatar
+                    this.$store.commit("mutAvatar",res.data.avatar)
+                    }
+                    
+                    
+                })
+        }
        
     },
-    mounted(){
+    // mounted(){//因为被keep-alive缓存，所以用activated代替mounted
+    //     this.sendAjax(2)
+    // }
+    activated(){
         this.sendAjax(2)
+    },
+    created(){
+        // this.getAvatar()
+    },
+    computed:{
+        showSex(){
+            return this.$store.getters.getSex==0?"//127.0.0.1:7000/img/usercard_gender_women.png":"//127.0.0.1:7000/img/usercard_gender_man.png"
+        }
     }
 
 }
 </script>
 <style>
+/* 更换头像 */
+.me .changeAvatar{
+    position: fixed;
+    z-index: 999;
+    bottom:-150px;
+    left:0;
+    right:0;
+    text-align: center;
+    font-size: 16px;
+    transition: all .2s linear;
+}
+.me .changeAvatar li{
+    padding:10px 0;
+    background: #fff;
+    border-bottom: 1px solid gray;
+}
+.me .changeAvatar li:last-child{
+    border:none;
+    margin-top: 3px;
+}
+.me .changeAvatar li:first-child{
+    color:gray;
+}
+.me .changeAvatar .takeAvat,.me .changeAvatar .selFromAlb{
+    position: relative;
+}
+.me .changeAvatar .takeAvat input,.me .changeAvatar .selFromAlb input{
+    position: absolute;
+    width:100%;
+    height: 100%;
+    left:0;
+    right:0;
+    top:0;
+    bottom: 0;
+    opacity: 0;
+}
+/* 遮罩层 */
+.me .overlay{
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom: 0;
+    background:rgba(30, 30, 30, 0.3);
+    z-index: 998;
+}
 /* 加载提示 */
 .me .loading{
     position: absolute;
@@ -444,7 +560,7 @@ export default {
 }
 .me .header{
     position: relative;
-    background-image: url("//127.0.0.1:7000/img/20160212041257_XcaF5.thumb.700_0.jpg");
+    /* background-image: url("//127.0.0.1:7000/img/20160212041257_XcaF5.thumb.700_0.jpg"); */
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-position: center;
@@ -486,10 +602,14 @@ export default {
     overflow: hidden;
     border:1px solid #E7DBE6;
     border-radius: 50%;
+    position: relative;
 }
 .me .avatar .picFra img{
     width:100%;
     height:auto;
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
 }
 .me .avatar .sex{
     position: absolute;

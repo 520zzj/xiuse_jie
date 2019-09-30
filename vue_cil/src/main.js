@@ -52,12 +52,14 @@ import './lib/mui/css/icons-extra.css'
 import 'vant/lib/index.css'
 // Vue.use(vantUI)
 // 按需引入
-import { Icon,Tabbar, TabbarItem,Row, Col , Tab, Tabs , Loading} from 'vant';
+import { Icon,Tabbar,TabbarItem,Row,Col,Tab,Tabs,Loading,NavBar,Toast } from 'vant';
 Vue.use(Icon);
 Vue.use(Tabbar).use(TabbarItem);
 Vue.use(Row).use(Col);
 Vue.use(Tab).use(Tabs);
 Vue.use(Loading);
+Vue.use(NavBar);
+Vue.use(Toast);
 
 //引入vue-awesome-swiper组件
 // import swiper from 'vue-awesome-swiper'
@@ -70,7 +72,10 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state:{
     width_s:document.documentElement.clientWidth,//屏幕宽度
-    uid:1,//用户id
+    uid:2,//用户id
+    sex:0,//用户的性别，
+    uname:"",//用户名
+    avatar:"//127.0.0.1:7000/img/default_avatar.jpg",//头像
     sourceSrc:""//视频播放源地址
   },
   mutations:{
@@ -79,7 +84,18 @@ const store = new Vuex.Store({
     },
     mutSourceSrc(state,newSourceSrc){//点击主播列表中一个时，获取到的新源地址修改上一个视频的源地址
       state.sourceSrc=newSourceSrc
+    },
+    mutSex(state,newSex){//修改性别
+      state.sex=newSex
+    },
+    mutUname(state,newUname){//修改用户名
+      state.uname=newUname
+    },
+    mutAvatar(state,newAvatar){//修改头像
+      state.avatar=newAvatar
     }
+
+
   },
   getters:{
     getUid(state){//获取用户id
@@ -87,6 +103,15 @@ const store = new Vuex.Store({
     },
     getSourceSrc(state){//获取视频源地址
       return state.sourceSrc
+    },
+    getSex(state){//获取性别
+      return state.sex
+    },
+    getUname(state){//获取用户名
+      return state.uname
+    },
+    getAvatar(state){//获取头像
+      return state.avatar
     }
   }
 })
@@ -109,6 +134,13 @@ vueTouch.config.swipe={
 
 //引入基础css样式
 import './assets/css/reset.css'
+
+//自定义指令,自动获取焦点
+Vue.directive('focus',{
+  inserted(el){
+    el.focus()
+  }
+})
 
 new Vue({
   router,

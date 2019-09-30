@@ -8,7 +8,7 @@ import wblogin from "./components/wblogin.vue"
 import indexlist from "./components/indexlist.vue"
 import phonelogin from "./components/phonelogin.vue"
 import test from "./components/test.vue"
-import phoneReg from "./components/phoneReg.vue"
+import speedReg from "./components/speedReg.vue"
 import accountLog from "./components/accountLog"
 import square from "./components/square.vue"
 import home from "./components/home.vue"
@@ -25,6 +25,7 @@ import ranking from "./components/ranking"
 import find from "./components/find"
 import guard from "./components/guard"
 import live from "./components/live"
+import delPhoto from "./components/delPhoto"
 Vue.use(Router)
 //启动脚手架npm run dev 看package.json
 //地址栏访问脚手架 127.0.0.1:8080看package.json
@@ -40,7 +41,7 @@ export default new Router({
       {path:"/pageTwo",component:pageTwo,meta:{index:2,keepAlive:true}},
       {path:"/pageThree",component:pageThree,meta:{index:3,keepAlive:true}},
     ]},
-    {path:"/phoneReg",component:phoneReg},
+    {path:"/speedReg",component:speedReg},
     {path:"/accountLog",component:accountLog},
     {path:"/guardHead",component:guardHead},
     {path:"/home",component:home,redirect:"square",children:[
@@ -50,7 +51,8 @@ export default new Router({
       {path:"/square",component:square,name:'square'},
       {path:"/me",component:me}
     ]},
-    {path:"/live",component:live,name:'live'}
+    {path:"/live",component:live,name:'live'},
+    {path:"/delPhoto",component:delPhoto}
   ]
 })
 //npm run dev 启动脚手架

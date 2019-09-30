@@ -1,6 +1,6 @@
 <template>
  <div class="app-container">
-   <keep-alive exclude="live">
+   <keep-alive :exclude="['live','delPhoto']">
       <router-view></router-view>
     <!-- 容器：1，接收客户请求组件路径，2.查找并显示组件 -->
    </keep-alive>

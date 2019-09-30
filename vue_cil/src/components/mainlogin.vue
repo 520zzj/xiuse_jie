@@ -36,7 +36,7 @@
                         </ul>
                     </div>
                     <div class="reg_log">
-                            <router-link to="/phoneReg" class="reg">快速注册</router-link><router-link to="/accountLog" class="log">账号登录</router-link>
+                            <router-link to="/speedReg" class="reg">快速注册</router-link><router-link to="/accountLog" class="log">账号登录</router-link>
                     </div>
                     <div class="contract">
                         <span>登录即代表你同意</span>

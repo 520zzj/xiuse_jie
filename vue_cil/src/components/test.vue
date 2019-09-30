@@ -1,6 +1,9 @@
 <template>
   <div class="test">
-    <video src="http://v.hrtv8.com/vip.hrtv8.com/stream/2506.m3u8" height="300" width="400"  preload="auto" autoplay="autoplay" loop="loop" webkit-playsinline="true"></video>
+    <div>
+    <img src="http://127.0.0.1:7000/img/20160212041257_XcaF5.thumb.700_0.jpg" alt="">
+    </div>
+    <button @click="savePic">保存图片</button>
   </div>
 </template>
 <script>
@@ -9,10 +12,22 @@ export default {
     return{
 
     }
+  },
+  methods:{
+    savePic(){
+      var a=document.createElement("a")
+      a.href="http://127.0.0.1:7000/img/20160212041257_XcaF5.thumb.700_0.jpg"
+      a.download="1.png"
+      a.click()
+    }
+
   }
 }
 </script>
 <style>
-
+.test img{
+  width: 300px;
+  height:300px;
+}
 </style>
 

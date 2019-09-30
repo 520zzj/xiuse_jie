@@ -2,15 +2,16 @@ set names utf8;
 Drop database if exists xiuse;
 create database xiuse charset=utf8;
 use xiuse;
-#用户
+#用户,0表示女，1表示男
 create table xs_user(
     uid int primary key auto_increment,
     uname varchar(30),
-    upwd varchar(30)
+    upwd varchar(30),
+    avatar varchar(100),
+    phoneNum varchar(11),
+    sex int
 );
-insert into xs_user(uid,uname,upwd) values (null,"lisi","123456");
-insert into xs_user(uid,uname,upwd) values (null,"zhangsan","123456");
-insert into xs_user(uid,uname,upwd) values (null,"wangwu","123456");
+insert into xs_user(uid,uname,upwd,avatar,phoneNum,sex) values (null,"lisi","123456","//127.0.0.1:7000/img/default_avatar.jpg","18319740068",1);
 #外键所在表要放在主键所在表的下面
 #浏览记录表
 create table xs_scanned(

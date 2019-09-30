@@ -7,7 +7,7 @@ const mainlogin=require("./routes/mainlogin_router.js")//路由器
 const square=require("./routes/square_router")//大厅路由器
 const ranking=require("./routes/ranking_router")//排行路由器
 const guard=require("./routes/guard_router")//护卫队
-const photo=require("./routes/photo_router")//靓照
+const me=require("./routes/me_router")//我
 
 
 var app=express();
@@ -32,4 +32,4 @@ app.use("/mainlogin",mainlogin);
 app.use("/square",square);
 app.use("/ranking",ranking)
 app.use("/guard",guard)
-app.use("/photo",photo)
+app.use("/me",me)

@@ -8,16 +8,16 @@
          <form id='login-form' class="mui-input-group">
             <div class="mui-input-row">
                 <label class="info_icon"><img src="//127.0.0.1:7000/img/login_account_img.png" alt=""></label>
-                <input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入用户名/手机号">
+                <input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入用户名/手机号" v-focus v-model="uname">
             </div>
             <div class="mui-input-row">
                 <label class="info_icon"><img src="//127.0.0.1:7000/img/login_password_img.png" alt=""></label>
-                <input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
+                <input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入密码" v-model="upwd">
             </div>
         </form>
         <p class="findCode">找回密码</p>
         <div class="login-box">
-            <button disabled="disabled" class="mint-button login mint-button--primary mint-button--large is-disabled"><!----> <label class="mint-button-text">登录</label></button>
+            <button :disabled="btnState==false" class="mint-button login mint-button--primary mint-button--large is-disabled" :class="{btnBg:btnState}" @click="sendAjax"><!----> <label class="mint-button-text">登录</label></button>
         </div>
         <div class="ideCode">
             <a href="">通过短信验证码登录</a>
@@ -39,12 +39,44 @@
 export default {
     data(){
         return{
-
+            uname:"",
+            upwd:"",
         }
-    }    
+    },
+    methods:{
+        sendAjax(){
+           this.axios.post("http://127.0.0.1:7000/mainlogin/login",this.qs.stringify({
+                    uname:this.uname,
+                    upwd:this.upwd
+                })).then(res=>{
+                   if(res.data.code===1){
+                       //登录成功，用返回的uid修改vuex中的uid，并跳转到广场页面
+                       this.$store.commit("mutUid",res.data.uid)
+                       this.$store.commit("mutSex",res.data.sex)
+                       this.$store.commit("mutUname",res.data.uname)
+                       this.$store.commit("mutAvatar",res.data.avatar)
+                    //    console.log(res.data.avatar)
+                    // console.log(res.data.uid)
+                       this.$router.push({path:"/square"})
+                   }else{
+                       //错误的话，提示错误信息
+                       this.$toast("用户名或密码错误")
+                   }
+                })
+        }
+    },
+   computed:{
+       btnState(){//当用户名和密码框都不为空时btnState==true,利用这个计算属性来动态控制按钮的禁用和颜色
+           return this.uname!==""&&this.upwd!==""
+       }
+   }
+
 }
 </script>
 <style>
+.accountLog .login-box button.btnBg{
+    background:green;
+}
 .accountLog .mui-input-group{
     margin:12px 0px;
 }
@@ -78,7 +110,7 @@ export default {
 }
 .accountLog .mui-input-row label ~ input{
      width:85%;
-    font-size: 12px;
+    font-size: 14px;
     color:#aab2bd;
 }
 .accountLog .findCode{
