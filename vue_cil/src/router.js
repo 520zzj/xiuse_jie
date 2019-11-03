@@ -31,7 +31,7 @@ Vue.use(Router)
 //地址栏访问脚手架 127.0.0.1:8080看package.json
 export default new Router({
   routes: [
-    {path:'/',component:HelloContainer},
+    {path:'/',component:HelloContainer,redirect:"mainlogin"},
     {path:"/mainlogin",component:mainlogin},
     {path:"/wblogin",component:wblogin},
     {path:"/indexlist",component:indexlist},
